@@ -1,3 +1,7 @@
-
+<div (click)="clickAppear()"> Menu Constructor 
+    <div *ngIf="clickMenu">
+        <app-building *ngFor="let b of buildings" [building]="b"></app-building>
+    </div>
+</div>
 
 
