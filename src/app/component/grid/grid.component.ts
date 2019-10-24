@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Case } from '../case';
+import { Case } from 'src/app/shared/case';
+
 
 @Component({
   selector: 'app-grid',
@@ -8,7 +9,7 @@ import { Case } from '../case';
 })
 export class GridComponent implements OnInit {
   
-  cases: Case[]=[];
+  cases: Case[] = [];
   
   constructor() {}
 

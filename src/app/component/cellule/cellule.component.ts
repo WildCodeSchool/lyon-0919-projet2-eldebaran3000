@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Case } from '../case';
+import { Case } from 'src/app/shared/case';
+
 
 @Component({
   selector: 'app-cellule',
@@ -8,7 +9,7 @@ import { Case } from '../case';
 })
 export class CelluleComponent implements OnInit {
   
-  @Input('display-cell')casou:Case;
+  @Input('display-cell') casou : Case;
 
   constructor() { }
 
