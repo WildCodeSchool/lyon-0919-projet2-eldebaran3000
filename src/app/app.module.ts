@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BuildingComponent } from './menu-construct-building/building/building.component';
-import { MenuConstructBuildingComponent } from './menu-construct-building/menu-construct-building.component';
+import { BuildingComponent } from './building.component';
+import { MenuConstructBuildingComponent } from './menu-construct-building.component';
 
 @NgModule({
   declarations: [

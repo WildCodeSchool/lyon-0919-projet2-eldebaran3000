@@ -1,8 +1,6 @@
-
-
 import { Injectable } from '@angular/core';
 import { Building } from './building';
-import { NgStyle } from '@angular/common';
+
 
 
 @Injectable({
@@ -10,7 +8,6 @@ import { NgStyle } from '@angular/common';
 })
 export class BuildingService {
     clickMenu: boolean = false;
-    clickObject: boolean = true;
     buildings: Building[] =
         [{
             name: 'Farm',
@@ -89,11 +86,8 @@ export class BuildingService {
 
     clickAppear() {
         this.clickMenu = !this.clickMenu;
-        console.log(this.clickMenu)
-    }
-    clickList() {
-        this.clickObject = !this.clickObject;
-        console.log(this.clickObject);
     }
 
+
 }
+

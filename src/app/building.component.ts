@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { BuildingService } from './building.service'
 import { Building } from './building'
 
@@ -13,7 +13,7 @@ export class BuildingComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() {
+    ngOnInit() {}
 
-    }
+  
 }
