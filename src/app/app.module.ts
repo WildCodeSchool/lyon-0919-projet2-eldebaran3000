@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BuildingComponent } from './building.component';
+import { MenuConstructBuildingComponent } from './menu-construct-building.component';
 
 import { GamePageComponent } from './pages/game-page/game-page.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -20,7 +22,8 @@ import { ControlerComponent } from './component/controler/controler.component';
     TravelbarComponent,
     TimerComponent,
     ControlerComponent
-
+    BuildingComponent,
+    MenuConstructBuildingComponent
   ],
   imports: [
     BrowserModule,
