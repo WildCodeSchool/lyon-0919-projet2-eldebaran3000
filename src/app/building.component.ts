@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter, HostListener} from '@angular/core';
 import { BuildingService } from './building.service'
 import { Building } from './building'
 
@@ -9,11 +9,21 @@ import { Building } from './building'
 })
 export class BuildingComponent implements OnInit {
     @Input() building: Building;
-    clickObject: boolean;
+    @Output() buildingShowEvent = new EventEmitter<Building>();
+    showProperties: boolean = false;
 
     constructor() { }
 
     ngOnInit() {}
 
+    onMouseEnter() {
+        console.log('onMouseEnter');
+        this.showProperties = true;
+        console.log(this.showProperties);
+    }
+
+    onMouseLeave() {
+        this.showProperties = false;
+    }
   
 }

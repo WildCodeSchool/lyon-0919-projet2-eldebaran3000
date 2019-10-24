@@ -10,7 +10,7 @@ import { MenuConstructBuildingComponent } from './menu-construct-building.compon
   declarations: [
     AppComponent,
     BuildingComponent,
-    MenuConstructBuildingComponent
+    MenuConstructBuildingComponent,
   ],
   imports: [
     BrowserModule,

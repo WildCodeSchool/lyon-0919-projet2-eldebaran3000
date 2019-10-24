@@ -22,6 +22,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image: "",
         },
         {
             name: 'Extractor',
@@ -36,6 +37,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image: "",
         },
         {
             name: 'Power Station',
@@ -50,6 +52,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image: "",
         },
         {
             name: 'Dormitory',
@@ -64,6 +67,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
+            image: "",
         },
         {
             name: 'Road',
@@ -78,6 +82,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
+            image: "",
         }
 
         ];

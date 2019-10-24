@@ -1,4 +1,4 @@
-class Building {
+export  class Building {
     name: string;
     xPosition: number;
     yPosition: number;
@@ -11,6 +11,6 @@ class Building {
     nextRoad: boolean;
     minWorker: number;
     maxWorker: number;
-}
+    image: string;
+};
 
-export { Building };
