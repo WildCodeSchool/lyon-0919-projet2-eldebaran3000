@@ -23,7 +23,7 @@ import { ControlerComponent } from './component/controler/controler.component';
     TimerComponent,
     ControlerComponent
     BuildingComponent,
-    MenuConstructBuildingComponent
+    MenuConstructBuildingComponent,
   ],
   imports: [
     BrowserModule,
