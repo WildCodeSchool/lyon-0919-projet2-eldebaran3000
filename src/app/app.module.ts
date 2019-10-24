@@ -21,7 +21,7 @@ import { ControlerComponent } from './component/controler/controler.component';
     StockbarComponent,
     TravelbarComponent,
     TimerComponent,
-    ControlerComponent
+    ControlerComponent,
     BuildingComponent,
     MenuConstructBuildingComponent
   ],
