@@ -1,9 +1,6 @@
 import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Building } from '../../shared/building'
-<<<<<<< HEAD
 import { GameService } from 'src/app/shared/game.service';
-=======
->>>>>>> parent of d2ff29b... Merge branch 'dev' into clickAndClickToDrop
 
 @Component({
     selector: 'app-building',
