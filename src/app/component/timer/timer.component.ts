@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Time } from './time';
+import { TimeSpeedService } from './time-speed.service';
 
 @Component({
   selector: 'app-timer',
@@ -16,11 +17,13 @@ export class TimerComponent implements OnInit {
   } 
 
   //vitesse de la fonction clock.
-  clockspeed:number=50
   
-​
+  
+​  constructor(private timeSpeedService: TimeSpeedService){} 
+
 ​//déclenchement de la fonction "clock" à l'ouverture de la page. Prends en parametre clockspeed.
-  ngOnInit() {this.clock(this.clockspeed)
+  ngOnInit() {
+    this.clock(this.timeSpeedService.clockSpeed)
 ​
   }
 ​
