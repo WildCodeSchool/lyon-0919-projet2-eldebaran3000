@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
-import { BuildingService } from './building.service'
-import { Building } from './building';
+
+import { BuildingService } from '../../shared/building.service'
+import { Building } from '../../shared/building';
+
+
 
 @Component({
     selector: 'app-menu-construct-building',
