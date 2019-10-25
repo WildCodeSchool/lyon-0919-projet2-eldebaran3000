@@ -19,11 +19,14 @@ export class TimerComponent implements OnInit {
   //vitesse de la fonction clock.
   
   
+
 ​  constructor(private TimeSpeedService: TimeSpeedService){} 
 
 ​//déclenchement de la fonction "clock" à l'ouverture de la page. Prends en parametre clockspeed.
   ngOnInit() {
     this.clock(this.TimeSpeedService.clockSpeed)
+
+
 ​
   }
 ​
