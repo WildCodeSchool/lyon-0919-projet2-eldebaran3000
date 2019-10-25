@@ -1,11 +1,13 @@
 .clock{
     display: flex;
-    justify-content: space-around;
-    width: 10%;
+justify-content: space-around;
+width: 200px;
+color:white;
+margin-top: 20px;
     
 }
 .clockParam{
-    border: solid 1px;
+    border: solid white 2px;
     width: 28%;
     text-align: center;
 }
