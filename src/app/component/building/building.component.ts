@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output,EventEmitter, HostListener} from '@angular/core';
-import { Building } from 'src/app/shared/building'
+import { BuildingService } from '../../shared/building.service'
+import { Building } from '../../shared/building'
+
+
 
 @Component({
     selector: 'app-building',

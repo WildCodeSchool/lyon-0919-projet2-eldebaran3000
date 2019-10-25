@@ -1,0 +1,12 @@
+.containerRow {
+    display: flex;
+    flex-direction: row;
+    height:100px;
+
+    justify-content: space-evenly;
+}
+
+#containerCol {
+    background-image: url("/assets/cosmos-dark.jpg");
+    box-shadow: inset -0em -2em 2em white;
+}
