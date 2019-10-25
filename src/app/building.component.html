@@ -2,9 +2,9 @@
 <div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()"> 
     {{ building.name }}
 </div>
-<div *ngIf="showProperties"> 
+<div *ngIf="showProperties"><div *ngIf="unshowProperties">
     Cost :{{ building.cost }}  
     Capacity {{ building.name}} :{{ building.humanCapacity }} 
     Production Capacity :{{ building.productionCapacity }} 
     Speed Capacity :{{ building.productionSpeed }} 
-    {{ image }}</div>
+    {{ image }}</div></div>

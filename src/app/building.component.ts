@@ -11,7 +11,7 @@ export class BuildingComponent implements OnInit {
     @Input() building: Building;
     @Output() buildingShowEvent = new EventEmitter<Building>();
     showProperties: boolean = false;
-
+    unshowProperties: boolean= false;
     constructor() { }
 
     ngOnInit() {}
@@ -25,5 +25,6 @@ export class BuildingComponent implements OnInit {
     onMouseLeave() {
         this.showProperties = false;
     }
+
   
 }
