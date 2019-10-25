@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output,EventEmitter, HostListener} from '@ang
 import { BuildingService } from '../../shared/building.service'
 import { Building } from '../../shared/building'
 
+
+
 @Component({
     selector: 'app-building',
     templateUrl: './building.component.html',
