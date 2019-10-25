@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Case } from 'src/app/shared/case';
+import { GameService } from 'src/app/shared/game.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class GridComponent implements OnInit {
   
   cases: Case[] = [];
   
-  constructor() {}
+  constructor(private gameService : GameService) {}
 
   ngOnInit() {
     this.caseBuilder()
@@ -20,7 +21,7 @@ export class GridComponent implements OnInit {
   caseBuilder(){
     for(let l = 1 ; l <= 50 ; l++){
       for(let c = 1 ; c <= 50 ; c++){
-        let casou = new Case(c,l);
+        let casou = new Case(c, l, "G", false, false);
         this.cases.push(casou);
       }
     }

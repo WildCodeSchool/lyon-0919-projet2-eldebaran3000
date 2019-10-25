@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output,EventEmitter, HostListener} from '@angular/core';
-import { BuildingService } from '../../shared/building.service'
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { Building } from '../../shared/building'
+import { GameService } from 'src/app/shared/game.service';
 
 @Component({
     selector: 'app-building',
@@ -12,18 +12,20 @@ export class BuildingComponent implements OnInit {
     @Output() buildingShowEvent = new EventEmitter<Building>();
     showProperties: boolean = false;
 
-    constructor() { }
+    constructor(private gameService : GameService) { }
 
     ngOnInit() {}
 
-    onMouseEnter() {
-        console.log('onMouseEnter');
+    onMouseEnter() {;
         this.showProperties = true;
-        console.log(this.showProperties);
     }
 
     onMouseLeave() {
         this.showProperties = false;
     }
-  
+/*
+    onBuildModePickUp(building : Building){
+        this.gameService.onBuildModePickUp(building);
+    }
+  */
 }
