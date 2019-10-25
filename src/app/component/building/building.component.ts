@@ -13,6 +13,8 @@ export class BuildingComponent implements OnInit {
     @Input() building: Building;
     @Output() buildingShowEvent = new EventEmitter<Building>();
     showProperties: boolean = false;
+    unshowProperties: boolean= false;
+
 
     constructor(private gameService : GameService) { }
 
@@ -25,9 +27,6 @@ export class BuildingComponent implements OnInit {
     onMouseLeave() {
         this.showProperties = false;
     }
-/*
-    onBuildModePickUp(building : Building){
-        this.gameService.onBuildModePickUp(building);
-    }
-  */
+
+  
 }

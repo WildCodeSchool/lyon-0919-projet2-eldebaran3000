@@ -2,7 +2,7 @@
 <div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildModePickUp(building)"> 
     <img src="{{ building.image }}" alt=""> {{ building.name }}
 </div>
-<div *ngIf="showProperties"> 
+<div *ngIf="showProperties"><div *ngIf="unshowProperties">
     Cost :{{ building.cost }}  
     Capacity {{ building.name}} :{{ building.humanCapacity }} 
     Production Capacity :{{ building.productionCapacity }} 
