@@ -8,4 +8,8 @@ export class TimeSpeedService {
   clockSpeed: number=50;
 
   constructor() { }
+
+  
+
+
 }

@@ -15,8 +15,6 @@ export class TimerComponent implements OnInit {
     month:1,
     year:2800,
   } 
-
-  //vitesse de la fonction clock.
   
   
 ​  constructor(private timeSpeedService: TimeSpeedService){} 
