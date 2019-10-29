@@ -43,5 +43,8 @@ export class TimerComponent implements OnInit {
       };
     },clockSpeed)
   } 
+  stopTime(){
+    clearInterval(this.TimeSpeedService.clockSpeed)
+  }
 
 }
