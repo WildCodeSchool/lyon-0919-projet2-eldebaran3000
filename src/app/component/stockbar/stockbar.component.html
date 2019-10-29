@@ -1,15 +1,43 @@
 <div class="stockbar">
-    <div id="electricity"> 
-        <img src="\assets\Energy_Credits.png" /> 
-        <app-progressbar></app-progressbar>
-    </div> 
-    <div id="food"> 
-        <img src="\assets\Food.png" /> 
-    </div>
-    <div id="iron"> 
-        <img src="\assets\Mirium.png" />
-    </div>
-    <div> 
-        <img  id="human" src="\assets\Amesocratic.png" /> 
-    </div>
+        <div class="ressources">
+            <div>
+                <img src="\assets\Energy_Credits.png" class="icones"/> 
+            </div>
+            <div class="ressources-bar">
+                <mat-progress-bar class="energy-progress" [value]=40  aria-label="Rating"></mat-progress-bar>
+                <div>40/100</div>
+            </div>
+        </div>
+
+        <div class="ressources">
+            <div>
+                <img src="\assets\Food.png" class="icones"/> 
+            </div>
+            <div class="ressources-bar">
+                <mat-progress-bar class="food-progress" [value]=40></mat-progress-bar>
+                <div>40/100</div>
+            </div>
+        </div>
+
+        <div class="ressources">
+            <div>
+                <img src="\assets\Mirium.png"class="icones" /> 
+            </div>
+            <div class="ressources-bar">
+                <mat-progress-bar class="iron-progress" [value]=40></mat-progress-bar>
+                <div>40/100</div>
+            </div>
+        </div>
+
+        <div class="ressources">
+            <div>
+                <img  id="human" src="\assets\Amesocratic.png" class="icones"/>
+            </div>
+            <div class="ressources-bar">
+                <mat-progress-bar class="human-progress" [value]=40></mat-progress-bar>
+                <div>40/100</div>
+            </div>
+        </div>    
+        
+
 </div>
