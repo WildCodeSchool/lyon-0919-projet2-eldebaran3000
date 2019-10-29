@@ -12,6 +12,7 @@ import { StockbarComponent } from './component/stockbar/stockbar.component';
 import { TravelbarComponent } from './component/travelbar/travelbar.component';
 import { TimerComponent } from './component/timer/timer.component';
 import { ControlerComponent } from './component/controler/controler.component';
+import { ProgressbarComponent } from './component/progressbar/progressbar.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { ControlerComponent } from './component/controler/controler.component';
     StockbarComponent,
     TravelbarComponent,
     TimerComponent,
-    ControlerComponent
+    ControlerComponent,
     BuildingComponent,
-    MenuConstructBuildingComponent
+    MenuConstructBuildingComponent,
+    ProgressbarComponent
   ],
   imports: [
     BrowserModule,
