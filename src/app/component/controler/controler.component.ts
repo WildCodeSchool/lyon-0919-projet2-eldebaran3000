@@ -8,27 +8,31 @@ import { TimeSpeedService } from '../timer/time-speed.service';
 })
 export class ControlerComponent implements OnInit {
 
+  vitesseTemps: number;
   
   constructor(private timeSpeedService: TimeSpeedService) { }
 
   ngOnInit() {
     
   }
-  //fonction qui arrete le temps
 
+  getClockSpeed(){
+    this.vitesseTemps=this.timeSpeedService.clockSpeed;
+  }
+  //fonction qui arrete le temps
   stopTime(){
-    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed*10000;
+    this.vitesseTemps=this.vitesseTemps*10000;
     console.log("ca marche");
   }
 
   //fonction qui lance le temps
   playTime(){
-    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed
+    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed;
   }
 
   //fonction qui double la vitesse du temps
   fastTime(){
-    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed*0.5
+    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed*0.5;
   }
   
 }
