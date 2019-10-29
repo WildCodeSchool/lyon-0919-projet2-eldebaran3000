@@ -17,12 +17,12 @@ export class ProgressBarBufferComponent implements OnInit {
 
   constructor(private timeSpeedService: TimeSpeedService) { }
 
-  ngOnInit() {
+  ngOnInit() {  
     this.clockTravel(this.timeSpeedService.travelBarSpeed)
   }
   clockTravel(travelBarSpeed){
     setInterval(() =>{
-      this.valuez += 20;
+      this.valuez += 1.66;
       this.value = this.valuez
       if (this.valuez === 100) {
         this.valuez = 0
