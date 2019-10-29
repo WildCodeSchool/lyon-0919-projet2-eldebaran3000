@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Building } from './building';
+import { Building } from 'src/app/shared/building';
 
 
 
@@ -22,6 +22,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image : "/assets/fermeHydro.png"
         },
         {
             name: 'Extractor',
@@ -36,6 +37,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image : "/assets/extracteurMinerai.png"
         },
         {
             name: 'Power Station',
@@ -50,6 +52,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
+            image : "/assets/powerStation.png"
         },
         {
             name: 'Dormitory',
@@ -64,6 +67,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
+            image : "/assets/dortoir.png"
         },
         {
             name: 'Road',
@@ -78,6 +82,7 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
+            image : ""
         }
 
         ];

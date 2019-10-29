@@ -1,0 +1,11 @@
+
+<div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildModePickUp(building)"> 
+    <img src="{{ building.image }}" alt="">
+    <h3> {{ building.name }}</h3> 
+</div>
+<div *ngIf="showProperties" class="build">
+    <div>Cost :{{ building.cost }} </div>
+    <div>Capacity {{ building.name}} :{{ building.humanCapacity }} </div>
+    <div>Production Capacity :{{ building.productionCapacity }} </div>
+    <div>Speed Capacity :{{ building.productionSpeed }}</div>
+</div>
