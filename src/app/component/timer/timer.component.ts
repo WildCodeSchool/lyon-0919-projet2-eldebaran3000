@@ -39,4 +39,6 @@ export class TimerComponent implements OnInit {
     },clockSpeed)
   } 
 
+ 
+
 }

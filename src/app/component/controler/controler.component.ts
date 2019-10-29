@@ -20,10 +20,10 @@ export class ControlerComponent implements OnInit {
     this.vitesseTemps=this.timeSpeedService.clockSpeed;
   }
   //fonction qui arrete le temps
+ 
   stopTime(){
-    this.vitesseTemps=this.vitesseTemps*10000;
-    console.log("ca marche");
-  }
+    clearInterval(this.timeSpeedService.clockSpeed)
+    }
 
   //fonction qui lance le temps
   playTime(){
