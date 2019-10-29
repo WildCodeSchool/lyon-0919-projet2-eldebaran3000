@@ -28,5 +28,11 @@ export class BuildingComponent implements OnInit {
         this.showProperties = false;
     }
 
+
+    // méthode appelée au clic dans le html du composant : renvoie l'objet (batiment cliqué) au gameService
+    onBuildModePickUp(building) {
+        this.gameService.getPickUpBuilding(building)
+    }
+
   
 }

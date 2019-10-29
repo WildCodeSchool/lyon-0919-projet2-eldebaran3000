@@ -10,15 +10,16 @@ import { GameService } from 'src/app/shared/game.service';
 })
 export class CelluleComponent implements OnInit {
   
-  @Input('display-cell') casou : Case;
+  @Input() displayCell : Case;
 
   constructor(private gameService : GameService) { }
 
   ngOnInit() {
   }
-/*
-  onBuildModePlace(casou : Case) {
-    this.gameService.onBuildModePlace(casou)
+
+  onBuildModePlace(casou) {
+    this.gameService.getPlaceToBuild(casou)
+    console.log(this.displayCell)
   }
-  */
+
 }
