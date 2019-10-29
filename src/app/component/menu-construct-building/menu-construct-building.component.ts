@@ -10,10 +10,10 @@ import { Building } from '../../shared/building';
     templateUrl: './menu-construct-building.component.html',
     styleUrls: ['./menu-construct-building.component.scss']
 })
-export class MenuConstructBuildingComponent implements OnInit {;
+export class MenuConstructBuildingComponent implements OnInit {
     buildings: Building[];
     clickMenu: boolean;
-    
+      
     constructor(private buildingService: BuildingService) { }
 
 

@@ -13,6 +13,10 @@ import { ControlerComponent } from './component/controler/controler.component';
 import { MenuConstructBuildingComponent } from './component/menu-construct-building/menu-construct-building.component';
 import { GridComponent } from './component/grid/grid.component';
 import { CelluleComponent } from './component/cellule/cellule.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { ProgressBarBufferComponent } from './progress-bar-buffer/progress-bar-buffer.component';
+import { MatProgressBar } from '@angular/material/'
 
 @NgModule({
   declarations: [
@@ -27,10 +31,15 @@ import { CelluleComponent } from './component/cellule/cellule.component';
     MenuConstructBuildingComponent,
     GridComponent,
     CelluleComponent,
+    ProgressBarBufferComponent,
+    MatProgressBar
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

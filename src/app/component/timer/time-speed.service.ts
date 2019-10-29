@@ -7,7 +7,7 @@ export class TimeSpeedService {
 
 
   clockSpeed: number=50;
-
+  travelBarSpeed: number = 1000;
 
   constructor() { }
 }
