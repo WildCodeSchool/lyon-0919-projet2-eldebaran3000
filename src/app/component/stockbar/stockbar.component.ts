@@ -8,9 +8,24 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class StockbarComponent implements OnInit {
 
+  energy: number = 0;
+  energyMax: number = 100;
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {  
+    this.energyBar()    
   }
 
-}
+  energyBar() {
+    setInterval(() => {
+      if (this.energy < this.energyMax) {
+        this.energy += 1;
+      } else if (this.energy === this.energyMax)
+        clearInterval()
+    }, 500)
+    
+    }
+  }
+
+
