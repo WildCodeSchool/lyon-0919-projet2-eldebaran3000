@@ -5,11 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class TimeSpeedService {
 
-  clockSpeed: number=50;
+  clockSpeed: number = 50;
+  
 
   constructor() { }
-
-  
 
 
 }

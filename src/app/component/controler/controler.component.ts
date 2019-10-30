@@ -17,7 +17,7 @@ export class ControlerComponent implements OnInit {
   }
 
   getClockSpeed(){
-    this.vitesseTemps=this.timeSpeedService.clockSpeed;
+    this.vitesseTemps = this.timeSpeedService.clockSpeed;
   }
   //fonction qui arrete le temps
  
@@ -27,12 +27,12 @@ export class ControlerComponent implements OnInit {
 
   //fonction qui lance le temps
   playTime(){
-    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed;
+    this.timeSpeedService.clockSpeed = this.timeSpeedService.clockSpeed;
   }
 
   //fonction qui double la vitesse du temps
   fastTime(){
-    this.timeSpeedService.clockSpeed=this.timeSpeedService.clockSpeed*0.5;
+    this.timeSpeedService.clockSpeed = this.timeSpeedService.clockSpeed * 0.5;
   }
   
 }
