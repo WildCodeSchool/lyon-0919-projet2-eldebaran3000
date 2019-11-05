@@ -28,5 +28,17 @@ export class BuildingComponent implements OnInit {
         this.showProperties = false;
     }
 
+
+/**
+ * Construction des batiments (étape 1/4) 
+ * Méthode appelée au clic dans le html du composant (clic sur un batiment du menu construction) : 
+ * Stock le batiment cliqué (sous la forme d'un objet de type Building) dans le gameService (buildingToConstruct).
+ */
+    onBuildMode_selection(building : Building) {
+        this.gameService.buildingToConstruct = building
+    }
+/**
+ * -----------------Étape 2 dans game.service.ts--------------------------------------------------------
+ */ 
   
 }
