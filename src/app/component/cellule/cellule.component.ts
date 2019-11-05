@@ -17,9 +17,17 @@ export class CelluleComponent implements OnInit {
   ngOnInit() {
   }
 
-  onBuildModePlace(casou) {
-    this.gameService.getPlaceToBuild(casou)
-    console.log(this.displayCell)
+
+
+  /** Construction des batiments (étape 3/4) :
+   *  Méthode appelée au clic dans le HTML (cellule.component.html) transmettant la cellule sélectionnée de la grille.
+   *  Fait appel à une méthode située dans le game.service.ts car le batiments à construire y est stocké (buildingToConstruct).
+   */
+  onBuildMode_placement(cell : Case) {
+    this.gameService.onBuildMode_Build(cell)
   }
+  /* ----------------étape 4 dans game.service.ts--------------------------------------- */
+
+
 
 }

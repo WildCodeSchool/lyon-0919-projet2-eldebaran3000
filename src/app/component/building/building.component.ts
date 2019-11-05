@@ -29,10 +29,16 @@ export class BuildingComponent implements OnInit {
     }
 
 
-    // méthode appelée au clic dans le html du composant : renvoie l'objet (batiment cliqué) au gameService
-    onBuildModePickUp(building) {
-        this.gameService.getPickUpBuilding(building)
+/**
+ * Construction des batiments (étape 1/4) 
+ * Méthode appelée au clic dans le html du composant (clic sur un batiment du menu construction) : 
+ * Stock le batiment cliqué (sous la forme d'un objet de type Building) dans le gameService (buildingToConstruct).
+ */
+    onBuildMode_selection(building : Building) {
+        this.gameService.buildingToConstruct = building
     }
-
+/**
+ * -----------------Étape 2 dans game.service.ts--------------------------------------------------------
+ */ 
   
 }

@@ -7,40 +7,41 @@ import { Case } from './case';
 })
 export class GameService {
 
-  // initialisation du tableau contenant les objets disposés sur la grille (au départ que des casou : cellule)
+/*  initialisation du tableau contenant les objets disposés sur la grille (1 casou = 1cellule) */
   cases : Case[] = [];
 
+/** Construction des batiments (étape 2/4) :
+*   Initialisation d'un objet temporaire contenant le batiment à construire.
+*/
+  buildingToConstruct : Building;
+/* --------------Étape 3 dans cellule.component.ts------------------------- */
 
   constructor() { }
 
-
-  buildings : Building[];
-  buildingToConstruct : Building;
-
-
-  // méthode appelée dans le building.component.ts : récupère l'objet (batiment) cliqué à construire et le stock dans "buildingToConstruct"
-  getPickUpBuilding (building : Building) {
-    this.buildingToConstruct = building;
-  }
-
-  getPlaceToBuild(casou : Case){
-    console.log(casou)
-    this.cases[this.cases.indexOf(casou)].building = this.buildingToConstruct
-    console.log(this.cases[casou.index].building)
-  }
-
+  /** Création de la grille  */
   caseBuilder(){
-    for(let l = 1 ; l <= 50 ; l++){
-      for(let c = 1 ; c <= 50 ; c++){
+    for(let l = 1 ; l <= 20 ; l++){
+      for(let c = 1 ; c <= 20 ; c++){
         let index = (l * c) - 1
         let casou = new Case (c, l, "G", false, false, index);
         this.cases.push(casou);
       }
     }
-  return this.cases;
+    return this.cases;
   }
+  
 
-
+/** Construction des batiments (étape 4/4) :
+*   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
+*   dans la cellule sélectionnée sur la grille.
+*   Pour cela, on récupère l'index de la cellule séléctionnée : this.cases.indexOf(cell)
+*   Puis on ajoute à cet objet dans l'attribut building ... :  this.cases[...].building 
+*   ... l'objet à construire : ... = this.buildingToConstruct
+*/
+  onBuildMode_Build(cell : Case){
+    this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct
+  }
+/* ---------------------------------------FIN--------------------------------------------------- */
 
 }
 
