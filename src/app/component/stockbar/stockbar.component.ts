@@ -17,6 +17,9 @@ export class StockbarComponent implements OnInit {
   foodMax: number;
   ironMax: number;
   humanMax: number;
+  energyProd: number = 0;
+  foodProd: number = 0;
+  ironProd: number = 0;
 
   constructor(private gameService : GameService) {
    }
@@ -28,6 +31,9 @@ export class StockbarComponent implements OnInit {
     this.ironMax = this.gameService.ironMax;
     this.humanMax = this.gameService.humanMax;
   }
+
+/*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
+que ce soit les bars ou les données en dessous.*/
 
   energyBar() {
     setInterval(() => {
