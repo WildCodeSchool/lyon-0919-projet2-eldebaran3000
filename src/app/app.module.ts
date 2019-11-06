@@ -14,6 +14,11 @@ import { GridComponent } from './component/grid/grid.component';
 import { CelluleComponent } from './component/cellule/cellule.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
+import { DefeatPageComponent } from './pages/defeat-page/defeat-page.component';
+import { VictoryPageComponent } from './pages/victory-page/victory-page.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +33,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MenuConstructBuildingComponent,
     GridComponent,
     CelluleComponent,
+    AccueilPageComponent,
+    DefeatPageComponent,
+    VictoryPageComponent,
 
   ],
   imports: [
@@ -35,6 +43,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule, 
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
