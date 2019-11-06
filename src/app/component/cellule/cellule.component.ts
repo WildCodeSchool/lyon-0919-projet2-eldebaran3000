@@ -10,15 +10,24 @@ import { GameService } from 'src/app/shared/game.service';
 })
 export class CelluleComponent implements OnInit {
   
-  @Input('display-cell') casou : Case;
+  @Input() displayCell : Case;
 
-  constructor(private gameService : GameService) { }
+  constructor(private gameService : GameService) { };
 
   ngOnInit() {
-  }
-/*
-  onBuildModePlace(casou : Case) {
-    this.gameService.onBuildModePlace(casou)
-  }
-  */
+  };
+
+
+
+  /** Construction des batiments (étape 3/4) :
+   *  Méthode appelée au clic dans le HTML (cellule.component.html) transmettant la cellule sélectionnée de la grille.
+   *  Fait appel à une méthode située dans le game.service.ts car le batiments à construire y est stocké (buildingToConstruct).
+   */
+  onBuildMode_placement(cell : Case) {
+    this.gameService.onBuildMode_Build(cell);
+  };
+  /* ----------------étape 4 dans game.service.ts--------------------------------------- */
+
+
+
 }

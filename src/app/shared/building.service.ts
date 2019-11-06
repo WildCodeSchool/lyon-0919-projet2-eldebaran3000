@@ -11,8 +11,6 @@ export class BuildingService {
     buildings: Building[] =
         [{
             name: 'Farm',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -22,12 +20,11 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/fermeHydro.png"
+            image : "/assets/fermeHydro.png",
+            index : 0
         },
         {
             name: 'Extractor',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -37,12 +34,11 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/extracteurMinerai.png"
+            image : "/assets/extracteurMinerai.png",
+            index : 0
         },
         {
             name: 'Power Station',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -52,12 +48,11 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/powerStation.png"
+            image : "/assets/powerStation.png",
+            index : 0
         },
         {
             name: 'Dormitory',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 10,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -67,12 +62,11 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
-            image : "/assets/dortoir.png"
+            image : "/assets/dortoir.png",
+            index : 0
         },
         {
             name: 'Road',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 0,
             productionSpeed: 0,
@@ -82,7 +76,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
-            image : ""
+            image : "",
+            index : 0
         }
 
         ];

@@ -18,13 +18,12 @@ export class GridComponent implements OnInit {
     this.caseBuilder()
   }
 
+
+  // 
   caseBuilder(){
-    for(let l = 1 ; l <= 50 ; l++){
-      for(let c = 1 ; c <= 50 ; c++){
-        let casou = new Case(c, l, "G", false, false);
-        this.cases.push(casou);
-      }
-    }
-  return this.cases;
+  this.cases = this.gameService.caseBuilder();
   }
+
+
+
 }

@@ -1,7 +1,5 @@
 export  class Building {
     name: string;
-    xPosition: number;
-    yPosition: number;
     humanCapicity: number;
     productionCapacity: number;
     productionSpeed: number;
@@ -12,5 +10,6 @@ export  class Building {
     minWorker: number;
     maxWorker: number;
     image: string;
+    index:number
 };
 
