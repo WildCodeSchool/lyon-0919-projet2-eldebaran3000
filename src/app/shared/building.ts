@@ -1,7 +1,5 @@
 export  class Building {
     name: string;
-    xPosition: number;
-    yPosition: number;
     humanCapicity: number;
     productionCapacity: number;
     productionSpeed: number;

@@ -11,8 +11,6 @@ export class BuildingService {
     buildings: Building[] =
         [{
             name: 'Farm',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -27,8 +25,6 @@ export class BuildingService {
         },
         {
             name: 'Extractor',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -43,8 +39,6 @@ export class BuildingService {
         },
         {
             name: 'Power Station',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -59,8 +53,6 @@ export class BuildingService {
         },
         {
             name: 'Dormitory',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 10,
             productionCapacity: 8,
             productionSpeed: 4,
@@ -75,8 +67,6 @@ export class BuildingService {
         },
         {
             name: 'Road',
-            xPosition: 0,
-            yPosition: 0,
             humanCapicity: 0,
             productionCapacity: 0,
             productionSpeed: 0,

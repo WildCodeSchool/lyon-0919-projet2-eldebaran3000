@@ -10,23 +10,25 @@ import { GameService } from 'src/app/shared/game.service';
     styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent implements OnInit {
+    
     @Input() building: Building;
     @Output() buildingShowEvent = new EventEmitter<Building>();
+
     showProperties: boolean = false;
     unshowProperties: boolean= false;
 
 
     constructor(private gameService : GameService) { }
 
-    ngOnInit() {}
+    ngOnInit() {};
 
-    onMouseEnter() {;
+    onMouseEnter() {
         this.showProperties = true;
-    }
+    };
 
     onMouseLeave() {
         this.showProperties = false;
-    }
+    };
 
 
 /**
