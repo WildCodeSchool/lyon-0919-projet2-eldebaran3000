@@ -11,8 +11,10 @@ import { BuildingService } from 'src/app/shared/building.service';
     styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent implements OnInit {
+    
     @Input() building: Building;
     @Output() buildingShowEvent = new EventEmitter<Building>();
+
     showProperties: boolean = false;
     unshowProperties: boolean= false;
 
@@ -20,15 +22,15 @@ export class BuildingComponent implements OnInit {
     constructor(private gameService : GameService, 
                 private buildingService : BuildingService) { }
 
-    ngOnInit() {}
+    ngOnInit() {};
 
     onMouseEnter() {
         this.showProperties = true;
-    }
+    };
 
     onMouseLeave() {
         this.showProperties = false;
-    }
+    };
 
 
 /**

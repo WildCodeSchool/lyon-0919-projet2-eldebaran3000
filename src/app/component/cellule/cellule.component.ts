@@ -15,10 +15,10 @@ export class CelluleComponent implements OnInit {
 
   @Input() displayCell : Case;
 
-  constructor(private gameService : GameService) { }
+  constructor(private gameService : GameService) { };
 
   ngOnInit() {
-  }
+  };
 
 
 
