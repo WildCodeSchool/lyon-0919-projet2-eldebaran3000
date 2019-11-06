@@ -9,7 +9,7 @@ import { TimeSpeedService } from '../timer/time-speed.service';
 export class ControlerComponent implements OnInit {
 
   vitesseTemps: number;
-  clockspeed: number;
+  clockSpeed: number;
   
   constructor(private timeSpeedService: TimeSpeedService) { }
 
@@ -33,7 +33,7 @@ export class ControlerComponent implements OnInit {
 
   //fonction qui double la vitesse du temps
   fastTime(){
-    this.timeSpeedService.fastForward(this.clockspeed);
+    this.timeSpeedService.fastForward();
   }
   
 }
