@@ -5,7 +5,7 @@
             </div>
             <div class="ressources-bar">
                 <mat-progress-bar class="energy-progress" [value]= "energy"  aria-label="Rating"></mat-progress-bar>
-                <div>{{energy}}/100</div>
+                <div>{{energy}}/{{energyMax}}</div>
             </div>
         </div>
 
@@ -14,8 +14,8 @@
                 <img src="\assets\Food.png" class="icones"/> 
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="food-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="food-progress" [value]="food"></mat-progress-bar>
+                <div>{{food}}/{{foodMax}}</div>
             </div>
         </div>
 
@@ -24,8 +24,8 @@
                 <img src="\assets\Mirium.png"class="icones" /> 
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="iron-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="iron-progress" [value]="iron"></mat-progress-bar>
+                <div>{{iron}}/{{ironMax}}</div>
             </div>
         </div>
 
@@ -34,8 +34,8 @@
                 <img  id="human" src="\assets\Amesocratic.png" class="icones"/>
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="human-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="human-progress" [value]="human"></mat-progress-bar>
+                <div>{{human}}/{{humanMax}}</div>
             </div>
         </div>    
         

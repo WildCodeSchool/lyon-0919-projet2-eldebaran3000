@@ -12,10 +12,10 @@ export class CelluleComponent implements OnInit {
   
   @Input() displayCell : Case;
 
-  constructor(private gameService : GameService) { }
+  constructor(private gameService : GameService) { };
 
   ngOnInit() {
-  }
+  };
 
 
 
@@ -24,8 +24,8 @@ export class CelluleComponent implements OnInit {
    *  Fait appel à une méthode située dans le game.service.ts car le batiments à construire y est stocké (buildingToConstruct).
    */
   onBuildMode_placement(cell : Case) {
-    this.gameService.onBuildMode_Build(cell)
-  }
+    this.gameService.onBuildMode_Build(cell);
+  };
   /* ----------------étape 4 dans game.service.ts--------------------------------------- */
 
 
