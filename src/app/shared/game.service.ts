@@ -11,17 +11,21 @@ export class GameService {
   cases : Case[] = [];
   energyMax: number = 0;
   foodMax: number = 0;
-  ironMax: number = 0;
+  ironMax: number = 10;
   humanMax: number = 0;
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
+  energy: number = 0;
+  food: number = 0;
+  human: number = 0;
+  iron: number = 10;
 
-/** Construction des batiments (étape 2/4) :
-*   Initialisation d'un objet temporaire contenant le batiment à construire.
-*/
-  buildingToConstruct : Building;
-/* --------------Étape 3 dans cellule.component.ts------------------------- */
+  /** Construction des batiments (étape 2/4) :
+  *   Initialisation d'un objet temporaire contenant le batiment à construire.
+  */
+  buildingToConstruct: Building;
+  /* --------------Étape 3 dans cellule.component.ts------------------------- */
 
   constructor() { }
 
@@ -30,26 +34,33 @@ export class GameService {
     for(let l = 1 ; l <= 20 ; l++){
       for(let c = 1 ; c <= 20 ; c++){
         let index = (l * c) - 1;
-        let casou = new Case (c, l, "G", false, false, index);
+        let casou = new Case (false, false);
         this.cases.push(casou);
       };
     };
     return this.cases;
-  };
-  
+  }
 
-/** Construction des batiments (étape 4/4) :
-*   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
-*   dans la cellule sélectionnée sur la grille.
-*   Pour cela, on récupère l'index de la cellule séléctionnée : this.cases.indexOf(cell)
-*   Puis on ajoute à cet objet dans l'attribut building ... :  this.cases[...].building 
-*   ... l'objet à construire : ... = this.buildingToConstruct
-*/
-  onBuildMode_Build(cell : Case){
-    this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
-    this.getCapacity()
-  };
-/* ---------------------------------------FIN--------------------------------------------------- */
+
+  /** Construction des batiments (étape 4/4) :
+  *   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
+  *   dans la cellule sélectionnée sur la grille.
+  *   Pour cela, on récupère l'index de la cellule séléctionnée : this.cases.indexOf(cell)
+  *   Puis on ajoute à cet objet dans l'attribut building ... :  this.cases[...].building 
+  *   ... l'objet à construire : ... = this.buildingToConstruct
+  *   On indique que la case est occupée par un batiment avec ke booléen isOccuped
+  *   On réinitialise la variable buildingToConstruct pour empecher de poser plusieurs batiments d'affilé
+  */
+  onBuildMode_Build(cell: Case) {
+    if (this.buildingToConstruct.cost <= this.iron) {
+      this.iron -= this.buildingToConstruct.cost
+      this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
+      this.cases[this.cases.indexOf(cell)].isOccuped = true
+      this.buildingToConstruct = undefined;
+      this.getCapacity()
+    };
+  }
+  /* ---------------------------------------FIN--------------------------------------------------- */
 
 //Stockage des capacités max de chaque case
 
