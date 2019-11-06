@@ -53,7 +53,7 @@ export class BuildingService {
         },
         {
             name: 'Dormitory',
-            humanCapicity: 10,
+            humanCapicity: 0,
             productionCapacity: 8,
             productionSpeed: 2,
             foodConsumption: 6,

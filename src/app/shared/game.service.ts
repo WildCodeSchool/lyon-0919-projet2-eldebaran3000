@@ -11,11 +11,15 @@ export class GameService {
   cases : Case[] = [];
   energyMax: number = 0;
   foodMax: number = 0;
-  ironMax: number = 0;
+  ironMax: number = 10;
   humanMax: number = 0;
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
+  energy: number = 0;
+  food: number = 0;
+  human: number = 0;
+  iron: number = 10;
 
   /** Construction des batiments (étape 2/4) :
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
@@ -30,7 +34,7 @@ export class GameService {
     for(let l = 1 ; l <= 20 ; l++){
       for(let c = 1 ; c <= 20 ; c++){
         let index = (l * c) - 1;
-        let casou = new Case (c, l, "G", false, false, index);
+        let casou = new Case (false, false);
         this.cases.push(casou);
       };
     };
@@ -48,10 +52,13 @@ export class GameService {
   *   On réinitialise la variable buildingToConstruct pour empecher de poser plusieurs batiments d'affilé
   */
   onBuildMode_Build(cell: Case) {
-    this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
-    this.cases[this.cases.indexOf(cell)].isOccuped = true
-    this.buildingToConstruct = undefined;
-    this.getCapacity()
+    if (this.buildingToConstruct.cost <= this.iron) {
+      this.iron -= this.buildingToConstruct.cost
+      this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
+      this.cases[this.cases.indexOf(cell)].isOccuped = true
+      this.buildingToConstruct = undefined;
+      this.getCapacity()
+    };
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
 

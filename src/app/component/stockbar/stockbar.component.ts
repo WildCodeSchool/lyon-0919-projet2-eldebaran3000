@@ -9,14 +9,8 @@ import { GameService } from 'src/app/shared/game.service';
 })
 export class StockbarComponent implements OnInit {
 
-  energy: number = 0;
-  food: number = 0;
-  iron: number = 0;
-  human: number = 0;
-  energyMax: number;
-  foodMax: number;
-  ironMax: number;
-  humanMax: number;
+
+
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
@@ -26,10 +20,6 @@ export class StockbarComponent implements OnInit {
 
   ngOnInit() {  
     this.energyBar();
-    this.energyMax = this.gameService.energyMax;
-    this.foodMax = this.gameService.foodMax;
-    this.ironMax = this.gameService.ironMax;
-    this.humanMax = this.gameService.humanMax;
   }
 
 /*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
@@ -37,27 +27,21 @@ que ce soit les bars ou les données en dessous.*/
 
   energyBar() {
     setInterval(() => {
-    this.energyMax = this.gameService.energyMax;
-    this.foodMax = this.gameService.foodMax;
-    this.ironMax = this.gameService.ironMax;
-    this.humanMax = this.gameService.humanMax;
-    }, 500);
-    setInterval(() => {
-      if (this.energy < this.energyMax) {
-        this.energy += 1;
-      } else if (this.energy === this.energyMax)
+      if (this.gameService.energy < this.gameService.energyMax) {
+        this.gameService.energy += 1;
+      } else if (this.gameService.energy === this.gameService.energyMax)
         clearInterval();
-      if (this.food < this.foodMax) {
-        this.food += 1;
-      } else if (this.food === this.foodMax)
+      if (this.gameService.food < this.gameService.foodMax) {
+        this.gameService.food += 1;
+      } else if (this.gameService.food === this.gameService.foodMax)
         clearInterval();
-      if (this.iron < this.ironMax) {
-        this.iron += 1;
-      } else if (this.iron === this.ironMax)
+      if (this.gameService.iron < this.gameService.ironMax) {
+        this.gameService.iron += 1;
+      } else if (this.gameService.iron === this.gameService.ironMax)
         clearInterval();
-      if (this.human < this.humanMax) {
-        this.human += 1;
-      } else if (this.human === this.humanMax)
+      if (this.gameService.human < this.gameService.humanMax) {
+        this.gameService.human += 1;
+      } else if (this.gameService.human === this.gameService.humanMax)
         clearInterval();
     }, 500);  
   };

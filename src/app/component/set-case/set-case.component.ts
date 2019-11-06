@@ -15,20 +15,22 @@ export class SetCaseComponent implements OnInit {
 
   constructor(private gameService : GameService) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   addWorker() {   
-    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity < this.gameService[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker) {
+    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker) {
       this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity += 1;
-      
-    }
-
-  }
+    };
+  };
 
   removeWorker(){
-    this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity -= 1;
-  }
+    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity > this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.minWorker) {
+      this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity -= 1;
+    };  
+  };
 
+  destroyBuilding() {
+    this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)] = new Case (false,false)
+    this.gameService.getCapacity()
+  }
 }
