@@ -5,12 +5,19 @@ import { Time } from './time';
   providedIn: 'root'
 })
 export class TimeSpeedService {
+  //timer
   timer: Time = {
     day: 1,
     month: 1,
     year: 2800,
   } 
   clockSpeed: number = 50;
+  //Travel Bar
+  valuez: number = 0;
+  color = 'primary';
+  mode = 'buffer';
+  value = this.valuez;
+  bufferValue = 0;
   travelBarSpeed: number = 1000;
 
   constructor() { }
@@ -27,5 +34,7 @@ export class TimeSpeedService {
         this.timer.month = 1;
       };
     }, clockSpeed)
-  } 
+  };
+
+
 }
