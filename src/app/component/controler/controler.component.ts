@@ -33,7 +33,10 @@ export class ControlerComponent implements OnInit {
 
   //fonction qui double la vitesse du temps
   fastTime(){
+    this.clockspeed = this.timeSpeedService.clockSpeed;
     this.timeSpeedService.fastForward(this.clockspeed);
+    
+    
   }
   
 }
