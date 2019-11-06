@@ -12,7 +12,6 @@ import { Building } from '../../shared/building';
 })
 export class MenuConstructBuildingComponent implements OnInit {;
     buildings: Building[];
-    clickMenu: boolean;
     
     constructor(private buildingService: BuildingService) { }
 
@@ -23,7 +22,6 @@ export class MenuConstructBuildingComponent implements OnInit {;
     clickAppear() {
         this.buildingService.clickAppear();
         this.buildings = this.buildingService.buildings;
-        this.clickMenu = this.buildingService.clickMenu;
     }
    
     

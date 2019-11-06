@@ -12,6 +12,7 @@ import { ControlerComponent } from './component/controler/controler.component'
 import { MenuConstructBuildingComponent } from './component/menu-construct-building/menu-construct-building.component';
 import { GridComponent } from './component/grid/grid.component';
 import { CelluleComponent } from './component/cellule/cellule.component';
+import { SetCaseComponent } from './component/set-case/set-case.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
@@ -36,7 +37,7 @@ import { MatButtonModule } from '@angular/material/button';
     AccueilPageComponent,
     DefeatPageComponent,
     VictoryPageComponent,
-
+    SetCaseComponent,
   ],
   imports: [
     BrowserModule,

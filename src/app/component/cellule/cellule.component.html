@@ -1,4 +1,11 @@
-<div (click)="onBuildModePlace(casou)"> </div>
+
+<div (click)="onBuildMode_placement(displayCell)">  
+    <img src="{{displayCell.building?.image}}" alt="">
+</div>
+<div *ngIf="settingMode" class="settingMenu">
+    <app-set-case [displayCell]="displayCell"></app-set-case>
+</div>
+
 
 
 

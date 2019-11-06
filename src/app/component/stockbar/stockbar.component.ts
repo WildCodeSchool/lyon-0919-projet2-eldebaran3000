@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { GameService } from 'src/app/shared/game.service';
 
 @Component({
   selector: 'app-stockbar',
@@ -8,24 +9,42 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class StockbarComponent implements OnInit {
 
-  energy: number = 0;
-  energyMax: number = 100;
 
-  constructor() { }
+
+  energyProd: number = 0;
+  foodProd: number = 0;
+  ironProd: number = 0;
+
+  constructor(private gameService : GameService) {
+   }
 
   ngOnInit() {  
-    this.energyBar()    
+    this.energyBar();
   }
+
+/*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
+que ce soit les bars ou les données en dessous.*/
 
   energyBar() {
     setInterval(() => {
-      if (this.energy < this.energyMax) {
-        this.energy += 1;
-      } else if (this.energy === this.energyMax)
-        clearInterval()
-    }, 500)
-    
-    }
-  }
+      if (this.gameService.energy < this.gameService.energyMax) {
+        this.gameService.energy += 1;
+      } else if (this.gameService.energy === this.gameService.energyMax)
+        clearInterval();
+      if (this.gameService.food < this.gameService.foodMax) {
+        this.gameService.food += 1;
+      } else if (this.gameService.food === this.gameService.foodMax)
+        clearInterval();
+      if (this.gameService.iron < this.gameService.ironMax) {
+        this.gameService.iron += 1;
+      } else if (this.gameService.iron === this.gameService.ironMax)
+        clearInterval();
+      if (this.gameService.human < this.gameService.humanMax) {
+        this.gameService.human += 1;
+      } else if (this.gameService.human === this.gameService.humanMax)
+        clearInterval();
+    }, 500);  
+  };
+}
 
 

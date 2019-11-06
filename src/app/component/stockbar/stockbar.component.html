@@ -4,8 +4,8 @@
                 <img src="\assets\Energy_Credits.png" class="icones"/> 
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="energy-progress" [value]= "energy"  aria-label="Rating"></mat-progress-bar>
-                <div>{{energy}}/100</div>
+                <mat-progress-bar class="energy-progress" [value]= "gameService.energy"  aria-label="Rating"></mat-progress-bar>
+                <div>{{gameService.energy}}/{{gameService.energyMax}}</div>
             </div>
         </div>
 
@@ -14,8 +14,8 @@
                 <img src="\assets\Food.png" class="icones"/> 
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="food-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="food-progress" [value]="gameService.food"></mat-progress-bar>
+                <div>{{gameService.food}}/{{gameService.foodMax}}</div>
             </div>
         </div>
 
@@ -24,8 +24,8 @@
                 <img src="\assets\Mirium.png"class="icones" /> 
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="iron-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="iron-progress" [value]="gameService.iron"></mat-progress-bar>
+                <div>{{gameService.iron}}/{{gameService.ironMax}}</div>
             </div>
         </div>
 
@@ -34,8 +34,8 @@
                 <img  id="human" src="\assets\Amesocratic.png" class="icones"/>
             </div>
             <div class="ressources-bar">
-                <mat-progress-bar class="human-progress" [value]=40></mat-progress-bar>
-                <div>40/100</div>
+                <mat-progress-bar class="human-progress" [value]="gameService.human"></mat-progress-bar>
+                <div>{{gameService.human}}/{{gameService.humanMax}}</div>
             </div>
         </div>    
         

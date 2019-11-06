@@ -1,0 +1,12 @@
+div{
+    height: 86px;
+    width: 86px;
+}
+.settingMenu{
+    position: relative;
+    z-index: 1;
+    width: 200%;
+    height: 200%;
+    border : black 1px solid;
+    background-color: cornflowerblue;
+}
