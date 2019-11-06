@@ -22,7 +22,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/fermeHydro.png"
+            image : "/assets/fermeHydro.png",
+            index : 0
         },
         {
             name: 'Extractor',
@@ -37,7 +38,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/extracteurMinerai.png"
+            image : "/assets/extracteurMinerai.png",
+            index : 0
         },
         {
             name: 'Power Station',
@@ -52,7 +54,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 2,
             maxWorker: 10,
-            image : "/assets/powerStation.png"
+            image : "/assets/powerStation.png",
+            index : 0
         },
         {
             name: 'Dormitory',
@@ -67,7 +70,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
-            image : "/assets/dortoir.png"
+            image : "/assets/dortoir.png",
+            index : 0
         },
         {
             name: 'Road',
@@ -82,7 +86,8 @@ export class BuildingService {
             nextRoad: false,
             minWorker: 0,
             maxWorker: 0,
-            image : ""
+            image : "",
+            index : 0
         }
 
         ];
