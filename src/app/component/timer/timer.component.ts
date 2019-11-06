@@ -8,23 +8,14 @@ import { TimeSpeedService } from './time-speed.service';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  clockSpeed: number;
+
+//création de l'objet "timer" qui débute au jour 1, mois 1 an 2080 dès l'ouverture de la page.
   timer: Time;
   
-  
-
-​  constructor(private TimeSpeedService: TimeSpeedService){} 
+​  constructor(private timeSpeedService: TimeSpeedService){} 
 
 ​//déclenchement de la fonction "clock" à l'ouverture de la page. Prends en parametre clockspeed.
   ngOnInit() {
-    this.clockSpeed= this.TimeSpeedService.clockSpeed;
-    this.timer = this.TimeSpeedService.timer;
-    this.clock();
+    this.timer = this.timeSpeedService.timer;
   }
-​
-  clock(){
-    this.TimeSpeedService.clock(this.clockSpeed);
-  }
-
-
 }

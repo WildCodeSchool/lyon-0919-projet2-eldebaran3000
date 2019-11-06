@@ -12,5 +12,6 @@ export  class Building {
     minWorker: number;
     maxWorker: number;
     image: string;
+    index:number
 };
 
