@@ -13,6 +13,7 @@ import { ControlerComponent } from './component/controler/controler.component';
 import { MenuConstructBuildingComponent } from './component/menu-construct-building/menu-construct-building.component';
 import { GridComponent } from './component/grid/grid.component';
 import { CelluleComponent } from './component/cellule/cellule.component';
+import { SetCaseComponent } from './component/set-case/set-case.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CelluleComponent } from './component/cellule/cellule.component';
     MenuConstructBuildingComponent,
     GridComponent,
     CelluleComponent,
+    SetCaseComponent,
   ],
   imports: [
     BrowserModule,
