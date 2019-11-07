@@ -9,3 +9,11 @@
 #containerCol {
     background-image:  linear-gradient(rgba(255, 255, 255, 0) 93%,rgba(97,108,126, 0.787) 100%), url("/assets/cosmos-dark.jpg");
 }
+.progressBar{
+    display: flex;
+    justify-content: center;
+    
+}
+.classBar{
+    height: 200px;
+}

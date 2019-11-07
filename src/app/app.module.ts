@@ -6,15 +6,22 @@ import { BuildingComponent } from './component/building/building.component';
 import { GamePageComponent } from './pages/game-page/game-page.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { StockbarComponent } from './component/stockbar/stockbar.component';
-import { TravelbarComponent } from './component/travelbar/travelbar.component';
 import { TimerComponent } from './component/timer/timer.component';
 import { ControlerComponent } from './component/controler/controler.component'
 import { MenuConstructBuildingComponent } from './component/menu-construct-building/menu-construct-building.component';
 import { GridComponent } from './component/grid/grid.component';
 import { CelluleComponent } from './component/cellule/cellule.component';
-import { SetCaseComponent } from './component/set-case/set-case.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSliderModule } from '@angular/material/slider';
+import { ProgressBarBufferComponent } from './component/progress-bar-buffer/progress-bar-buffer.component';
+import { MatProgressBar } from '@angular/material/'
+import { SetCaseComponent } from './component/set-case/set-case.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
+import { DefeatPageComponent } from './pages/defeat-page/defeat-page.component';
+import { VictoryPageComponent } from './pages/victory-page/victory-page.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -22,13 +29,17 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     GamePageComponent,
     NavbarComponent,
     StockbarComponent,
-    TravelbarComponent,
     TimerComponent,
     ControlerComponent,
     BuildingComponent,
     MenuConstructBuildingComponent,
     GridComponent,
     CelluleComponent,
+    AccueilPageComponent,
+    DefeatPageComponent,
+    VictoryPageComponent,
+    ProgressBarBufferComponent,
+    MatProgressBar,
     SetCaseComponent,
   ],
   imports: [
@@ -36,6 +47,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressBarModule, 
+    MatButtonModule,
+    MatSliderModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
