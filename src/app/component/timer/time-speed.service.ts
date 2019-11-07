@@ -11,11 +11,18 @@ export class TimeSpeedService {
   pause: boolean = false;
   intervalId: any;
   timer: Time = {
-          day:1,
-          month:1,
-          year:2800,
-  
-  } 
+    day: 1,
+    month: 1,
+    year: 2800,
+  }
+  fastSpeed: number = this.clockSpeed / 10;
+
+  //Travel Bar
+  travelValue: number = 0;
+  value = this.travelValue;
+  shipPosition: number = 250;
+
+  //Stockbar
   energyProgress: number;
   foodProgress: number;
   ironProgress: number;
@@ -23,9 +30,8 @@ export class TimeSpeedService {
   constructor(private gameService : GameService) {
     this.play()
   }
-
-  play() {
-    this.intervalId = setInterval(() => {
+   play(){
+     this.intervalId = setInterval(() => {
       if (!this.pause) {
         this.timer.day +=1
         if (this.timer.day === 31) {
@@ -34,12 +40,21 @@ export class TimeSpeedService {
           this.productionBar();
         };
         if (this.timer.month === 13) {
-          this.timer.year +=1;
+          this.timer.year += 1;
           this.timer.month = 1;
+          this.travelValue += 1.67;
+            if (this.travelValue >= 100) {
+              this.travelValue = 0;
+            };
+          this.shipPosition -= 3.5;
+          if (this.shipPosition <= 40) {
+            this.shipPosition = 250;
+          }
+          this.value = this.travelValue;
+          return this.value, this.shipPosition;
         };
-      }
+      };
     }, this.clockSpeed);
-    console.log(this.clockSpeed)
   }
   
   setPause(pause: boolean) {

@@ -1,0 +1,28 @@
+
+
+<div class="travelBar">
+
+  <div class="earth">  
+    <img src="/assets/earth.png" alt=""> 
+  </div>
+
+  <div class="bar">
+    <mat-progress-bar mode="buffer" 
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="timeSpeedService.travelValue"
+        [bufferValue]="bufferValue">
+    </mat-progress-bar>
+  </div>
+
+  <div class="ship" [style.right.px]="timeSpeedService.shipPosition" >
+    
+      <img src="/assets/vaisseau.png" alt="">
+  </div>
+
+  <div class="eldebaran">
+    <img src="/assets/eldebaran.png" alt="">
+  </div>
+
+</div>
