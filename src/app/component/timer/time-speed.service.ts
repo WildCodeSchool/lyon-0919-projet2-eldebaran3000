@@ -22,10 +22,7 @@ export class TimeSpeedService {
   value = this.travelValue;
   shipPosition: number = 250;
 
-  //Stockbar
-  energyProgress: number;
-  foodProgress: number;
-  ironProgress: number;
+
 
   constructor(private gameService : GameService) {
     this.play()
@@ -37,7 +34,7 @@ export class TimeSpeedService {
         if (this.timer.day === 31) {
           this.timer.month +=1;
           this.timer.day = 1;
-          this.productionBar();
+          this.gameService.productionBar();
         };
         if (this.timer.month === 13) {
           this.timer.year += 1;
@@ -75,30 +72,6 @@ export class TimeSpeedService {
   /*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
 que ce soit les bars ou les données en dessous.*/
 
-  productionBar() {
-      this.gameService.getProductionCapacity()
-      if (this.gameService.energy <= this.gameService.energyMax - this.gameService.energyProd && this.gameService.energy >= 0 - this.gameService.energyProd ) {
-        this.gameService.energy += this.gameService.energyProd;
-        this.energyProgress = (this.gameService.energy * 100) /this.gameService.energyMax;
-      } else if (this.gameService.energy >= this.gameService.energyMax - this.gameService.energyProd) 
-        this.gameService.energy = this.gameService.energyMax;
-        this.energyProgress = (this.gameService.energy * 100) /this.gameService.energyMax;
-      if (this.gameService.food <= (this.gameService.foodMax - this.gameService.foodProd) && this.gameService.food >= 0 ) {
-        this.gameService.food += this.gameService.foodProd;
-        this.foodProgress = (this.gameService.food * 100) /this.gameService.foodMax;
-      } else if (this.gameService.food >= this.gameService.foodMax - this.gameService.foodProd )
-        this.gameService.food = this.gameService.foodMax;
-        this.foodProgress = (this.gameService.food * 100) /this.gameService.foodMax;
-      if (this.gameService.iron <= (this.gameService.ironMax - this.gameService.ironProd) && this.gameService.iron >= 0 ) {
-        this.gameService.iron += this.gameService.ironProd;
-        this.ironProgress = (this.gameService.iron * 100) /this.gameService.ironMax;
-      } else if (this.gameService.iron >= this.gameService.ironMax - this.gameService.ironProd)
-        this.gameService.iron = this.gameService.ironMax;
-        this.ironProgress = (this.gameService.iron * 100) /this.gameService.ironMax;
-      if (this.gameService.human <= this.gameService.humanMax && this.gameService.human >= 0) {
-        this.gameService.human += 1;
-      } else if (this.gameService.human >= this.gameService.humanMax)  
-        this.gameService.human = this.gameService.humanMax;
-  }
+
 
 }

@@ -23,6 +23,12 @@ export class GameService {
   foodConsumption: number;
   elecConsumption: number;
 
+  //Stockbar
+  energyProgress: number;
+  foodProgress: number;
+  ironProgress: number;
+
+
   /** Construction des batiments (étape 2/4) :
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
   */
@@ -128,6 +134,40 @@ getCapacity () {
   };
 
 
+
+  productionBar() {
+    this.getProductionCapacity()
+    
+    if (this.energy <= this.energyMax - this.energyProd && this.energy >= 0 - this.energyProd ) {
+      this.energy += this.energyProd;
+      this.energyProgress = (this.energy * 100) /this.energyMax;
+    } 
+    else if (this.energy >= this.energyMax - this.energyProd) 
+      this.energy = this.energyMax;
+      this.energyProgress = (this.energy * 100) /this.energyMax;
+    
+    if (this.food <= (this.foodMax - this.foodProd) && this.food >= 0 ) {
+      this.food += this.foodProd;
+      this.foodProgress = (this.food * 100) /this.foodMax;
+    } 
+    else if (this.food >= this.foodMax - this.foodProd )
+      this.food = this.foodMax;
+      this.foodProgress = (this.food * 100) /this.foodMax;
+    
+    if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0 ) {
+      this.iron += this.ironProd;
+      this.ironProgress = (this.iron * 100) /this.ironMax;
+    }
+    else if (this.iron >= this.ironMax - this.ironProd)
+      this.iron = this.ironMax;
+      this.ironProgress = (this.iron * 100) /this.ironMax;
+    
+    if (this.human <= this.humanMax && this.human >= 0) {
+      this.human += 1;
+    }
+    else if (this.human >= this.humanMax)
+      this.human = this.humanMax;
+  };
 
 
 
