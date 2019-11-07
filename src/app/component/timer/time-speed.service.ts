@@ -5,10 +5,10 @@ import { Time } from './time';
   providedIn: 'root'
 })
 export class TimeSpeedService {
-  //timer
-  clockSpeedDefaut : number = 50
-  clockSpeed: number = this.clockSpeedDefaut;
+  clockSpeedDefault: number = 1000;
+  clockSpeed: number = this.clockSpeedDefault;
   pause: boolean = false;
+  intervalId: any;
   timer: Time = {
     day: 1,
     month: 1,
@@ -49,20 +49,21 @@ export class TimeSpeedService {
         };
       };
     }, this.clockSpeed);
-   }
-   
-
+    console.log(this.clockSpeed)
+  }
+  
   setPause(pause: boolean) {
     this.pause = pause;
     clearInterval(this.intervalId);
-    this.clockSpeed = this.clockSpeedDefaut;
+    this.clockSpeed = this.clockSpeedDefault;
     this.play();
+
   }
 
-  fastForward(){
-    clearInterval(this.intervalId)
+  fastForward() {
+    clearInterval(this.intervalId);
     this.intervalId = undefined;
-    this.clockSpeed = this.fastSpeed;
+    this.clockSpeed = this.clockSpeed / 5;
     this.play();
   }
 }

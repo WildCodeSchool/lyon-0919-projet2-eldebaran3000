@@ -23,7 +23,6 @@ export class MenuConstructBuildingComponent implements OnInit {
     clickAppear() {
         this.buildingService.clickAppear();
         this.buildings = this.buildingService.buildings;
-        this.clickMenu = this.buildingService.clickMenu;
     }
    
     
