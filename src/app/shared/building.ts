@@ -1,15 +1,14 @@
 export  class Building {
     name: string;
-    humanCapicity: number;
-    productionCapacity: number;
-    productionSpeed: number;
+    maxCapacity: number;
+    production: number;
     foodConsumption: number;
     elecConsumption: number;
     cost:number;
     nextRoad: boolean;
+    nbWorkers: number;
     minWorker: number;
     maxWorker: number;
     image: string;
-    index:number
 };
 

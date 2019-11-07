@@ -11,15 +11,15 @@ export class GameService {
   cases : Case[] = [];
   energyMax: number = 0;
   foodMax: number = 0;
-  ironMax: number = 10;
+  ironMax: number = 0;
   humanMax: number = 0;
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
   energy: number = 0;
   food: number = 0;
-  human: number = 0;
-  iron: number = 10;
+  human: number = 10;
+  iron: number = 100;
   foodConsumption: number;
   elecConsumption: number;
 
@@ -76,16 +76,16 @@ getCapacity () {
       if (thisCase.building) {
         switch(thisCase.building.name){
           case 'Power Station':
-            energyMax += thisCase.building.productionCapacity;
+            energyMax += thisCase.building.maxCapacity;
             break;
           case 'Farm':
-            foodMax += thisCase.building.productionCapacity;
+            foodMax += thisCase.building.maxCapacity;
             break;
           case 'Extractor':
-            ironMax += thisCase.building.productionCapacity;
+            ironMax += thisCase.building.maxCapacity;
             break;
           case 'Dormitory':
-            humanMax += thisCase.building.productionCapacity;
+            humanMax += thisCase.building.maxCapacity;
             break;
         };
       }; 
@@ -106,14 +106,14 @@ getCapacity () {
       if (thisCase.building) {
         switch(thisCase.building.name){
           case 'Power Station':
-            energyProd += thisCase.building.productionSpeed;
+            energyProd += thisCase.building.production;
             break;
           case 'Farm':
-            foodProd += thisCase.building.productionSpeed;
+            foodProd += thisCase.building.production;
             energyProd -= thisCase.building.elecConsumption;
             break;
           case 'Extractor':
-            ironProd += thisCase.building.productionSpeed;
+            ironProd += thisCase.building.production;
             energyProd -= thisCase.building.elecConsumption;
             break;
           case 'Dormitory':
