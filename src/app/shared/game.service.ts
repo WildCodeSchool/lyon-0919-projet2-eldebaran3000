@@ -19,7 +19,9 @@ export class GameService {
   energy: number = 0;
   food: number = 0;
   human: number = 0;
-  iron: number = 100;
+  iron: number = 10;
+  foodConsumption: number;
+  elecConsumption: number;
 
   /** Construction des batiments (étape 2/4) :
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
@@ -58,6 +60,7 @@ export class GameService {
       this.cases[this.cases.indexOf(cell)].isOccuped = true
       this.buildingToConstruct = undefined;
       this.getCapacity()
+      
     };
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
@@ -107,10 +110,15 @@ getCapacity () {
             break;
           case 'Farm':
             foodProd += thisCase.building.productionSpeed;
+            energyProd -= thisCase.building.elecConsumption;
             break;
           case 'Extractor':
             ironProd += thisCase.building.productionSpeed;
+            energyProd -= thisCase.building.elecConsumption;
             break;
+          case 'Dormitory':
+            energyProd -= thisCase.building.elecConsumption;
+            foodProd -= thisCase.building.foodConsumption;
         };
       }; 
     });
@@ -118,4 +126,9 @@ getCapacity () {
     this.foodProd = foodProd;
     this.ironProd = ironProd;
   };
+
+
+
+
+
 }
