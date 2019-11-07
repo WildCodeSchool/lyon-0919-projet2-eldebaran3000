@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Time } from '../component/timer/time';
 import { TimeSpeedService } from "src/app/component/timer/time-speed.service";
-import { TravelbarComponent } from '../component/travelbar/travelbar.component';
+
 
 @Component({
   selector: 'app-progress-bar-buffer',
@@ -11,15 +10,11 @@ import { TravelbarComponent } from '../component/travelbar/travelbar.component';
 export class ProgressBarBufferComponent implements OnInit {
   color = 'primary';
   mode = 'buffer';
+  
 
   constructor(public timeSpeedService: TimeSpeedService) { }
 
   ngOnInit() {  
-  }
-
- 
-
-  
-  
+  }  
   
 }
