@@ -14,13 +14,12 @@ export class TimeSpeedService {
     month: 1,
     year: 2800,
   }
-  intervalId: any;
   fastSpeed: number = this.clockSpeed / 10;
 
   //Travel Bar
   travelValue: number = 0;
   value = this.travelValue;
-  rightShip: number = 250;
+  shipPosition: number = 250;
 
   
 
@@ -42,14 +41,16 @@ export class TimeSpeedService {
           this.travelValue += 1.67;
             if (this.travelValue >= 100) {
               this.travelValue = 0;
-              
             };
+          this.shipPosition -= 3.5;
+          if (this.shipPosition <= 40) {
+            this.shipPosition = 250;
+          }
           this.value = this.travelValue;
-          return this.value;
+          return this.value, this.shipPosition;
         };
       };
     }, this.clockSpeed);
-    console.log(this.clockSpeed)
   }
   
   setPause(pause: boolean) {

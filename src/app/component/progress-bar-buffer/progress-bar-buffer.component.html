@@ -1,4 +1,4 @@
-<h2>Travel Bar</h2>
+
 
 <div class="travelBar">
 
@@ -16,7 +16,7 @@
     </mat-progress-bar>
   </div>
 
-  <div class="ship" [ngStyle]="right.px = timeSpeedService.rightShip" >
+  <div class="ship" [style.right.px]="timeSpeedService.shipPosition" >
     
       <img src="/assets/vaisseau.png" alt="">
   </div>
