@@ -14,7 +14,6 @@ import { CelluleComponent } from './component/cellule/cellule.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { ProgressBarBufferComponent } from './component/progress-bar-buffer/progress-bar-buffer.component';
-import { MatProgressBar } from '@angular/material/'
 import { SetCaseComponent } from './component/set-case/set-case.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
@@ -39,7 +38,6 @@ import { MatButtonModule } from '@angular/material/button';
     DefeatPageComponent,
     VictoryPageComponent,
     ProgressBarBufferComponent,
-    MatProgressBar,
     SetCaseComponent,
   ],
   imports: [
