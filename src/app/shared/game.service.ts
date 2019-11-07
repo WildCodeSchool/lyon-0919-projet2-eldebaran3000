@@ -11,7 +11,7 @@ export class GameService {
   cases : Case[] = [];
   energyMax: number = 0;
   foodMax: number = 0;
-  ironMax: number = 10;
+  ironMax: number = 100;
   humanMax: number = 0;
   energyProd: number = 0;
   foodProd: number = 0;
@@ -19,7 +19,7 @@ export class GameService {
   energy: number = 0;
   food: number = 0;
   human: number = 0;
-  iron: number = 10;
+  iron: number = 100;
 
   /** Construction des batiments (étape 2/4) :
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
