@@ -11,40 +11,43 @@ export class StockbarComponent implements OnInit {
 
 
 
-  energyProd: number = 0;
-  foodProd: number = 0;
-  ironProd: number = 0;
 
   constructor(private gameService : GameService) {
    }
 
   ngOnInit() {  
-    this.energyBar();
+    this.productionBar();
   }
 
 /*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
 que ce soit les bars ou les données en dessous.*/
 
-  energyBar() {
+  productionBar() {
     setInterval(() => {
-      if (this.gameService.energy < this.gameService.energyMax) {
-        this.gameService.energy += 1;
+      this.gameService.getProductionCapacity()
+      if (this.gameService.energy < this.gameService.energyMax - this.gameService.energyProd && this.gameService.energy >= 0 - this.gameService.energyProd ) {
+        this.gameService.energy += this.gameService.energyProd;
       } else if (this.gameService.energy === this.gameService.energyMax)
         clearInterval();
-      if (this.gameService.food < this.gameService.foodMax) {
-        this.gameService.food += 1;
-      } else if (this.gameService.food === this.gameService.foodMax)
+      if (this.gameService.food < this.gameService.foodMax && this.gameService.food >= 0 ) {
+        this.gameService.food += this.gameService.foodProd;
+      } else if (this.gameService.food === this.gameService.foodMax )
         clearInterval();
-      if (this.gameService.iron < this.gameService.ironMax) {
-        this.gameService.iron += 1;
+      if (this.gameService.iron < this.gameService.ironMax && this.gameService.iron >= 0 ) {
+        this.gameService.iron += this.gameService.ironProd;
       } else if (this.gameService.iron === this.gameService.ironMax)
         clearInterval();
-      if (this.gameService.human < this.gameService.humanMax) {
+      if (this.gameService.human < this.gameService.humanMax && this.gameService.human >= 0) {
         this.gameService.human += 1;
       } else if (this.gameService.human === this.gameService.humanMax)
         clearInterval();
-    }, 500);  
+    }, 1000);  
   };
+
+
+
+
+
 }
 
 
