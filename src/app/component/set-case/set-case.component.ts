@@ -18,14 +18,14 @@ export class SetCaseComponent implements OnInit {
   ngOnInit() { }
 
   addWorker() {   
-    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker) {
-      this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity += 1;
+    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker) {
+      this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers += 1;
     };
   };
 
   removeWorker(){
-    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity > this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.minWorker) {
-      this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.humanCapicity -= 1;
+    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers > this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.minWorker) {
+      this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers -= 1;
     };  
   };
 
