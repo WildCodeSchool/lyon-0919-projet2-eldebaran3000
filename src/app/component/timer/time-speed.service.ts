@@ -5,17 +5,23 @@ import { Time } from './time';
   providedIn: 'root'
 })
 export class TimeSpeedService {
-
-  clockSpeed: number = 50;
+  clockSpeedDefault: number = 1000;
+  clockSpeed: number = this.clockSpeedDefault;
   pause: boolean = false;
+  intervalId: any;
   timer: Time = {
           day:1,
           month:1,
           year:2800,
-  } 
   
+  } 
+
   constructor() {
-    setInterval(() => {
+    this.play()
+  }
+
+  play() {
+    this.intervalId = setInterval(() => {
       if (!this.pause) {
         this.timer.day +=1
         if (this.timer.day === 31) {
@@ -28,17 +34,21 @@ export class TimeSpeedService {
         };
       }
     }, this.clockSpeed);
+    console.log(this.clockSpeed)
   }
-
+  
   setPause(pause: boolean) {
     this.pause = pause;
+    clearInterval(this.intervalId);
+    this.clockSpeed = this.clockSpeedDefault;
+    this.play();
+
   }
 
-  setClockSpeed(clockSpeed: number) {
-    this.clockSpeed = clockSpeed;
-  }
-
-  fastForward(clockSpeed: number){
-    this.clockSpeed = clockSpeed * 2
+  fastForward() {
+    clearInterval(this.intervalId);
+    this.intervalId = undefined;
+    this.clockSpeed = this.clockSpeed / 5;
+    this.play();
   }
 }
