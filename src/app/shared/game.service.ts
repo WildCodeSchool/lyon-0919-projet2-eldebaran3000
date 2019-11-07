@@ -65,7 +65,7 @@ export class GameService {
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
 
-//Stockage des capacités max de chaque case
+//Stockage des capacités max qu'apporte chaque case en fonction du type de bâtiment
 
 getCapacity () {
   let energyMax = 0;
@@ -96,7 +96,7 @@ getCapacity () {
     this.humanMax = humanMax;
   };
 
-//Récupération et stockage des prod de chaque cas
+//Récupération et stockage des productions de chaque case en fonction du type de bâtiment
 
   getProductionCapacity() {
     let energyProd = 0;

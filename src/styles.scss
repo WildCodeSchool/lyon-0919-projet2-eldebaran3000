@@ -58,3 +58,7 @@ $eldebaran3000-theme: mat-light-theme($eldebaran3000-primary, $eldebaran3000-acc
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: eldebaran;
+    src: url(assets/fonts/eldebaranlaserital.ttf) format("opentype");
+  }

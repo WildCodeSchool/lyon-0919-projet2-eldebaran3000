@@ -17,6 +17,11 @@ import { ProgressBarBufferComponent } from './component/progress-bar-buffer/prog
 import { MatProgressBar } from '@angular/material/'
 import { SetCaseComponent } from './component/set-case/set-case.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { AccueilPageComponent } from './pages/accueil-page/accueil-page.component';
+import { DefeatPageComponent } from './pages/defeat-page/defeat-page.component';
+import { VictoryPageComponent } from './pages/victory-page/victory-page.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MenuConstructBuildingComponent,
     GridComponent,
     CelluleComponent,
+    AccueilPageComponent,
+    DefeatPageComponent,
+    VictoryPageComponent,
     ProgressBarBufferComponent,
     MatProgressBar,
     SetCaseComponent,
@@ -38,6 +46,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatProgressBarModule, 
+    MatButtonModule,
     MatSliderModule,
   
   ],
