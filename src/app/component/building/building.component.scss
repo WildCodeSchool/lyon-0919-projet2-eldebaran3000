@@ -2,7 +2,13 @@
     color: white;
     display: flex;
     flex-direction: column;
+    padding: 4%;
 }
 h3{
     color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
 }

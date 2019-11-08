@@ -1,12 +1,15 @@
 
-<div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildMode_selection(building)"> 
-    <img src="{{ building.image }}" alt="">
-    <h3> {{ building.name }}</h3> 
+<div class="container">
+    <div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildMode_selection(building)"> 
+        <img src="{{ building.image }}" alt="">
+        <h3> {{ building.name }}</h3> 
+    </div>
+    <div *ngIf="showProperties" class="build">
+        <div>Construction cost : {{ building.cost }} iron </div>
+        <div *ngIf="building.production">Production : {{ building.production }} / month</div>
+        <div *ngIf="building.maxCapacity">Storage capacity : {{ building.maxCapacity }} </div>
+        <div *ngIf="building.elecConsumption">Power consumption : {{ building.elecConsumption}} Gwatt</div>
+        <div *ngIf="building.foodConsumption">Food consumption : {{ building.foodConsumption}}</div>
+        <div *ngIf="building.maxWorker">Maximum of workers : {{ building.maxWorker }} </div>
+    </div>
 </div>
-<div *ngIf="showProperties" class="build">
-    <div>Cost :{{ building.cost }} </div>
-    <div>Capacity {{ building.name}} :{{ building.humanCapacity }} </div>
-    <div>Production Capacity :{{ building.productionCapacity }} </div>
-    <div>Speed Capacity :{{ building.productionSpeed }}</div>
-</div>
-
