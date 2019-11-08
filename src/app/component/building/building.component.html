@@ -5,11 +5,11 @@
         <h3> {{ building.name }}</h3> 
     </div>
     <div *ngIf="showProperties" class="build">
-        <div>Construction cost : {{ building.cost }} iron </div>
-        <div *ngIf="building.production">Production : {{ building.production }} / month</div>
-        <div *ngIf="building.maxCapacity">Storage capacity : {{ building.maxCapacity }} </div>
-        <div *ngIf="building.elecConsumption">Power consumption : {{ building.elecConsumption}} Gwatt</div>
-        <div *ngIf="building.foodConsumption">Food consumption : {{ building.foodConsumption}}</div>
-        <div *ngIf="building.maxWorker">Maximum of workers : {{ building.maxWorker }} </div>
+        <div>Construction cost :<span>{{ building.cost }} iron</span> </div>
+        <div *ngIf="building.production">Production : <span>{{ building.production }} / month<</span></div>
+        <div *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></div>
+        <div *ngIf="building.elecConsumption">Power consumption : <span> {{ building.elecConsumption}} Gwatt</span></div>
+        <div *ngIf="building.foodConsumption">Food consumption : <span> {{ building.foodConsumption}} </span></div>
+        <div *ngIf="building.maxWorker">Maximum of workers : <span> {{ building.maxWorker }} </span> </div>
     </div>
 </div>
