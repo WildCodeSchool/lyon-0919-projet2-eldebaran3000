@@ -1,7 +1,7 @@
 
 <div (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildMode_selection(building)"> 
     <img src="{{ building.image }}" alt="">
-    <h3> {{ building.name }}</h3> 
+    <h3 class="title"> {{ building.name }}</h3> 
 </div>
 <div *ngIf="showProperties" class="build">
     <div>Cost :{{ building.cost }} </div>
