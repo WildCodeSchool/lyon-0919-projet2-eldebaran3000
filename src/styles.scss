@@ -63,12 +63,12 @@ html, body { height: 100%; }
   }
 @font-face {
     font-family: eldebaran;
-    src: url(fonts/cf_saturn_21/CFSaturnPERSONAL-Regular.ttf) format("opentype");
+    src: url(fonts/Minecraft.ttf) format("opentype");
 }
 @font-face{
   font-family: menu;
   src: url(fonts/fornever/FORNEVERRegular.ttf)
 }
- app-menu-construct-building{
+*{
   font-family: eldebaran, sans-serif;
 }
