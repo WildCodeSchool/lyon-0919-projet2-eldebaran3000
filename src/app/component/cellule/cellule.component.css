@@ -2,6 +2,9 @@ div{
     height: 86px;
     width: 86px;
 }
+img{
+    cursor: pointer;
+}
 .settingMenu{
     position: relative;
     z-index: 1;

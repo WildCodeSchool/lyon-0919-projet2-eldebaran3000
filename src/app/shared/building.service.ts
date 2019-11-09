@@ -8,6 +8,7 @@ import { Building } from 'src/app/shared/building';
 })
 export class BuildingService {
     clickMenu: boolean = false;
+    clickFleche: boolean = true; 
     buildings: Building[] =
         [{
             name : 'Farm',
@@ -81,6 +82,7 @@ export class BuildingService {
 
     clickAppear() {
         this.clickMenu = !this.clickMenu;
+        this.clickFleche = !this.clickFleche;
     }
 
 
