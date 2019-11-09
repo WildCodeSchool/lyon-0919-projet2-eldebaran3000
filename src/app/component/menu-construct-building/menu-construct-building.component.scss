@@ -4,5 +4,21 @@
     font-family: eldebaranItalique;
     font-size: 4em;
     text-shadow: 5px 5px black;
-    width: 800px;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.menuConstruct{
+    background: black;
+    border-radius: 30px;
+    opacity: 0.8;
+    width: 450px;
+    border: solid 2px white;
+    margin-left: 4px;
+}
+.fleche{
+    display: flex;
+
 }
