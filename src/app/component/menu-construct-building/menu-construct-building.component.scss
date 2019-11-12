@@ -13,11 +13,13 @@
     background: black;
     border-radius: 30px;
     opacity: 0.8;
-    width: 450px;
+    width: 150px;
     border: solid 2px white;
     margin-left: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .fleche{
     display: flex;
-
 }

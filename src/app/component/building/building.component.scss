@@ -4,7 +4,7 @@
     flex-direction: column;
     font-size: 1em;
     text-shadow: 5px 5px black;
-   padding: 20%;
+    padding: 10%;
 }
 .mouseBuilding{
     width: 100Px;
@@ -12,11 +12,16 @@
 .infoMenu{
     display: flex;
     justify-content: center;
+    background: black;
+    border-radius: 30px;
+    opacity: 0.8;
+    margin-left: 100px;
 }
 .info{   
     margin-left: 20px;
     width: 400px;
 }
+    
 h3{
     color: #FFFF19;
     font-size: 1.5em;
@@ -26,11 +31,10 @@ h3{
 .container {
     display: flex;
     flex-direction: row;
-    width: 100px;
-    
+    width: 120px;
 }
 span{
-    color: #FD4D01;
+    color: green;
     text-shadow: none;
     font-size: 0.9em;
 }
