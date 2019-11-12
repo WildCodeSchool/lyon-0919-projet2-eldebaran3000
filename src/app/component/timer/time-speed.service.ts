@@ -30,7 +30,8 @@ export class TimeSpeedService {
    play(){
      this.intervalId = setInterval(() => {
       if (!this.pause) {
-        this.timer.day +=1
+        this.timer.day +=1;
+        this.gameService.consumption();
         if (this.timer.day === 31) {
           this.timer.month +=1;
           this.timer.day = 1;

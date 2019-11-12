@@ -20,6 +20,7 @@ import { AccueilPageComponent } from './pages/accueil-page/accueil-page.componen
 import { DefeatPageComponent } from './pages/defeat-page/defeat-page.component';
 import { VictoryPageComponent } from './pages/victory-page/victory-page.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MenuProductionSpeedComponent } from './component/menu-production-speed/menu-production-speed.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatButtonModule } from '@angular/material/button';
     VictoryPageComponent,
     ProgressBarBufferComponent,
     SetCaseComponent,
+    MenuProductionSpeedComponent,
   ],
   imports: [
     BrowserModule,
