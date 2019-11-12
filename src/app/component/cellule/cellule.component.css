@@ -2,11 +2,24 @@ div{
     height: 86px;
     width: 86px;
 }
+img{
+    cursor: pointer;
+}
 .settingMenu{
     position: relative;
     z-index: 1;
-    width: 200%;
-    height: 200%;
-    border : black 1px solid;
-    background-color: cornflowerblue;
+    border-radius: 40px;
+    border: thick double;
+    background-color: #070D34;
+    color: #FFFF19;
+    width: 200Px;
+    height: 140px;
+    font-family: menu;
+    display: flex;
+    align-items: center;
+}
+.setCase{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

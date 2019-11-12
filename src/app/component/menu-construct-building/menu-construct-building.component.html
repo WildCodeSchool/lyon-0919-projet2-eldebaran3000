@@ -1,7 +1,14 @@
 <div (click)="clickAppear()" class="menu">
-    MENU CONSTRUCTOR  
+    MENU CONSTRUCTOR 
+    <div *ngIf="buildingService.clickFleche">
+        <img src="/assets/flecheHaut.png" alt="">
+    </div>
+    <div *ngIf="buildingService.clickMenu">
+        <img src="/assets/fleche.png" alt="">
+    </div>
 </div>
-<div *ngIf="buildingService.clickMenu">
+
+<div *ngIf="buildingService.clickMenu" class="menuConstruct">
     <app-building 
         *ngFor="let b of buildings"
         [building]="b">

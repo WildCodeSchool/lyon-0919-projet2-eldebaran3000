@@ -1,6 +1,12 @@
+
 <div>{{displayCell.building.name}}'s settings</div>
-<div>Actual production : {{ displayCell.building.productionSpeed }}</div>
-<div>Maximum of worker : {{ displayCell.building.maxWorker }}</div>
-<div>Current number of workers : {{ displayCell.building.humanCapicity }}</div>
-<button (click)="addWorker()">+</button><button (click)="removeWorker()">-</button> 
-<div><button (click)="destroyBuilding()">Destroy</button></div>
+<div class="caseMenu">
+    <div>Actual production : {{ displayCell.building.productionSpeed }}</div>
+    <div>Maximum of worker : {{ displayCell.building.maxWorker }}</div>
+    <div>Current number of workers : {{ displayCell.building.humanCapicity }}</div>
+</div>
+<div class="button">
+    <button (click)="addWorker()" class="plus">+</button>
+    <button (click)="removeWorker()" class="less">-</button> 
+    <button (click)="destroyBuilding()" class="delete">Destroy</button>
+</div>

@@ -8,12 +8,13 @@ import { Building } from 'src/app/shared/building';
 })
 export class BuildingService {
     clickMenu: boolean = false;
+    clickFleche: boolean = true; 
     buildings: Building[] =
         [{
             name : 'Farm',
             maxCapacity : 1080,
             production : 108,
-            foodConsumption: 0,
+            foodConsumption : undefined,
             elecConsumption: 36,
             cost: 27,
             nextRoad: false,
@@ -26,7 +27,7 @@ export class BuildingService {
             name: 'Extractor',
             maxCapacity : 270,
             production: 108,
-            foodConsumption: 0,
+            foodConsumption: undefined,
             elecConsumption: 36,
             cost: 27,
             nextRoad: false,
@@ -39,8 +40,8 @@ export class BuildingService {
             name: 'Power Station',
             maxCapacity : 480,
             production: 144,
-            foodConsumption: 0,
-            elecConsumption: 0,
+            foodConsumption: undefined,
+            elecConsumption: undefined,
             cost: 36,
             nextRoad: false,
             nbWorkers : 1,
@@ -51,27 +52,27 @@ export class BuildingService {
         {
             name: 'Dormitory',
             maxCapacity : 76,
-            production: 0,
+            production: undefined,
             foodConsumption: 144,
             elecConsumption: 48,
             cost: 36,
             nextRoad: false,
-            nbWorkers : 0,
-            minWorker: 0,
-            maxWorker: 76,
+            nbWorkers : undefined,
+            minWorker: undefined,
+            maxWorker: undefined,
             image : "/assets/dortoir.png",
         },
         {
             name: 'Road',
-            maxCapacity : 0,
-            production: 0,
-            foodConsumption: 0,
-            elecConsumption: 0,
+            maxCapacity : undefined,
+            production: undefined,
+            foodConsumption: undefined,
+            elecConsumption: undefined,
             cost: 5,
             nextRoad: false,
-            nbWorkers : 0,
-            minWorker: 0,
-            maxWorker: 0,
+            nbWorkers : undefined,
+            minWorker: undefined,
+            maxWorker: undefined,
             image : "/assets/Road.jpg",
         }
 
@@ -81,6 +82,7 @@ export class BuildingService {
 
     clickAppear() {
         this.clickMenu = !this.clickMenu;
+        this.clickFleche = !this.clickFleche;
     }
 
 
