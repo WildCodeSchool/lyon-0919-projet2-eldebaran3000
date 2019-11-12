@@ -1,0 +1,28 @@
+.menu{
+    color: #FFFF19;
+    font-family: eldebaran;
+    font-size: 2em;
+    text-shadow: 5px 5px black;
+    width: 260px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 20px;
+    flex-direction: row-reverse;
+}
+
+.menuProd{
+    color: #FFFF19;
+    background: black;
+    border-radius: 30px;
+    opacity: 0.8;
+    width: 260px;
+    border: solid 2px white;
+    margin-right: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    margin-top: 20px;
+}

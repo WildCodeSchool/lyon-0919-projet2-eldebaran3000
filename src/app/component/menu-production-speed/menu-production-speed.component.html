@@ -1,0 +1,35 @@
+<div (click)="clickAppear()" class="menu">
+    STATS 
+    <div *ngIf="!clickMenu">
+        <img src="/assets/flecheGauche.png" alt="">
+    </div>
+    <div *ngIf="clickMenu">
+        <img src="/assets/fleche.png" alt="">
+    </div>
+</div>
+<div *ngIf="clickMenu" class="menuProd">
+    <ul>
+        <li>
+            Food:<br/> 
+            production: {{service.foodProd}} / month<br/>
+            consumption: {{service.foodConsumption}} / day<br/>
+        </li><br/>
+        <li>
+            Iron:<br/>
+            production: {{service.ironProd}} / month
+            
+        </li><br/>
+        <li>
+            Energy:<br/>
+            production: {{service.energyProd}} / month<br/>
+            consumption: {{service.elecConsumption}} / day <br/>
+        </li><br/>
+        <li>
+            Birth number:<br/> {{service.humanProd}} / year
+        </li><br/>
+    </ul>
+</div>
+
+
+
+
