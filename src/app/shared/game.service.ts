@@ -146,7 +146,7 @@ getCapacity () {
       this.energy = this.energyMax;
       this.energyProgress = (this.energy * 100) /this.energyMax;
     
-    if (this.food <= (this.foodMax - this.foodProd) && this.food >= 0 ) {
+    if (this.food <= (this.foodMax - this.foodProd) && this.food >= 0 - this.foodProd) {
       this.food += this.foodProd;
       this.foodProgress = (this.food * 100) /this.foodMax;
     } 
@@ -162,12 +162,24 @@ getCapacity () {
       this.iron = this.ironMax;
       this.ironProgress = (this.iron * 100) /this.ironMax;
     
-    if (this.human <= this.humanMax && this.human >= 0) {
+/*    if (this.human <= this.humanMax && this.human >= 0) {
       this.human += 1;
     }
-    else if (this.human >= this.humanMax)
+    else if (this.human >= this.humanMax) {
       this.human = this.humanMax;
+    };*/
   };
+
+  getPopulation() {
+    if (this.human <= this.humanMax && this.human >= 0) {
+      this.human += Math.floor(0.1 * this.human);
+    }
+    else if (this.human >= this.humanMax) {
+      this.human = this.humanMax;
+      /* ICI SERA LA FONCTION DECLANCHANT LE GAME OVER POUR INSUFISANCE DE DORTOIRS*/
+    };
+  }
+
 
 
 
