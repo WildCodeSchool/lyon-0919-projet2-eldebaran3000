@@ -6,7 +6,7 @@
     </div>
     <div class="infoMenu">
         <div *ngIf="showProperties" class="build">
-            <div class="info">Construction cost :<span>{{ building.cost }} iron</span> </div>
+            <div class="info">Construction cost : <span>{{ building.cost }} iron</span> </div>
             <div class="info" *ngIf="building.production">Production : <span>{{ building.production }} / month<</span></div>
             <div class="info" *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></div>
             <div class="info" *ngIf="building.elecConsumption">Power consumption : <span> {{ building.elecConsumption}} Gwatt</span></div>

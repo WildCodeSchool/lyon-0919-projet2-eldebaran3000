@@ -1,14 +1,13 @@
 .menu{
     color: #FFFF19;;
-    font-size: 30px;
-    font-family: eldebaranItalique;
-    font-size: 4em;
+    font-family: eldebaran;
+    font-size: 2em;
     text-shadow: 5px 5px black;
     width: 400px;
     cursor: pointer;
     display: flex;
-    align-items: flex-end;
     justify-content: space-around;
+    margin-left: 20px;
 }
 .menuConstruct{
     background: black;

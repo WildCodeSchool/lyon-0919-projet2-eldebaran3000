@@ -11,3 +11,13 @@ button{
 	border:1px solid #ccc;
 	box-shadow:1px 1px 6px yellow;
 }
+.play{
+	margin-left: 18px;
+}
+.help{
+	margin-left: 80px;
+    margin-top: 20px;
+}
+.play, .help, .avanceRapide, .stop{
+	cursor: pointer;
+}

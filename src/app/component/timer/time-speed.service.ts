@@ -20,7 +20,7 @@ export class TimeSpeedService {
   //Travel Bar
   travelValue: number = 0;
   value = this.travelValue;
-  shipPosition: number = 250;
+  shipPosition: number = 850;
 
 
 
@@ -43,9 +43,9 @@ export class TimeSpeedService {
             if (this.travelValue >= 100) {
               this.travelValue = 0;
             };
-          this.shipPosition -= 3.5;
+          this.shipPosition -= 13.5;
           if (this.shipPosition <= 40) {
-            this.shipPosition = 250;
+            this.shipPosition = 850;
           }
           this.value = this.travelValue;
           return this.value, this.shipPosition;
