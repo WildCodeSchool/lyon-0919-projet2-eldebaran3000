@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/shared/game.service';
 
 @Component({
   selector: 'app-menu-production-speed',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuProductionSpeedComponent implements OnInit {
 
-  constructor() { }
+  clickMenu: boolean = false;
+
+  constructor(private service: GameService) { }
 
   ngOnInit() {
-  }
-
+  };
+  clickAppear() {
+    this.clickMenu = !this.clickMenu
+  };
 }

@@ -73,6 +73,7 @@ export class GameService {
       this.cases[this.cases.indexOf(cell)].isOccuped = true
       this.buildingToConstruct = undefined;
       this.getCapacity()
+      this.getProductionCapacity()
     }
     
   }
@@ -115,6 +116,8 @@ getCapacity () {
     let energyProd = 0;
     let foodProd = 0;
     let ironProd = 0;
+    let elecConsumption = 0;
+    let foodConsumption = 0;
     this.cases.forEach(thisCase => {
       if (thisCase.building) {
         switch(thisCase.building.name){
@@ -123,21 +126,23 @@ getCapacity () {
             break;
           case 'Farm':
             foodProd += thisCase.building.production;
-            energyProd -= thisCase.building.elecConsumption;
+            elecConsumption += thisCase.building.elecConsumption;
             break;
           case 'Extractor':
             ironProd += thisCase.building.production;
-            energyProd -= thisCase.building.elecConsumption;
+            elecConsumption += thisCase.building.elecConsumption;
             break;
           case 'Dormitory':
-            energyProd -= thisCase.building.elecConsumption;
-            foodProd -= thisCase.building.foodConsumption;
+            elecConsumption += thisCase.building.elecConsumption;
+            foodConsumption += thisCase.building.foodConsumption;
         };
       }; 
     });
     this.energyProd = energyProd;
     this.foodProd = foodProd;
     this.ironProd = ironProd;
+    this.elecConsumption = Math.floor(elecConsumption/31);
+    this.foodConsumption = Math.floor(foodConsumption/31);
   };
 
 
@@ -176,6 +181,24 @@ getCapacity () {
       this.human = this.humanMax;
   };
 
+  consumption() {
+    this.getProductionCapacity();
 
+    this.energy -= this.elecConsumption;
+    this.food -= this.foodConsumption;
+
+    if ((this.energy -= this.elecConsumption) < 0 ) {
+      this.energy = 0;
+      this.energyProgress = (this.energy * 100) /this.energyMax;
+    } else {
+      this.energyProgress = (this.energy * 100) /this.energyMax;
+    } ;
+    if ((this.food -= this.foodConsumption) < 0 ) {
+      this.food = 0;
+      this.foodProgress = (this.food * 100) /this.foodMax;
+    } else {
+      this.foodProgress = (this.food * 100) /this.foodMax;
+    };
+  };
 
 }
