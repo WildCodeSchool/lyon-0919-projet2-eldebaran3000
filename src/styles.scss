@@ -67,8 +67,9 @@ html, body { height: 100%; }
 }
 @font-face{
   font-family: menu;
-  src: url(fonts/fornever/FORNEVERRegular.ttf)
+  src: url(fonts/fornever/FORNEVERRegular.ttf) format("opentype")
 }
+
 *{
   font-family: eldebaran, sans-serif;
 }
