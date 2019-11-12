@@ -1,8 +1,23 @@
 .menu{
     color: #FFFF19;;
-    font-size: 30px;
-    font-family: eldebaranItalique;
-    font-size: 4em;
+    font-family: eldebaran;
+    font-size: 2em;
     text-shadow: 5px 5px black;
-    width: 800px;
+    width: 400px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+}
+.menuConstruct{
+    background: black;
+    border-radius: 30px;
+    opacity: 0.8;
+    width: 450px;
+    border: solid 2px white;
+    margin-left: 4px;
+}
+.fleche{
+    display: flex;
+
 }

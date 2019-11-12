@@ -2,9 +2,20 @@
     color: #FFFF19;
     display: flex;
     flex-direction: column;
-    font-size: 0.8em;
+    font-size: 1em;
     text-shadow: 5px 5px black;
-    padding: 4%;
+   padding: 20%;
+}
+.mouseBuilding{
+    width: 100Px;
+}
+.infoMenu{
+    display: flex;
+    justify-content: center;
+}
+.info{   
+    margin-left: 20px;
+    width: 400px;
 }
 h3{
     color: #FFFF19;
@@ -15,11 +26,14 @@ h3{
 .container {
     display: flex;
     flex-direction: row;
-    width: 500px;
+    width: 100px;
     
 }
 span{
     color: #FD4D01;
     text-shadow: none;
     font-size: 0.9em;
+}
+img{
+    cursor: pointer;
 }
