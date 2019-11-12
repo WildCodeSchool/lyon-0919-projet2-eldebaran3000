@@ -6,6 +6,8 @@ import { Case } from './case';
   providedIn: 'root'
 })
 export class GameService {
+  /* iron color */
+  ironCostColor : string = "green"
 
 /*  initialisation du tableau contenant les objets disposés sur la grille (1 casou = 1cellule) */
   cases : Case[] = [];
@@ -49,7 +51,9 @@ export class GameService {
     return this.cases;
   }
 
-
+ 
+ 
+   
   /** Construction des batiments (étape 4/4) :
   *   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
   *   dans la cellule sélectionnée sur la grille.
@@ -60,14 +64,17 @@ export class GameService {
   *   On réinitialise la variable buildingToConstruct pour empecher de poser plusieurs batiments d'affilé
   */
   onBuildMode_Build(cell: Case) {
+    if (this.buildingToConstruct.cost > this.iron) {
+      this.ironCostColor = "red";
+    };
     if (this.buildingToConstruct.cost <= this.iron) {
       this.iron -= this.buildingToConstruct.cost
       this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
       this.cases[this.cases.indexOf(cell)].isOccuped = true
       this.buildingToConstruct = undefined;
       this.getCapacity()
-      
-    };
+    }
+    
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
 
