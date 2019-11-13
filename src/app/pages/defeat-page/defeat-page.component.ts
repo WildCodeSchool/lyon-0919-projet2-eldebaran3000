@@ -35,6 +35,10 @@ export class DefeatPageComponent implements OnInit {
       year: 2800,
     };
     this.timeSpeedService.setPause(true)
+    this.gameService.cases = [];
+    this.gameService.caseBuilder();
+    this.timeSpeedService.shipPosition = 850;
+    
   }
 
 
