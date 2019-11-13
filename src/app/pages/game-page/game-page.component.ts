@@ -24,6 +24,10 @@ export class GamePageComponent implements OnInit {
     this.service.human += 100;
   }
 
+  @HostListener('window:keydown.c') cancelBuildingMode(){
+    this.service.buildingToConstruct = undefined;
+  }
+
   constructor(private service: GameService) { }
 
   ngOnInit() {
