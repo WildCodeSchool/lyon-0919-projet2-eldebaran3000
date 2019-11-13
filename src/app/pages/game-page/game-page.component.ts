@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { GameService } from 'src/app/shared/game.service';
 
 @Component({
   selector: 'app-game-page',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamePageComponent implements OnInit {
 
-  constructor() { }
+  @HostListener('window:keydown.f') cheatFood(){
+    this.service.food += 100;
+  };
+
+  @HostListener('window:keydown.e') cheatEnergy(){
+    this.service.energy += 100;
+  };
+
+  @HostListener('window:keydown.i') cheatIron(){
+    this.service.iron += 100;
+  };
+
+  @HostListener('window:keydown.h') cheatHuman(){
+    this.service.human += 100;
+  }
+
+  constructor(private service: GameService) { }
 
   ngOnInit() {
-  }
+  };
+
+
 
 }

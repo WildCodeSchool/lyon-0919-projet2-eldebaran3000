@@ -150,8 +150,8 @@ getCapacity () {
     this.energyProd = energyProd;
     this.foodProd = foodProd;
     this.ironProd = ironProd;
-    this.elecConsumption = Math.floor(elecConsumption/31);
-    this.foodConsumption = Math.floor(foodConsumption/31);
+    this.elecConsumption = Math.ceil(elecConsumption/31);
+    this.foodConsumption = Math.ceil(foodConsumption/31);
   };
 
 
