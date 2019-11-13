@@ -33,7 +33,7 @@ export class CelluleComponent implements OnInit {
       this.settingMode = !this.settingMode
     } 
     else if (this.gameService.buildingToConstruct){
-      this.gameService.onBuildMode_Build(cell)
+      this.gameService.onBuildMode_Build(cell) 
     }
   }
   /* ----------------étape 4 dans game.service.ts--------------------------------------- */

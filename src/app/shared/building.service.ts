@@ -8,7 +8,7 @@ import { Building } from 'src/app/shared/building';
 })
 export class BuildingService {
     clickMenu: boolean = false;
-    clickFleche: boolean = true; 
+    clickFleche : boolean = true; 
     buildings: Building[] =
         [{
             name : 'Farm',
@@ -22,6 +22,7 @@ export class BuildingService {
             minWorker : 1,
             maxWorker : 36,
             image : "/assets/fermeHydro.png",
+            deleteIron: 10
         },
         {
             name: 'Extractor',
@@ -35,6 +36,7 @@ export class BuildingService {
             minWorker: 1,
             maxWorker: 36,
             image : "/assets/extracteurMinerai.png",
+            deleteIron: 10,
         },
         {
             name: 'Power Station',
@@ -48,6 +50,7 @@ export class BuildingService {
             minWorker: 1,
             maxWorker: 48,
             image : "/assets/powerStation.png",
+            deleteIron: 15
         },
         {
             name: 'Dormitory',
@@ -61,6 +64,7 @@ export class BuildingService {
             minWorker: undefined,
             maxWorker: undefined,
             image : "/assets/dortoir.png",
+            deleteIron: 15
         },
         {
             name: 'Road',
@@ -73,7 +77,22 @@ export class BuildingService {
             nbWorkers : undefined,
             minWorker: undefined,
             maxWorker: undefined,
-            image : "/assets/Road.jpg",
+            image : "/assets/road.png",
+            deleteIron: 1
+        },
+        {
+            name: 'Carrefour',
+            maxCapacity : undefined,
+            production: undefined,
+            foodConsumption: undefined,
+            elecConsumption: undefined,
+            cost: 5,
+            nextRoad: false,
+            nbWorkers : undefined,
+            minWorker: undefined,
+            maxWorker: undefined,
+            image : "/assets/carrefour.png",
+            deleteIron: 1
         }
 
         ];

@@ -6,8 +6,10 @@ import { Case } from './case';
   providedIn: 'root'
 })
 export class GameService {
-  /* iron color */
+  /* variable qui modifie le css */
   ironCostColor : string = "green"
+
+ 
 
 /*  initialisation du tableau contenant les objets disposés sur la grille (1 casou = 1cellule) */
   cases : Case[] = [];
@@ -51,7 +53,8 @@ export class GameService {
     return this.cases;
   }
 
- 
+  
+
  
    
   /** Construction des batiments (étape 4/4) :
@@ -68,12 +71,12 @@ export class GameService {
       this.ironCostColor = "red";
     };
     if (this.buildingToConstruct.cost <= this.iron) {
-      this.iron -= this.buildingToConstruct.cost
+      this.iron -= this.buildingToConstruct.cost;
       this.cases[this.cases.indexOf(cell)].building = this.buildingToConstruct;
-      this.cases[this.cases.indexOf(cell)].isOccuped = true
+      this.cases[this.cases.indexOf(cell)].isOccuped = true;
       this.buildingToConstruct = undefined;
-      this.getCapacity()
-    }
+      this.getCapacity();
+    };
     
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
@@ -175,7 +178,4 @@ getCapacity () {
     else if (this.human >= this.humanMax)
       this.human = this.humanMax;
   };
-
-
-
 }
