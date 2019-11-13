@@ -40,9 +40,11 @@ export class BuildingComponent implements OnInit {
  * Referme le menu déroulant
  */
     onBuildMode_selection(building : Building) {
-    if (this.gameService.freeWorkers > 0) {    
-        this.gameService.buildingToConstruct = {...building};
-        this.buildingService.clickAppear();}
+        if (this.gameService.freeWorkers > 0) {    
+            this.gameService.buildingToConstruct = {...building};
+            this.buildingService.clickAppear();
+        }
+        console.log(this.gameService.buildingToConstruct)
 
     }
 /**

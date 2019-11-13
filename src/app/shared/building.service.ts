@@ -75,7 +75,7 @@ export class BuildingService {
             cost: 5,
             nextRoad: false,
             nbWorkers : undefined,
-            minWorker: undefined,
+            minWorker: 0,
             maxWorker: undefined,
             image : "/assets/road.png",
             deleteIron: 1
@@ -89,12 +89,11 @@ export class BuildingService {
             cost: 5,
             nextRoad: false,
             nbWorkers : undefined,
-            minWorker: undefined,
+            minWorker: 0,
             maxWorker: undefined,
             image : "/assets/carrefour.png",
             deleteIron: 1
         }
-
         ];
 
     constructor() { }
