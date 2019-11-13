@@ -33,10 +33,10 @@ export class GameService {
 
 
   //Stockbar
-  energyProgress: number;
-  foodProgress: number;
-  ironProgress: number;
-  humanProgress: number;
+  energyProgress: number = (this.energy * 100) /this.energyMax ;
+  foodProgress: number = (this.food * 100) /this.foodMax;
+  ironProgress: number = (this.iron * 100) /this.ironMax;
+  humanProgress: number = (this.human * 100) /this.humanMax;
 
   // Nombre de travailleurs Disponibles
   freeWorkers : number = this.human;
@@ -134,6 +134,10 @@ getCapacity () {
     this.foodMax = foodMax;
     this.ironMax = ironMax;
     this.humanMax = humanMax;
+    this.energyProgress = (this.energy * 100) /this.energyMax;
+    this.foodProgress = (this.food * 100) /this.foodMax;
+    this.ironProgress = (this.iron * 100) /this.ironMax;
+    this.humanProgress = (this.human * 100) /this.humanMax;
   };
 
 //Récupération et stockage des productions de chaque case en fonction du type de bâtiment
@@ -263,6 +267,10 @@ getCapacity () {
   getDeathRating() {
     this.popTotal = this.human + this.totalDeadPeople;
     this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
+  };
+
+  upgradeBuiding() {
+
   }
 
 }
