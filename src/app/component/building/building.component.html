@@ -7,10 +7,11 @@
     <div class="infoMenu">
         <div *ngIf="showProperties" class="build">
             <div class="info">Construction cost : <span [style.color]="gameService.ironCostColor">{{ building.cost }} iron</span> </div>
-            <div class="info" *ngIf="building.production">Production : <span>{{ building.production }} / month</span></div>
+            <div class="info" *ngIf="building.production">Monthly Production : <span>{{ building.production }} / month</span></div>
             <div class="info" *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></div>
-            <div class="info" *ngIf="building.elecConsumption">Power consumption : <span> {{ building.elecConsumption}} Gwatt</span></div>
-            <div class="info" *ngIf="building.foodConsumption">Food consumption : <span> {{ building.foodConsumption}} </span></div>
+            <div class="info" *ngIf="building.elecConsumption">Daily Power consumption : <span> {{ building.elecConsumption}} Gwatt</span></div>
+            <div class="info" *ngIf="building.name === 'Dormitory'">Daily Food consumption : <span>2 / human</span></div>
+            <div class="info" *ngIf="building.foodConsumption">Daily Food consumption : <span> {{ building.foodConsumption}} </span></div>
             <div class="info" *ngIf="building.minWorker">Minimum of workers : <span [style.color]="gameService.minWorkerColor"> {{ building.minWorker }} </span> </div>
         </div>
     </div>

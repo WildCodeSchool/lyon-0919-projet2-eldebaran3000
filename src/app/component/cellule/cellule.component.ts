@@ -32,7 +32,7 @@ export class CelluleComponent implements OnInit {
     if (this.gameService.buildingToConstruct === undefined && this.gameService.cases[this.gameService.cases.indexOf(cell)].isOccuped === true){
       this.settingMode = !this.settingMode
     } 
-    else if (this.gameService.buildingToConstruct){
+    else if (this.gameService.buildingToConstruct && this.gameService.cases[this.gameService.cases.indexOf(cell)].isOccuped === false){
       this.gameService.onBuildMode_Build(cell)
     }
   }

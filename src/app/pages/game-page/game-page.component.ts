@@ -22,6 +22,7 @@ export class GamePageComponent implements OnInit {
 
   @HostListener('window:keydown.h') cheatHuman(){
     this.service.human += 100;
+    this.service.freeWorkers += 100
   }
 
   constructor(private service: GameService) { }

@@ -132,7 +132,6 @@ getCapacity () {
     let foodProd = 0;
     let ironProd = 0;
     let elecConsumption = 0;
-    let foodConsumption = 0;
     this.cases.forEach(thisCase => {
       if (thisCase.building) {
         switch(thisCase.building.name){
@@ -148,8 +147,7 @@ getCapacity () {
             elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Dormitory':
-            elecConsumption += thisCase.building.elecConsumption /* (thisCase.building.);*/
-            foodConsumption += thisCase.building.foodConsumption; // A FINIR !
+            elecConsumption += thisCase.building.elecConsumption;
         };
       }; 
     });
@@ -157,7 +155,7 @@ getCapacity () {
     this.foodProd = foodProd;
     this.ironProd = ironProd;
     this.elecConsumption = Math.ceil(elecConsumption/31);
-    this.foodConsumption = Math.ceil(foodConsumption/31);
+    this.foodConsumption = this.human * 2
   };
 
 
@@ -237,7 +235,6 @@ getCapacity () {
     } else {
       this.foodProgress = (this.food * 100) /this.foodMax;
     };
-
     if (this.human === 0) {
       this.youLoose()
     }
