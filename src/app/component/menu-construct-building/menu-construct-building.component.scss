@@ -6,17 +6,18 @@
     width: 400px;
     cursor: pointer;
     border: solid white;
-    border-radius: 20px;
+    border-radius: 30px;
     background: black;
     opacity: 0.8;
     text-align: center;
     padding-top: 20px;
+    margin-left: 4px;
 }
 .menuConstruct{
     background: black;
     border-radius: 30px;
     opacity: 0.8;
-    border: solid 2px white;
+    border: solid white;
     margin-left: 4px;
     display: flex;
     flex-direction: column;
@@ -24,7 +25,4 @@
     align-items: center;
     width: 400px;
     margin-top: 8px;
-}
-.fleche{
-    display: flex;
 }
