@@ -1,3 +1,10 @@
+.food-progress, .energy-progress, .iron-progress, .human-progress{
+  border: solid 2px white;
+}
+.name{
+  margin-top: 2px;
+  font-size: 1em;
+}
 #human {
     width: 20px;
     height: 20px;
@@ -34,7 +41,6 @@
 .energy-progress {
     &.mat-progress-bar {
       height: 15px;
-      opacity: 0.8;
     }
   
     .mat-progress-bar-fill::after {
@@ -50,7 +56,6 @@
 .food-progress {
     &.mat-progress-bar {
       height: 15px;
-      opacity: 0.8;
     }
   
     .mat-progress-bar-fill::after {
@@ -65,7 +70,6 @@
 .iron-progress {
     &.mat-progress-bar {
       height: 15px;
-      opacity: 0.8;
     }
   
     .mat-progress-bar-fill::after {
@@ -80,7 +84,6 @@
 .human-progress {
     &.mat-progress-bar {
       height: 15px;
-      opacity: 0.8;
     }
   
     .mat-progress-bar-fill::after {

@@ -6,11 +6,7 @@ import { Case } from './case';
   providedIn: 'root'
 })
 export class GameService {
-<<<<<<< HEAD
-  /* variable qui modifie le css */
-=======
   /* Menu constructor changing colors */
->>>>>>> dev
   ironCostColor : string = "green"
   minWorkerColor: string = "green"
 
@@ -193,8 +189,6 @@ getCapacity () {
       this.ironProgress = (this.iron * 100) /this.ironMax;
     };
   };
-<<<<<<< HEAD
-=======
 
   getPopulation() {
     let newBorn = Math.floor(0.1 * this.human);      //On stock 10% de la pop actuelle : représente les naissances annuels arrondie à l'entier inférieur
@@ -230,5 +224,4 @@ getCapacity () {
     };
   };
 
->>>>>>> dev
 }
