@@ -7,15 +7,25 @@
     padding: 10%;
 }
 .mouseBuilding{
-    width: 100Px;
+    display: flex;
+    width: 200px;
+    height: 150px;
+}
+.buildingName{
+    margin-left: 20px;
+}
+.buildingImage{
+    margin-right: 20px;
+    height: 150px;
 }
 .infoMenu{
     display: flex;
     justify-content: center;
     background: black;
+    border: solid white;
     border-radius: 30px;
     opacity: 0.8;
-    margin-left: 100px;
+    margin-left: 200px;
 }
 .info{   
     margin-left: 20px;
@@ -31,7 +41,7 @@ h3{
 .container {
     display: flex;
     flex-direction: row;
-    width: 120px;
+    width: 200px;
 }
 span{
     color: green;

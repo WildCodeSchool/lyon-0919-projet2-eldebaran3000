@@ -11,6 +11,8 @@ export class GameService {
   ironCostColor : string = "green"
   minWorkerColor: string = "green"
 
+ 
+
 /*  initialisation du tableau contenant les objets disposés sur la grille (1 casou = 1cellule) */
   cases : Case[] = [];
   energyMax: number = 0;
@@ -59,7 +61,8 @@ export class GameService {
     return this.cases;
   }
 
- 
+  
+
  
    
   /** Construction des batiments (étape 4/4) :

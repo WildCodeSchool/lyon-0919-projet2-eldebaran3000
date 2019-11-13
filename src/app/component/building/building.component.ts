@@ -32,7 +32,7 @@ export class BuildingComponent implements OnInit {
         this.showProperties = false;
     };
 
-
+  
 /**
  * Construction des batiments (étape 1/4) 
  * Méthode appelée au clic dans le html du composant (clic sur un batiment du menu construction) : 
