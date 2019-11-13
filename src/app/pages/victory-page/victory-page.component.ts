@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GameService } from 'src/app/shared/game.service';
+import { TimeSpeedService } from 'src/app/component/timer/time-speed.service';
 
 @Component({
   selector: 'app-victory-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VictoryPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timerService: TimeSpeedService) { }
 
   ngOnInit() {
+  }
+
+  replay(){
+    this.timerService.replay()
   }
 
 }
