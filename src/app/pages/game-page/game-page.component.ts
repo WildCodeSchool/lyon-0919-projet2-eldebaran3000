@@ -28,6 +28,10 @@ export class GamePageComponent implements OnInit {
     this.service.humanProgress = (this.service.human * 100) /this.service.humanMax;
   }
 
+  @HostListener('window:keydown.c') cancelBuildingMode(){
+    this.service.buildingToConstruct = undefined;
+  }
+
   constructor(private service: GameService) { }
 
   ngOnInit() {
