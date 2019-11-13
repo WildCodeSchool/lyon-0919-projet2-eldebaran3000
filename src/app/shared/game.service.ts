@@ -265,7 +265,7 @@ getCapacity () {
 
   getDeathRating() {
     this.popTotal = this.human + this.totalDeadPeople;
-    this.deathRating = (this.totalDeadPeople*100)/(this.popTotal);
+    this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
   }
 
 }
