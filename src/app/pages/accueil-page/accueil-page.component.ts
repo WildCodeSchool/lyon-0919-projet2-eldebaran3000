@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeSpeedService } from 'src/app/component/timer/time-speed.service';
 
 @Component({
   selector: 'app-accueil-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccueilPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timeSpeedService : TimeSpeedService) { }
 
   ngOnInit() {
   }
+
+  play() {
+    this.timeSpeedService.setPause(false)
+  }
+
 
 }

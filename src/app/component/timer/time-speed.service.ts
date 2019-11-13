@@ -24,9 +24,8 @@ export class TimeSpeedService {
 
 
 
-  constructor(private gameService : GameService) {
-    this.play()
-  }
+  constructor(private gameService : GameService) { }
+
    play(){
      this.intervalId = setInterval(() => {
       if (!this.pause) {
@@ -36,6 +35,9 @@ export class TimeSpeedService {
           this.timer.month +=1;
           this.timer.day = 1;
           this.gameService.productionBar();
+          this.shipPosition -= 6.75;
+          if (this.shipPosition <= 40) {
+            this.shipPosition = 850;
         };
         if (this.timer.month === 13) {
           this.timer.year += 1;
@@ -45,11 +47,9 @@ export class TimeSpeedService {
           if (this.travelValue >= 100) {
             this.travelValue = 0;
           };
-          this.shipPosition -= 13.5;
-          if (this.shipPosition <= 40) {
-            this.shipPosition = 850;
           }
           this.value = this.travelValue;
+          this.getNavettePop()
           return this.value, this.shipPosition;
         };
       };
@@ -70,6 +70,17 @@ export class TimeSpeedService {
     this.clockSpeed = this.clockSpeed / 5;
     this.play();
   }
+
+
+  getNavettePop() {
+    if ((this.timer.year - 2800) % 10 === 0 ) {
+    this.gameService.human += 200;
+    this.gameService.freeWorkers += 200;
+    this.gameService.popEarth -= 200;
+    }
+  }
+
+
 
   /*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
 que ce soit les bars ou les données en dessous.*/
