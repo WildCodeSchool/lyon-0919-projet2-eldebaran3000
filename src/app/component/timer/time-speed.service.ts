@@ -38,6 +38,7 @@ export class TimeSpeedService {
           this.shipPosition -= 6.75;
           if (this.shipPosition <= 40) {
             this.shipPosition = 850;
+          };
         };
         if (this.timer.month === 13) {
           this.timer.year += 1;
@@ -47,7 +48,6 @@ export class TimeSpeedService {
           if (this.travelValue >= 100) {
             this.travelValue = 0;
           };
-          }
           this.value = this.travelValue;
           this.getNavettePop()
           return this.value, this.shipPosition;
