@@ -10,23 +10,26 @@
 <div *ngIf="clickMenu" class="menuProd">
     <ul>
         <li>
-            Food:<br/> 
+            Food :<br/> 
             production: {{service.foodProd}} / month<br/>
             consumption: {{service.foodConsumption}} / day<br/>
         </li><br/>
         <li>
-            Iron:<br/>
+            Iron :<br/>
             production: {{service.ironProd}} / month
             
         </li><br/>
         <li>
-            Energy:<br/>
+            Energy :<br/>
             production: {{service.energyProd}} / month<br/>
             consumption: {{service.elecConsumption}} / day <br/>
         </li><br/>
         <li>
-            Birth number:<br/> {{service.humanProd}} / year
+            Birth number :<br/> {{service.humanProd}} / year
         </li><br/>
+        <li>
+            Population left on Earth : <br/> {{ service.popEarth }}
+        </li>
     </ul>
 </div>
 

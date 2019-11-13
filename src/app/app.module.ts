@@ -22,6 +22,7 @@ import { VictoryPageComponent } from './pages/victory-page/victory-page.componen
 import { MatButtonModule } from '@angular/material/button';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { MenuProductionSpeedComponent } from './component/menu-production-speed/menu-production-speed.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MenuProductionSpeedComponent } from './component/menu-production-speed/
     MatProgressBarModule, 
     MatButtonModule,
     MatSliderModule,
+    MatTooltipModule
   
   ],
   providers: [],
