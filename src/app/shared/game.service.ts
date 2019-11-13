@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Building } from './building';
 import { Case } from './case';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +31,12 @@ export class GameService {
   elecConsumption : number;
   popEarth : number = 1000;
 
+
   //Stockbar
   energyProgress: number;
   foodProgress: number;
   ironProgress: number;
+  humanProgress: number;
 
   // Nombre de travailleurs Disponibles
   freeWorkers : number = this.human;
@@ -44,7 +46,13 @@ export class GameService {
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
   */
   buildingToConstruct: Building;
-  totalDeadPeople: number;
+  totalDeadPeople: number = 0;
+
+  //initialisation du total de population qu'il y a eu sur depuis le début et 
+  //initialisation du pourcentage de mort sur cette population totale
+  popTotal: number = this.human + this.totalDeadPeople;
+  deathRating: number = 0;
+
   /* --------------Étape 3 dans cellule.component.ts------------------------- */
 
   constructor(private router : Router) {}
@@ -188,6 +196,8 @@ getCapacity () {
       let monthlyDeath = Math.ceil((0.5 * this.human));
       this.human -= monthlyDeath;
       this.totalDeadPeople += monthlyDeath;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     }
 
     if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0) {
@@ -205,20 +215,27 @@ getCapacity () {
     if (this.human + newBorn <= this.humanMax) {    //On teste si la population et les nouveaux nés peuvent etres herbergés
       this.human += newBorn;                        //On ajoute les naissances à la population
       this.freeWorkers += newBorn  ;                //On ajoute les naissances aux travailleurs disponibles
-      this.humanProd = newBorn
+      this.humanProd = newBorn;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     } 
     else if (this.human <= this.humanMax) {         //Si les naissances dépassent la capacité d'hébergement mais qu'il reste de la place
       newBorn = this.humanMax - this.human          //Les naissances représentent l'espace disponible restant
       this.human = this.humanMax;                   //La population est mise au max
       this.freeWorkers = newBorn;                  // Les nouveaux travailleurs dispo sont ajoutés
-      this.humanProd = newBorn
+      this.humanProd = newBorn;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     };
-  }
+  };
 
   youLoose() {
     this.router.navigate(["/defeat"]);
-  }
+  };
 
+  youWin() {
+    this.router.navigate(["/victory"]);
+  };
 
 
   consumption() {
@@ -242,11 +259,13 @@ getCapacity () {
     };
 
     if (this.human === 0) {
-      this.youLoose()
+      this.youLoose();
     }
-
   };
 
-  
+  getDeathRating() {
+    this.popTotal = this.human + this.totalDeadPeople;
+    this.deathRating = (this.totalDeadPeople*100)/(this.popTotal);
+  }
 
 }
