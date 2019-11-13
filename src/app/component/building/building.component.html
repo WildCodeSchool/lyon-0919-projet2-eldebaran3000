@@ -1,11 +1,16 @@
 
 <div class="container">
     <div class="mouseBuilding" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildMode_selection(building)"> 
-        <img src="{{ building.image }}" alt="">
-        <h3> {{ building.name }}</h3> 
+        <div class="buildingImage">
+            <img src="{{ building.image }}" alt="">
+        </div>
+        <div class="buildingName">
+            <h3> {{ building.name }}</h3>
+        </div>
+       
     </div>
-    <div class="infoMenu">
-        <div *ngIf="showProperties" class="build">
+    <div class="infoMenu"  *ngIf="showProperties">
+        <div class="build">
             <div class="info">Construction cost : <span [style.color]="gameService.ironCostColor">{{ building.cost }} iron</span> </div>
             <div class="info" *ngIf="building.production">Monthly Production : <span>{{ building.production }} / month</span></div>
             <div class="info" *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></div>
