@@ -17,20 +17,32 @@ export class SetCaseComponent implements OnInit {
 
   ngOnInit() { }
 
-  addWorker() {   
-    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker) {
+  addWorker() {
+    if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker && this.gameService.freeWorkers > 0) {
       this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers += 1;
+      this.gameService.freeWorkers -= 1;
     };
+    if (this.gameService.freeWorkers === 0) {
+      this.gameService.minWorkerColor = "red";
+    }
   };
 
   removeWorker(){
     if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers > this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.minWorker) {
       this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers -= 1;
-    };  
+      this.gameService.freeWorkers +=1;
+    };
+    if (this.gameService.freeWorkers > 0 ) {
+      this.gameService.minWorkerColor = "green";
+    }
   };
 
   destroyBuilding() {
+    this.gameService.freeWorkers += this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers 
     this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)] = new Case (false,false)
     this.gameService.getCapacity()
+    if (this.gameService.freeWorkers > 0 ) {
+      this.gameService.minWorkerColor = "green";
+    }
   }
 }

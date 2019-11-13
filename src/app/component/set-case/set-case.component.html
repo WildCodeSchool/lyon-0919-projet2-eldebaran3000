@@ -1,9 +1,9 @@
 
 <div>{{displayCell.building.name}}'s settings</div>
 <div class="caseMenu">
-    <div>Actual production : {{ displayCell.building.productionSpeed }}</div>
+    <div>Actual production : {{ displayCell.building.production }}</div>
     <div>Maximum of worker : {{ displayCell.building.maxWorker }}</div>
-    <div>Current number of workers : {{ displayCell.building.humanCapicity }}</div>
+    <div>Active workers : {{ displayCell.building.nbWorkers }}</div>
 </div>
 <div class="button">
     <button (click)="addWorker()" class="plus">+</button>

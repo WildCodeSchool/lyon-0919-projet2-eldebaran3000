@@ -11,7 +11,7 @@
             <div class="info" *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></div>
             <div class="info" *ngIf="building.elecConsumption">Power consumption : <span> {{ building.elecConsumption}} Gwatt</span></div>
             <div class="info" *ngIf="building.foodConsumption">Food consumption : <span> {{ building.foodConsumption}} </span></div>
-            <div class="info" *ngIf="building.maxWorker">Maximum of workers : <span> {{ building.maxWorker }} </span> </div>
+            <div class="info" *ngIf="building.minWorker">Minimum of workers : <span [style.color]="gameService.minWorkerColor"> {{ building.minWorker }} </span> </div>
         </div>
     </div>
 </div>
