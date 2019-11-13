@@ -41,9 +41,10 @@ export class TimeSpeedService {
           this.timer.year += 1;
           this.timer.month = 1;
           this.travelValue += 1.67;
-            if (this.travelValue >= 100) {
-              this.travelValue = 0;
-            };
+          this.gameService.getPopulation()
+          if (this.travelValue >= 100) {
+            this.travelValue = 0;
+          };
           this.shipPosition -= 13.5;
           if (this.shipPosition <= 40) {
             this.shipPosition = 850;
