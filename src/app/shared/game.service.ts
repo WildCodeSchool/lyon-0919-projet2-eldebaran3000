@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Building } from './building';
 import { Case } from './case';
+import { RouterLink, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,15 +17,17 @@ export class GameService {
   foodMax: number = 0;
   ironMax: number = 0;
   humanMax: number = 0;
+  humanProd : number = 1;
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
-  energy: number = 0;
-  food: number = 0;
+  energy: number = 10;
+  food: number = 10;
   human: number = 10;
   iron: number = 100;
-  foodConsumption: number;
-  elecConsumption: number;
+  foodConsumption : number;
+  elecConsumption : number;
+  popEarth : number = 1000;
 
   //Stockbar
   energyProgress: number;
@@ -39,9 +42,10 @@ export class GameService {
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
   */
   buildingToConstruct: Building;
+  totalDeadPeople: number;
   /* --------------Étape 3 dans cellule.component.ts------------------------- */
 
-  constructor() { }
+  constructor(private router : Router) {}
 
   /** Création de la grille  */
   caseBuilder(){
@@ -68,9 +72,14 @@ export class GameService {
   *   On réinitialise la variable buildingToConstruct pour empecher de poser plusieurs batiments d'affilé
   */
   onBuildMode_Build(cell: Case) {
+    if (this.buildingToConstruct.cost > this.iron){
+      this.ironCostColor = "red";
+    }
     if (this.buildingToConstruct.cost <= this.iron && this.freeWorkers > 0) {
       this.iron -= this.buildingToConstruct.cost;
+    
       this.freeWorkers -= this.buildingToConstruct.minWorker;
+
       if (this.freeWorkers === 0) {
         this.minWorkerColor = "red";
       }
@@ -80,9 +89,6 @@ export class GameService {
       this.getCapacity()
       this.getProductionCapacity()
     } 
-    if (this.buildingToConstruct.cost > this.iron){
-      this.ironCostColor = "red";
-    }
 
     
   }
@@ -143,17 +149,16 @@ getCapacity () {
             break;
           case 'Dormitory':
             elecConsumption += thisCase.building.elecConsumption /* (thisCase.building.);*/
-            foodConsumption += thisCase.building.foodConsumption;
+            foodConsumption += thisCase.building.foodConsumption; // A FINIR !
         };
       }; 
     });
     this.energyProd = energyProd;
     this.foodProd = foodProd;
     this.ironProd = ironProd;
-    this.elecConsumption = Math.floor(elecConsumption/31);
-    this.foodConsumption = Math.floor(foodConsumption/31);
+    this.elecConsumption = Math.ceil(elecConsumption/31);
+    this.foodConsumption = Math.ceil(foodConsumption/31);
   };
-
 
 
   productionBar() {
@@ -175,7 +180,12 @@ getCapacity () {
     else if (this.food >= this.foodMax - this.foodProd) {
       this.food = this.foodMax;
       this.foodProgress = (this.food * 100) /this.foodMax;
-    };
+    }
+    if (this.food === 0) {
+      let monthlyDeath = Math.ceil((0.5 * this.human));
+      this.human -= monthlyDeath;
+      this.totalDeadPeople += monthlyDeath;
+    }
 
     if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0) {
       this.iron += this.ironProd;
@@ -188,17 +198,24 @@ getCapacity () {
   };
 
   getPopulation() {
-    let newBorn = Math.floor(0.1 * this.human);      //On stock 10% de la pop actuelle : représente les naissances annuels arrondie à l'entier inférieur
+    let newBorn = Math.ceil(0.1 * this.human);      //On stock 10% de la pop actuelle : représente les naissances annuels arrondie à l'entier inférieur
     if (this.human + newBorn <= this.humanMax) {    //On teste si la population et les nouveaux nés peuvent etres herbergés
       this.human += newBorn;                        //On ajoute les naissances à la population
-      this.freeWorkers += newBorn  ;                 //On ajoute les naissances aux travailleurs disponibles
+      this.freeWorkers += newBorn  ;                //On ajoute les naissances aux travailleurs disponibles
+      this.humanProd = newBorn
     } 
     else if (this.human <= this.humanMax) {         //Si les naissances dépassent la capacité d'hébergement mais qu'il reste de la place
       newBorn = this.humanMax - this.human          //Les naissances représentent l'espace disponible restant
       this.human = this.humanMax;                   //La population est mise au max
-      this.freeWorkers = newBorn;                   // Les nouveaux travailleurs dispo sont ajoutés
+      this.freeWorkers = newBorn;                  // Les nouveaux travailleurs dispo sont ajoutés
+      this.humanProd = newBorn
     };
   }
+
+  youLoose() {
+    this.router.navigate(["/defeat"]);
+  }
+
 
 
   consumption() {
@@ -213,12 +230,20 @@ getCapacity () {
     } else {
       this.energyProgress = (this.energy * 100) /this.energyMax;
     } ;
+
     if ((this.food -= this.foodConsumption) < 0 ) {
       this.food = 0;
       this.foodProgress = (this.food * 100) /this.foodMax;
     } else {
       this.foodProgress = (this.food * 100) /this.foodMax;
     };
+
+    if (this.human === 0) {
+      this.youLoose()
+    }
+
   };
+
+  
 
 }

@@ -58,7 +58,7 @@ export class BuildingService {
             cost: 36,
             nextRoad: false,
             nbWorkers : undefined,
-            minWorker: undefined,
+            minWorker: 0,
             maxWorker: undefined,
             image : "/assets/dortoir.png",
         },

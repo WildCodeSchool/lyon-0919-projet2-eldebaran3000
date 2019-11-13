@@ -1,13 +1,11 @@
-mat-progress-bar{
-    width: 800px;
-    height: 10px;   
-}
 .travelBar{
     display: flex;
 }
 .bar{
     display: flex;
     align-items: center;
+    width: 800px;
+    height: 10px;   
 }
 .earth{
     padding-right: 10px;
