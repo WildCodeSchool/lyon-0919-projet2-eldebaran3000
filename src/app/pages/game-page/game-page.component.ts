@@ -25,6 +25,7 @@ export class GamePageComponent implements OnInit {
 
   @HostListener('window:keydown.h') cheatHuman(){
     this.service.human += 100;
+    this.service.freeWorkers += 100
     this.service.humanProgress = (this.service.human * 100) /this.service.humanMax;
   }
 
