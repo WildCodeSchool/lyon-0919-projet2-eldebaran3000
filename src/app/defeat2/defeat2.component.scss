@@ -1,0 +1,59 @@
+// .space {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     // background-image: linear-gradient(rgba(255, 255, 255, 0) 93%,rgba(97,108,126, 0.787) 100%), url("/assets/cosmos-dark.jpg");
+//     width: 100%;
+//     height: 25%;
+// }
+
+.containerBackground {
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 99.75%,rgba(97,108,126, 0.787) 100%), linear-gradient(to top, rgba(255, 255, 255, 0) 90%,rgba(21,22,27, 0.904) 100%), url('/assets/MapBackground.jpg');
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    font-family: 'eldebaran';
+    color: greenyellow;
+    font-size: 100px;
+    margin-top: 25px;
+    text-shadow: 10px 5px 5px red;
+}
+
+.subTitle {
+    font-family: 'eldebaran';
+    color: greenyellow;
+    font-size: 50px;
+    margin-top: 5%;
+    text-shadow: 10px 5px 5px red;
+}
+
+.button {
+    width: 250px;
+    height: 50px;
+}
+
+.text {
+    width: 25%;
+    border: 3px solid black;
+    border-radius: 30px;
+    color: white;
+    font-size: 25px;
+    padding: 0px 15px 0px 15px;
+    text-align: center;
+    background-color:rgba(0, 0, 0, 0.383);
+    font-family: menu;
+}
+
+.navBarDefeat{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-image: linear-gradient(rgba(255, 255, 255, 0) 93%,rgba(97,108,126, 0.787) 100%), url("/assets/cosmos-dark.jpg");
+
+}

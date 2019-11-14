@@ -2,20 +2,19 @@ body{
     color: #FFFF19;
 }
 .containerBackground {
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 99.75%,rgba(97,108,126, 0.787) 100%), linear-gradient(to top, rgba(255, 255, 255, 0) 90%,rgba(21,22,27, 0.904) 100%), url('/assets/8k_mars.png');
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 99.75%,rgba(97,108,126, 0.787) 100%), linear-gradient(to top, rgba(255, 255, 255, 0) 90%,rgba(21,22,27, 0.904) 100%), url('/assets/background.png');
     height: 2000px;
     display: flex;
     justify-content: space-between;
 }
 
-.menuConstruct {
+.menuConstructor {
     z-index: 1;
     position: absolute;
 }
 
 .menuProdSpeed {
     z-index: 1;
-    width: 20%;
     position: absolute;
     right: 0;
 }
