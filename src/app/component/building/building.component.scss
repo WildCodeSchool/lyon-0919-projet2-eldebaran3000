@@ -6,20 +6,31 @@
     opacity: 0.8;
     margin-left: 10%;
     position: relative;
-    left: 95%;
+    left: 105%;
     list-style-type: none;
+    height: 90px;
+    width: 110%;
+    margin: 0px;
+    padding-top: 4px;
+    padding-left: 20px;
 }
 .mouseBuilding{
     display: flex;  
+    justify-content: space-around;
+}
+li{
+    font-size: 0.8em;
+    width: 100%;
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0  black;
 }
 .buildingImage{
     width: 2%
 }
-.infoMenu{
+/*.infoMenu{
     height: 10px;
     margin-top: 20%;
     
-}
+}*/
 .info{   
     margin-left: 20px;
     width: 10%;

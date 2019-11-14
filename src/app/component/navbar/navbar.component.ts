@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { GameService } from 'src/app/shared/game.service';
+import { TimeSpeedService } from '../timer/time-speed.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +10,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private timeService: TimeSpeedService) { }
 
   ngOnInit() {  }
+
+  return(){
+      this.timeService.replay()
+  }
 
 }

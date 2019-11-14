@@ -3,8 +3,8 @@
             <img src="{{ building.image }}" alt="">
             <h3> {{ building.name }}</h3>
     </div>
-    <div class="infoMenu">  *ngIf="showProperties">-->
-        <ul class="build">
+  
+        <ul class="build"  >
             <li>Construction cost : <span [style.color]="gameService.ironCostColor">{{ building.cost }} iron</span> </li>
             <li  *ngIf="building.production">Production : <span>{{ building.production }} / month</span></li>
             <li  *ngIf="building.maxCapacity">Storage capacity : <span>{{ building.maxCapacity }} </span></li>
@@ -12,5 +12,5 @@
             <li *ngIf="building.foodConsumption">Food consumption : <span> {{ building.foodConsumption}} </span></li>
             <li  *ngIf="building.minWorker">Minimum of workers : <span [style.color]="gameService.minWorkerColor"> {{ building.minWorker }} </span> </li>
         </ul>
-    <!--</div>-->
+    
 

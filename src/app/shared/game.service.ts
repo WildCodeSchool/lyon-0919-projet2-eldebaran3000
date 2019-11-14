@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Building } from './building';
 import { Case } from './case';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -33,10 +33,12 @@ export class GameService {
   popEarth : number = 1000;
   
 
+
   //Stockbar
-  energyProgress: number;
-  foodProgress: number;
-  ironProgress: number;
+  energyProgress: number = (this.energy * 100) /this.energyMax ;
+  foodProgress: number = (this.food * 100) /this.foodMax;
+  ironProgress: number = (this.iron * 100) /this.ironMax;
+  humanProgress: number = (this.human * 100) /this.humanMax;
 
   // Nombre de travailleurs Disponibles
   freeWorkers : number = this.human;
@@ -47,7 +49,13 @@ export class GameService {
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
   */
   buildingToConstruct: Building;
-  totalDeadPeople: number;
+  totalDeadPeople: number = 0;
+
+  //initialisation du total de population qu'il y a eu sur depuis le début et 
+  //initialisation du pourcentage de mort sur cette population totale
+  popTotal: number = this.human + this.totalDeadPeople;
+  deathRating: number = 0;
+
   /* --------------Étape 3 dans cellule.component.ts------------------------- */
 
   constructor(private router : Router) {}
@@ -129,6 +137,10 @@ getCapacity () {
     this.foodMax = foodMax;
     this.ironMax = ironMax;
     this.humanMax = humanMax;
+    this.energyProgress = (this.energy * 100) /this.energyMax;
+    this.foodProgress = (this.food * 100) /this.foodMax;
+    this.ironProgress = (this.iron * 100) /this.ironMax;
+    this.humanProgress = (this.human * 100) /this.humanMax;
   };
 
 //Récupération et stockage des productions de chaque case en fonction du type de bâtiment
@@ -138,24 +150,22 @@ getCapacity () {
     let foodProd = 0;
     let ironProd = 0;
     let elecConsumption = 0;
-    let foodConsumption = 0;
     this.cases.forEach(thisCase => {
       if (thisCase.building) {
         switch(thisCase.building.name){
           case 'Power Station':
-            energyProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
+            energyProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
             break;
           case 'Farm':
-            foodProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Food proportionnelle au nombre de Worker
-            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
+            foodProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Food proportionnelle au nombre de Worker
+            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Extractor':
-            ironProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Iron proportionnelle au nombre de Worker
-            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
+            ironProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Iron proportionnelle au nombre de Worker
+            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Dormitory':
-            elecConsumption += thisCase.building.elecConsumption /* (thisCase.building.);*/
-            foodConsumption += thisCase.building.foodConsumption; // A FINIR !
+            elecConsumption += thisCase.building.elecConsumption;
         };
       }; 
     });
@@ -163,7 +173,7 @@ getCapacity () {
     this.foodProd = foodProd;
     this.ironProd = ironProd;
     this.elecConsumption = Math.ceil(elecConsumption/31);
-    this.foodConsumption = Math.ceil(foodConsumption/31);
+    this.foodConsumption = this.human * 2
   };
 
 
@@ -191,6 +201,8 @@ getCapacity () {
       let monthlyDeath = Math.ceil((0.5 * this.human));
       this.human -= monthlyDeath;
       this.totalDeadPeople += monthlyDeath;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     }
     if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0) {
       this.iron += this.ironProd;
@@ -207,20 +219,27 @@ getCapacity () {
     if (this.human + newBorn <= this.humanMax) {    //On teste si la population et les nouveaux nés peuvent etres herbergés
       this.human += newBorn;                        //On ajoute les naissances à la population
       this.freeWorkers += newBorn  ;                //On ajoute les naissances aux travailleurs disponibles
-      this.humanProd = newBorn
+      this.humanProd = newBorn;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     } 
     else if (this.human <= this.humanMax) {         //Si les naissances dépassent la capacité d'hébergement mais qu'il reste de la place
       newBorn = this.humanMax - this.human          //Les naissances représentent l'espace disponible restant
       this.human = this.humanMax;                   //La population est mise au max
       this.freeWorkers = newBorn;                  // Les nouveaux travailleurs dispo sont ajoutés
-      this.humanProd = newBorn
+      this.humanProd = newBorn;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
     };
-  }
+  };
 
   youLoose() {
     this.router.navigate(["/defeat"]);
-  }
+  };
 
+  youWin() {
+    this.router.navigate(["/victory"]);
+  };
 
 
   consumption() {
@@ -242,9 +261,8 @@ getCapacity () {
     } else {
       this.foodProgress = (this.food * 100) /this.foodMax;
     };
-
     if (this.human === 0) {
-      this.youLoose()
+      this.youLoose();
     }
   };
 
@@ -259,5 +277,23 @@ getCapacity () {
     
   }
   
+  getDeathRating() {
+    this.popTotal = this.human + this.totalDeadPeople;
+    this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
+  };
 
-}
+  upgradeBuiding(cell: Case) {
+    if (this.cases[this.cases.indexOf(cell)].building.upgradeCost <= this.iron){
+      this.iron -= this.cases[this.cases.indexOf(cell)].building.upgradeCost;
+      this.cases[this.cases.indexOf(cell)].building.level += 1;
+      this.cases[this.cases.indexOf(cell)].building.maxCapacity = Math.ceil(this.cases[this.cases.indexOf(cell)].building.maxCapacity * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.production = Math.ceil(this.cases[this.cases.indexOf(cell)].building.production * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.foodConsumption = Math.ceil(this.cases[this.cases.indexOf(cell)].building.foodConsumption * 110/100);
+      this.cases[this.cases.indexOf(cell)].building.elecConsumption = Math.ceil(this.cases[this.cases.indexOf(cell)].building.elecConsumption * 110/100);
+      this.cases[this.cases.indexOf(cell)].building.cost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.cost * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.upgradeCost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.upgradeCost * 150/100);
+      this.getCapacity();
+      this.getProductionCapacity();
+    }
+  };
+};

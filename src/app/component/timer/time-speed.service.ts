@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Time } from './time';
 import { GameService } from 'src/app/shared/game.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class TimeSpeedService {
 
 
 
-  constructor(private gameService : GameService) { }
+  constructor(private gameService : GameService, private router: Router) { }
 
    play(){
      this.intervalId = setInterval(() => {
@@ -74,19 +75,40 @@ export class TimeSpeedService {
 
   getNavettePop() {
     if ((this.timer.year - 2800) % 10 === 0 ) {
-    this.gameService.human += 200;
-    this.gameService.freeWorkers += 200;
-    this.gameService.popEarth -= 200;
-    this.gameService.capacityDead();
-    }
-    
-  }
-
-
+      this.gameService.human += 200;
+      this.gameService.freeWorkers += 200;
+      this.gameService.popEarth -= 200;
+      this.gameService.humanProgress = (this.gameService.human * 100) /this.gameService.humanMax;
+      if (this.gameService.popEarth === 0) {
+        this.gameService.youWin();
+      };
+    };
+  };
 
   /*Fonction appelant les données stockées dans le GameService pour mettre à jour le visuel,
 que ce soit les bars ou les données en dessous.*/
 
+replay(){
+  this.router.navigate([""])
+  this.gameService.energyMax = 0;
+  this.gameService.foodMax = 0;
+  this.gameService.ironMax= 0;
+  this.gameService.humanMax = 0;
+  this.gameService.humanProd = 1;
+  this.gameService.energyProd = 0;
+  this.gameService.foodProd = 0;
+  this.gameService.ironProd = 0;
+  this.gameService.energy = 10;
+  this.gameService.food = 10;
+  this.gameService.human = 10;
+  this.gameService.iron = 100;
+  this.timer = {
+    day: 1,
+    month: 1,
+    year: 2800,
+  };
+  this.setPause(true)
+}
 
 
 }

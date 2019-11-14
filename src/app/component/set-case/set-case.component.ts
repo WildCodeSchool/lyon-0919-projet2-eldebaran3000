@@ -27,6 +27,7 @@ export class SetCaseComponent implements OnInit {
     if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers < this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.maxWorker && this.gameService.freeWorkers > 0) {
       this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers += 1;
       this.gameService.freeWorkers -= 1;
+      this.gameService.getProductionCapacity();
     };
     if (this.gameService.freeWorkers === 0) {
       this.gameService.minWorkerColor = "red";
@@ -37,11 +38,15 @@ export class SetCaseComponent implements OnInit {
     if ( this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers > this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.minWorker) {
       this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers -= 1;
       this.gameService.freeWorkers +=1;
+      this.gameService.getProductionCapacity();
     };
     if (this.gameService.freeWorkers > 0 ) {
       this.gameService.minWorkerColor = "green";
     }
   };
+  upgradeBuilding(){
+    this.gameService.upgradeBuiding(this.displayCell);
+  }
 
   destroyBuilding() {
     this.gameService.freeWorkers += this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers 
@@ -49,7 +54,8 @@ export class SetCaseComponent implements OnInit {
     this.gameService.getCapacity()
     if (this.gameService.freeWorkers > 0 ) {
       this.gameService.minWorkerColor = "green";
-    this.gameService.iron = this.gameService.iron + this.displayCell.building.deleteIron;
-    }
-  }
+      this.gameService.iron = this.gameService.iron + this.displayCell.building.deleteIron;
+    };
+    
+  };
 }
