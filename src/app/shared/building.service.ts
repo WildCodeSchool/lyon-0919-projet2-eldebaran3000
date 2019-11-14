@@ -67,7 +67,7 @@ export class BuildingService {
             deleteIron: 15
         },
         {
-            name: 'Road',
+            name: 'Vertical road',
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -81,7 +81,7 @@ export class BuildingService {
             deleteIron: 1
         },
         {
-            name: 'Carrefour',
+            name: 'Crossroad',
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -92,6 +92,20 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/carrefour.png",
+            deleteIron: 1
+        },
+        {
+            name: 'Horizontal road',
+            maxCapacity : undefined,
+            production: undefined,
+            foodConsumption: undefined,
+            elecConsumption: undefined,
+            cost: 5,
+            nextRoad: false,
+            nbWorkers : undefined,
+            minWorker: 0,
+            maxWorker: undefined,
+            image : "/assets/roadHorizontal.png",
             deleteIron: 1
         }
         ];

@@ -6,7 +6,7 @@
 .casou{
     width: 5%;
     border: solid black 1px;
-    height: 71.25px;
+    position: relative;
     
 }
 .casou:hover{

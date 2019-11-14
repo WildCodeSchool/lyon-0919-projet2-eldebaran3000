@@ -1,6 +1,7 @@
 <div id="container">
     <app-cellule *ngFor="let c of cases" 
                  class="casou"
+                 [style.paddingBottom]="c.building ? '' : '5%'"
                  id="{{c.xPos}}-{{c.yPos}}"
                  [displayCell] = "c">
     </app-cellule>
