@@ -2,16 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 100%;
 }
-
 .casou{
-    width: 86px;
-    height: 86px;
-    
+    width: 5%;
+    border: solid black 1px;
+    height: 71.25px;
     
 }
-
 .casou:hover{
     background-color: red;
 }
