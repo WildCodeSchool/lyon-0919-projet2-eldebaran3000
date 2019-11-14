@@ -15,6 +15,7 @@ export  class Building {
     upgradeCost: number;
 
 
+
     constructor (name : string, cost : number, image:string, deleteIron: number) {
         this.name = name;
         this.cost = cost;

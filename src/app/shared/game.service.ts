@@ -23,8 +23,8 @@ export class GameService {
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
-  energy: number = 10;
-  food: number = 10;
+  energy: number = 100;
+  food: number = 100;
   human: number = 10;
   iron: number = 100;
   foodConsumption : number;
@@ -59,10 +59,9 @@ export class GameService {
 
   /** Création de la grille  */
   caseBuilder(){
-    for(let l = 1 ; l <= 20 ; l++){
-      for(let c = 1 ; c <= 20 ; c++){
-        let index = (l * c) - 1;
-        let casou = new Case (false, false);
+    for(let l = 1 ; l <= 21 ; l++){
+      for(let c = 1 ; c <= 21 ; c++){
+        let casou = new Case (false, false, c, l);
         this.cases.push(casou);
       };
     };
@@ -107,7 +106,7 @@ export class GameService {
 
 //Stockage des capacités max qu'apporte chaque case en fonction du type de bâtiment
 
-getCapacity () {
+  getCapacity () {
   let energyMax = 0;
   let foodMax = 0;
   let ironMax = 0;
@@ -261,12 +260,15 @@ getCapacity () {
     };
     if (this.human === 0) {
       this.youLoose();
-    }
+    };
   };
 
   getDeathRating() {
     this.popTotal = this.human + this.totalDeadPeople;
     this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
+    if (this.deathRating >= (20/100)) {
+      this.youLoose();
+    };
   };
 
   upgradeBuiding(cell: Case) {
@@ -281,6 +283,30 @@ getCapacity () {
       this.cases[this.cases.indexOf(cell)].building.upgradeCost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.upgradeCost * 150/100);
       this.getCapacity();
       this.getProductionCapacity();
-    }
+    };
+  };
+
+  nextToRoad(cell: Case){
+    let xPosRef = cell.xPosition;
+    let yPosRef = cell.yPosition;
+
+    this.cases.forEach(element => {
+      if ((element.xPosition === xPosRef - 1 && element.yPosition === yPosRef - 1)
+      || element.xPosition === xPosRef - 1 
+      || (element.xPosition === xPosRef -1 && element.yPosition === yPosRef + 1) 
+      || (element.xPosition === xPosRef + 1 && element.yPosition === yPosRef - 1)
+      || element.xPosition === xPosRef + 1 
+      || (element.xPosition === xPosRef +1 && element.yPosition === yPosRef + 1)
+      || element.yPosition === yPosRef + 1
+      || element.yPosition === yPosRef + 1){
+
+        if (element.building.name === "Road"){
+          
+        }
+
+      }
+      
+    });
+
   };
 };

@@ -1,6 +1,7 @@
 
 <div (click)="onBuildMode_placement(displayCell)">  
     <img src="{{displayCell.building?.image}}" alt="">
+    {{displayCell.xPosition}}
 </div>
 <div *ngIf="settingMode" class="settingMenu">
     <app-set-case [displayCell]="displayCell" class="setCase"></app-set-case>
