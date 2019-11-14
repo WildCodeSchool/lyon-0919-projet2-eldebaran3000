@@ -151,15 +151,15 @@ getCapacity () {
       if (thisCase.building) {
         switch(thisCase.building.name){
           case 'Power Station':
-            energyProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
+            energyProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
             break;
           case 'Farm':
-            foodProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Food proportionnelle au nombre de Worker
-            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
+            foodProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Food proportionnelle au nombre de Worker
+            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Extractor':
-            ironProd += (thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Iron proportionnelle au nombre de Worker
-            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
+            ironProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Iron proportionnelle au nombre de Worker
+            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Dormitory':
             elecConsumption += thisCase.building.elecConsumption;
@@ -269,8 +269,18 @@ getCapacity () {
     this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
   };
 
-  upgradeBuiding() {
-
-  }
-
-}
+  upgradeBuiding(cell: Case) {
+    if (this.cases[this.cases.indexOf(cell)].building.upgradeCost <= this.iron){
+      this.iron -= this.cases[this.cases.indexOf(cell)].building.upgradeCost;
+      this.cases[this.cases.indexOf(cell)].building.level += 1;
+      this.cases[this.cases.indexOf(cell)].building.maxCapacity = Math.ceil(this.cases[this.cases.indexOf(cell)].building.maxCapacity * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.production = Math.ceil(this.cases[this.cases.indexOf(cell)].building.production * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.foodConsumption = Math.ceil(this.cases[this.cases.indexOf(cell)].building.foodConsumption * 110/100);
+      this.cases[this.cases.indexOf(cell)].building.elecConsumption = Math.ceil(this.cases[this.cases.indexOf(cell)].building.elecConsumption * 110/100);
+      this.cases[this.cases.indexOf(cell)].building.cost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.cost * 120/100);
+      this.cases[this.cases.indexOf(cell)].building.upgradeCost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.upgradeCost * 150/100);
+      this.getCapacity();
+      this.getProductionCapacity();
+    }
+  };
+};

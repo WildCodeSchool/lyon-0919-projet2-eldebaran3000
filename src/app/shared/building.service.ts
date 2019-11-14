@@ -11,6 +11,7 @@ export class BuildingService {
     clickFleche : boolean = true; 
     buildings: Building[] =
         [{
+            level : 1,
             name : 'Farm',
             maxCapacity : 1080,
             production : 108,
@@ -22,9 +23,11 @@ export class BuildingService {
             minWorker : 1,
             maxWorker : 36,
             image : "/assets/fermeHydro.png",
-            deleteIron: 10
+            deleteIron: 10,
+            upgradeCost : 54,
         },
         {
+            level : 1,
             name: 'Extractor',
             maxCapacity : 270,
             production: 108,
@@ -37,8 +40,10 @@ export class BuildingService {
             maxWorker: 36,
             image : "/assets/extracteurMinerai.png",
             deleteIron: 10,
+            upgradeCost : 54,
         },
         {
+            level : 1,
             name: 'Power Station',
             maxCapacity : 480,
             production: 144,
@@ -50,9 +55,11 @@ export class BuildingService {
             minWorker: 1,
             maxWorker: 48,
             image : "/assets/powerStation.png",
-            deleteIron: 15
+            deleteIron: 15,
+            upgradeCost : 72,
         },
         {
+            level : 1,
             name: 'Dormitory',
             maxCapacity : 76,
             production: undefined,
@@ -64,10 +71,12 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/dortoir.png",
-            deleteIron: 15
+            deleteIron: 15,
+            upgradeCost : 72,
         },
         {
             name: 'Vertical road',
+            level : 1,
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -78,10 +87,12 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/road.png",
-            deleteIron: 1
+            deleteIron: 1,
+            upgradeCost : 0,
         },
         {
             name: 'Crossroad',
+            level : 1,
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -92,10 +103,12 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/carrefour.png",
-            deleteIron: 1
+            deleteIron: 1,
+            upgradeCost : 0,
         },
         {
             name: 'Horizontal road',
+            level : 1,
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -107,7 +120,8 @@ export class BuildingService {
             maxWorker: undefined,
             image : "/assets/roadHorizontal.png",
             deleteIron: 1
-        }
+            upgradeCost : 0,
+         },
         ];
 
     constructor() { }
