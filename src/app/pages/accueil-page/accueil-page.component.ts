@@ -14,7 +14,7 @@ export class AccueilPageComponent implements OnInit {
   }
 
   play() {
-    this.timeSpeedService.setPause(false)
+    this.timeSpeedService.setPause(false);
   }
 
 

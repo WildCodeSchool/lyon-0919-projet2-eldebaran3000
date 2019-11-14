@@ -36,7 +36,7 @@ export class GamePageComponent implements OnInit {
   constructor(private service: GameService) { }
 
   ngOnInit() {
-  };
+  }; 
   
 
 

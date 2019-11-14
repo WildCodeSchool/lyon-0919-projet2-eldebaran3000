@@ -11,7 +11,7 @@ import { BuildingService } from 'src/app/shared/building.service';
     styleUrls: ['./building.component.scss']
 })
 export class BuildingComponent implements OnInit {
-    
+
     @Input() building: Building;
     @Output() buildingShowEvent = new EventEmitter<Building>();
 
@@ -19,7 +19,7 @@ export class BuildingComponent implements OnInit {
     unshowProperties: boolean= false;
 
 
-    constructor(private gameService : GameService, 
+    constructor(private gameService : GameService,
                 private buildingService : BuildingService) { }
 
     ngOnInit() {};
@@ -32,15 +32,15 @@ export class BuildingComponent implements OnInit {
         this.showProperties = false;
     };
 
-  
+
 /**
- * Construction des batiments (étape 1/4) 
- * Méthode appelée au clic dans le html du composant (clic sur un batiment du menu construction) : 
+ * Construction des batiments (étape 1/4)
+ * Méthode appelée au clic dans le html du composant (clic sur un batiment du menu construction) :
  * Stock le batiment cliqué (sous la forme d'un objet de type Building) dans le gameService (buildingToConstruct).
  * Referme le menu déroulant
  */
     onBuildMode_selection(building : Building) {
-        if (this.gameService.freeWorkers > 0) {    
+        if (this.gameService.freeWorkers > 0) {
             this.gameService.buildingToConstruct = {...building};
             this.buildingService.clickAppear();
         }
@@ -49,6 +49,6 @@ export class BuildingComponent implements OnInit {
     }
 /**
  * -----------------Étape 2 dans game.service.ts--------------------------------------------------------
- */ 
-  
+ */
+
 }
