@@ -75,8 +75,8 @@ export class BuildingService {
             upgradeCost : 72,
         },
         {
+            name: 'Vertical road',
             level : 1,
-            name: 'Road',
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -91,8 +91,8 @@ export class BuildingService {
             upgradeCost : 0,
         },
         {
+            name: 'Crossroad',
             level : 1,
-            name: 'Carrefour',
             maxCapacity : undefined,
             production: undefined,
             foodConsumption: undefined,
@@ -105,7 +105,23 @@ export class BuildingService {
             image : "/assets/carrefour.png",
             deleteIron: 1,
             upgradeCost : 0,
-        }
+        },
+        {
+            name: 'Horizontal road',
+            level : 1,
+            maxCapacity : undefined,
+            production: undefined,
+            foodConsumption: undefined,
+            elecConsumption: undefined,
+            cost: 5,
+            nextRoad: false,
+            nbWorkers : undefined,
+            minWorker: 0,
+            maxWorker: undefined,
+            image : "/assets/roadHorizontal.png",
+            deleteIron: 1
+            upgradeCost : 0,
+         },
         ];
 
     constructor() { }
