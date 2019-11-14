@@ -23,6 +23,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
 import { MenuProductionSpeedComponent } from './component/menu-production-speed/menu-production-speed.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { Defeat2Component } from './defeat2/defeat2.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     SetCaseComponent,
     TutorialComponent,
     MenuProductionSpeedComponent,
+    Defeat2Component,
   ],
   imports: [
     BrowserModule,
