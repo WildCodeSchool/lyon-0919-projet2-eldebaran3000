@@ -32,7 +32,8 @@ export class TimeSpeedService {
       if (!this.pause) {
         this.timer.day +=1;
         this.gameService.consumption();
-        if (this.timer.day === 31) {
+
+        if (this.timer.day === 31) {         //mensuel
           this.timer.month +=1;
           this.timer.day = 1;
           this.gameService.productionBar();
@@ -41,7 +42,7 @@ export class TimeSpeedService {
             this.shipPosition = 850;
           };
         };
-        if (this.timer.month === 13) {
+        if (this.timer.month === 13) {        //annuel
           this.timer.year += 1;
           this.timer.month = 1;
           this.travelValue += 1.67;
@@ -99,7 +100,7 @@ replay(){
   this.gameService.foodProd = 0;
   this.gameService.ironProd = 0;
   this.gameService.energy = 10;
-  this.gameService.food = 10;
+  this.gameService.food = 100;
   this.gameService.human = 10;
   this.gameService.iron = 100;
   this.timer = {

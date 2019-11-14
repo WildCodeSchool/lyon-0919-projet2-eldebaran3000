@@ -44,7 +44,6 @@ export class BuildingComponent implements OnInit {
             this.gameService.buildingToConstruct = {...building};
             this.buildingService.clickAppear();
         }
-        console.log(this.gameService.buildingToConstruct)
 
     }
 /**

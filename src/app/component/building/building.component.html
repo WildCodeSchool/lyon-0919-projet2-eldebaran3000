@@ -1,6 +1,10 @@
 
     <div class="mouseBuilding" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onBuildMode_selection(building)"> 
             <img src="{{ building.image }}" alt="">
+        <div class="buildingImage">
+            <img src="{{ building.imageOn }}" alt="">
+        </div>
+        <div class="buildingName">
             <h3> {{ building.name }}</h3>
     </div>
    
