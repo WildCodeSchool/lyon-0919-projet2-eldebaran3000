@@ -1,8 +1,8 @@
 
-<div (click)="onBuildMode_placement(displayCell)">  
-    <img src="{{displayCell.building?.image}}" alt="">
+<div class="image" (click)="onBuildMode_placement(displayCell)">  
+    <img src="{{displayCell.building?.image}}" alt=""[style.width]="'100%'">
 </div>
-<div *ngIf="settingMode" class="settingMenu">
+<div class="image" *ngIf="settingMode" class="settingMenu">
     <app-set-case [displayCell]="displayCell" class="setCase"></app-set-case>
 </div>
 

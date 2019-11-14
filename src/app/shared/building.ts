@@ -1,4 +1,5 @@
 export  class Building {
+    level: number;
     name: string;
     maxCapacity: number;
     production: number;
@@ -12,6 +13,7 @@ export  class Building {
     image: string;
     deleteIron: number;
     isActivate : boolean;
+    upgradeCost: number;
 
 
     constructor (name : string, cost : number, image:string, deleteIron: number) {
