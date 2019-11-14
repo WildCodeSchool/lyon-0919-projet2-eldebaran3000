@@ -109,6 +109,9 @@ replay(){
     year: 2800,
   };
   this.setPause(true)
+  this.gameService.cases = [];
+  this.gameService.caseBuilder();
+  this.shipPosition = 850;
 }
 
 
