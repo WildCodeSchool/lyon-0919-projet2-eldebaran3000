@@ -235,9 +235,15 @@ getCapacity () {
     this.router.navigate(["/defeat"]);
   };
 
+  youLooseFood() {
+    this.router.navigate(["/defeat2"]);
+  };
+
   youWin() {
     this.router.navigate(["/victory"]);
   };
+
+
 
 
   consumption() {
@@ -262,6 +268,9 @@ getCapacity () {
     if (this.human === 0) {
       this.youLoose();
     }
+    // if (this.food === 0) {
+    //   this.youLooseFood();
+    // }
   };
 
   getDeathRating() {
