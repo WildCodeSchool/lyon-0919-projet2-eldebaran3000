@@ -222,9 +222,15 @@ getCapacity () {
     this.router.navigate(["/defeat"]);
   };
 
+  youLooseFood() {
+    this.router.navigate(["/defeat2"]);
+  };
+
   youWin() {
     this.router.navigate(["/victory"]);
   };
+
+
 
 
   consumption() {
