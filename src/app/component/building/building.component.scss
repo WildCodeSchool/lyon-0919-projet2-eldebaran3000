@@ -1,47 +1,40 @@
 .build{
     color: #FFFF19;
-    display: flex;
-    flex-direction: column;
-    font-size: 1em;
-    text-shadow: 5px 5px black;
-    padding: 10%;
-}
-.mouseBuilding{
-    display: flex;
-    width: 200px;
-    height: 150px;
-}
-.buildingName{
-    margin-left: 20px;
-}
-.buildingImage{
-    margin-right: 20px;
-    height: 150px;
-}
-.infoMenu{
-    display: flex;
-    justify-content: center;
     background: black;
     border: solid white;
     border-radius: 30px;
     opacity: 0.8;
-    margin-left: 200px;
+    margin-left: 10%;
+    position: absolute;
+    top: 90px;
+    left: 105%;
+    list-style-type: none;
+    height: 90px;
+    width: 110%;
+    margin: 0px;
+    padding-top: 4px;
+    padding-left: 20px;
+
+}
+.mouseBuilding{
+    display: flex;  
+    justify-content: space-around;
+}
+li{
+    font-size: 0.8em;
+    width: 100%;
+    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0  black;
+}
+.buildingImage{
+    width: 2%
 }
 .info{   
     margin-left: 20px;
-    width: 400px;
-}
-    
+    width: 10%;
+} 
 h3{
     color: #FFFF19;
-    font-size: 1.5em;
     text-shadow: 5px 5px black;
-    
-}
-.container {
-    display: flex;
-    flex-direction: row;
-    width: 200px;
 }
 span{
     color: green;
@@ -50,4 +43,5 @@ span{
 }
 img{
     cursor: pointer;
+    width: 50px
 }

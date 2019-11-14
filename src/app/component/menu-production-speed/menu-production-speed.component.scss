@@ -1,20 +1,19 @@
 .menu{
     color: #FFFF19;
     font-family: eldebaran;
-    font-size: 2em;
     text-shadow: 5px 5px black;
-    width: 260px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 30px;
     flex-direction: column;
     background: black;
     border-radius: 20px;
     border: solid white;
     opacity: 0.8;
-    padding-top: 20px;
     margin-bottom: 4px;
+    padding-top: 2%;   
+    width: 205px;
+    margin-right: 38px;
 }
 
 .menuProd{
@@ -22,14 +21,14 @@
     background: black;
     border-radius: 30px;
     opacity: 0.8;
-    width: 260px;
+    width: 84%;
     border: solid white;
-    margin-right: 4px;
     display: flex;
     flex-direction: column;
 }
 
 ul{
-    margin-top: 20px;
-    list-style-type: none;
+        list-style-type: none;
+        padding-inline-start: 12px;
+
 }
