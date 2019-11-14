@@ -100,7 +100,7 @@ replay(){
   this.gameService.foodProd = 0;
   this.gameService.ironProd = 0;
   this.gameService.energy = 10;
-  this.gameService.food = 10;
+  this.gameService.food = 100;
   this.gameService.human = 10;
   this.gameService.iron = 100;
   this.timer = {

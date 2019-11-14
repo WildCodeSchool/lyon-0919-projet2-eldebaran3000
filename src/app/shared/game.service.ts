@@ -111,7 +111,7 @@ getCapacity () {
   let ironMax = 0;
   let humanMax = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building) {
+      if (thisCase.building && thisCase.building.isActivate === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyMax += thisCase.building.maxCapacity;
@@ -146,7 +146,7 @@ getCapacity () {
     let foodProd = 0;
     let ironProd = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building) {
+      if (thisCase.building && thisCase.building.isActivate === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
@@ -226,6 +226,8 @@ getCapacity () {
 
   consumption() {
     let elecConsumption = 0;
+    this.getProductionCapacity() 
+
 
     this.cases.forEach(thisCase => {
       if (thisCase.building && thisCase.building.isActivate === true) {
