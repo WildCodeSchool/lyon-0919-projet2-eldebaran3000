@@ -50,7 +50,7 @@ export class SetCaseComponent implements OnInit {
 
   destroyBuilding() {
     this.gameService.freeWorkers += this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)].building.nbWorkers 
-    this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)] = new Case (false,false)
+    this.gameService.cases[this.gameService.cases.indexOf(this.displayCell)] = new Case (false,false, this.displayCell.xPosition, this.displayCell.yPosition)
     this.gameService.getCapacity()
     if (this.gameService.freeWorkers > 0 ) {
       this.gameService.minWorkerColor = "green";
@@ -58,4 +58,5 @@ export class SetCaseComponent implements OnInit {
     };
     
   };
+
 }
