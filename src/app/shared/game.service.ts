@@ -23,10 +23,10 @@ export class GameService {
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
-  energy: number = 100;
+  energy: number = 10;
   food: number = 100;
   human: number = 10;
-  iron: number = 100;
+  iron: number = 150;
   foodConsumption : number;
   elecConsumption : number;
   popEarth : number = 1000;
@@ -68,10 +68,8 @@ export class GameService {
     return this.cases;
   }
 
-  
 
- 
-   
+
   /** Construction des batiments (étape 4/4) :
   *   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
   *   dans la cellule sélectionnée sur la grille.
@@ -105,14 +103,14 @@ export class GameService {
   /* ---------------------------------------FIN--------------------------------------------------- */
 
 //Stockage des capacités max qu'apporte chaque case en fonction du type de bâtiment
-
-  getCapacity () {
+// Méthode appelée à la création et à la destruction des batiments
+getCapacity () {
   let energyMax = 0;
   let foodMax = 0;
   let ironMax = 0;
   let humanMax = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building) {
+      if (thisCase.building && thisCase.building.isActivate === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyMax += thisCase.building.maxCapacity;
@@ -139,37 +137,31 @@ export class GameService {
     this.humanProgress = (this.human * 100) /this.humanMax;
   };
 
+
 //Récupération et stockage des productions de chaque case en fonction du type de bâtiment
 
   getProductionCapacity() {
     let energyProd = 0;
     let foodProd = 0;
     let ironProd = 0;
-    let elecConsumption = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building) {
+      if (thisCase.building && thisCase.building.isActivate === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
             break;
           case 'Farm':
             foodProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Food proportionnelle au nombre de Worker
-            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
             break;
           case 'Extractor':
             ironProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Production de Iron proportionnelle au nombre de Worker
-            elecConsumption += Math.ceil(thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
             break;
-          case 'Dormitory':
-            elecConsumption += thisCase.building.elecConsumption;
         };
       }; 
     });
     this.energyProd = energyProd;
     this.foodProd = foodProd;
     this.ironProd = ironProd;
-    this.elecConsumption = Math.ceil(elecConsumption/31);
-    this.foodConsumption = this.human * 2
   };
 
 
@@ -193,14 +185,6 @@ export class GameService {
       this.food = this.foodMax;
       this.foodProgress = (this.food * 100) /this.foodMax;
     }
-    if (this.food === 0) {
-      let monthlyDeath = Math.ceil((0.5 * this.human));
-      this.human -= monthlyDeath;
-      this.totalDeadPeople += monthlyDeath;
-      this.getDeathRating();
-      this.humanProgress = (this.human * 100) /this.humanMax;
-    }
-
     if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0) {
       this.iron += this.ironProd;
       this.ironProgress = (this.iron * 100) /this.ironMax;
@@ -223,7 +207,7 @@ export class GameService {
     else if (this.human <= this.humanMax) {         //Si les naissances dépassent la capacité d'hébergement mais qu'il reste de la place
       newBorn = this.humanMax - this.human          //Les naissances représentent l'espace disponible restant
       this.human = this.humanMax;                   //La population est mise au max
-      this.freeWorkers = newBorn;                  // Les nouveaux travailleurs dispo sont ajoutés
+      this.freeWorkers = newBorn;                   //Les nouveaux travailleurs dispo sont ajoutés
       this.humanProd = newBorn;
       this.getDeathRating();
       this.humanProgress = (this.human * 100) /this.humanMax;
@@ -240,11 +224,28 @@ export class GameService {
 
 
   consumption() {
-    this.getProductionCapacity();
+    let elecConsumption = 0;
+    this.getProductionCapacity() 
 
-    this.energy -= this.elecConsumption;
-    this.food -= this.foodConsumption;
 
+    this.cases.forEach(thisCase => {
+      if (thisCase.building && thisCase.building.isActivate === true) {
+        switch(thisCase.building.name){
+          case 'Farm':
+            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
+            break;
+          case 'Extractor':
+            elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker));// Consommation d'energy propotionnelle au nombre de Worker
+            break;
+          case 'Dormitory':
+            elecConsumption += thisCase.building.elecConsumption;
+            break;
+        };
+      }; 
+    });
+    this.foodConsumption = (this.human * 2)
+    this.elecConsumption = Math.ceil(elecConsumption/31);
+    
     if ((this.energy -= this.elecConsumption) < 0 ) {
       this.energy = 0;
       this.energyProgress = (this.energy * 100) /this.energyMax;
@@ -260,7 +261,20 @@ export class GameService {
     };
     if (this.human === 0) {
       this.youLoose();
-    };
+    }
+    if (this.food === 0) {                                        //Conséquence d'une insuffisance de food
+      let DailyDeath = Math.ceil((0.2 * this.human));
+      this.human -= DailyDeath;
+      this.totalDeadPeople += DailyDeath;
+      this.getDeathRating();
+      this.humanProgress = (this.human * 100) /this.humanMax;
+    }
+    if (this.energy === 0) {
+      this.disableBuilding();
+    }
+
+
+
   };
 
   getDeathRating() {
@@ -270,6 +284,20 @@ export class GameService {
       this.youLoose();
     };
   };
+
+
+  disableBuilding() {
+    let temporaryArray = [];
+    this.cases.forEach( cell => {
+      if (cell.building && cell.building.name != 'Dormitory' && cell.building.name != 'Road' && cell.building.name != 'Carrefour') {
+        temporaryArray.push(cell);
+      };
+    });
+    let randomIndex = Math.floor(Math.random() * (temporaryArray.length - 0));
+    this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivate = false;
+    console.log(this.cases[this.cases.indexOf(temporaryArray[randomIndex])])
+    console.log(randomIndex)
+  }
 
   upgradeBuiding(cell: Case) {
     if (this.cases[this.cases.indexOf(cell)].building.upgradeCost <= this.iron){
@@ -301,12 +329,9 @@ export class GameService {
       || element.yPosition === yPosRef + 1){
 
         if (element.building.name === "Road"){
-          
-        }
-
-      }
-      
+          cell.building.isActivate === true;
+        };
+      };
     });
-
   };
 };

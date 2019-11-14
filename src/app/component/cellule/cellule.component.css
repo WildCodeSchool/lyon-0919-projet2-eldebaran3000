@@ -1,9 +1,11 @@
-div{
-    height: 86px;
-    width: 86px;
+.image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
 }
 img{
-    cursor: pointer;
+    cursor: pointer;    
 }
 .settingMenu{
     position: relative;
@@ -22,4 +24,5 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
