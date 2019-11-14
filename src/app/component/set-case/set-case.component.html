@@ -1,14 +1,17 @@
-
+<div>level {{displayCell.building.level}}</div>
 <div>{{displayCell.building.name}}'s settings</div>
 <div class="caseMenu">
     <div>Actual production : {{ displayCell.building.production }}</div>
     <div>Maximum of worker : {{ displayCell.building.maxWorker }}</div>
     <div>Active workers : {{ displayCell.building.nbWorkers }}</div>
+    <div>Upgrade cost : {{ displayCell.building.upgradeCost }} </div>
 </div>
 <div class="button">
     <button (click)="addWorker()" class="plus">+</button>
     <button (click)="removeWorker()" class="less">-</button> 
     <button (click)="destroyBuilding()" class="delete">Destroy</button>
 </div>
-
+<div>
+    <button (click)="upgradeBuilding()" class="delete">Uprgrade</button>
+</div>
 
