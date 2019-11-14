@@ -22,7 +22,8 @@ export class BuildingService {
             minWorker : 1,
             maxWorker : 36,
             image : "/assets/fermeHydro.png",
-            deleteIron: 10
+            deleteIron: 10,
+            isActivate : true,
         },
         {
             name: 'Extractor',
@@ -37,6 +38,7 @@ export class BuildingService {
             maxWorker: 36,
             image : "/assets/extracteurMinerai.png",
             deleteIron: 10,
+            isActivate : true,
         },
         {
             name: 'Power Station',
@@ -50,7 +52,8 @@ export class BuildingService {
             minWorker: 1,
             maxWorker: 48,
             image : "/assets/powerStation.png",
-            deleteIron: 15
+            deleteIron: 15,
+            isActivate : true,
         },
         {
             name: 'Dormitory',
@@ -64,7 +67,8 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/dortoir.png",
-            deleteIron: 15
+            deleteIron: 15,
+            isActivate : true,
         },
         {
             name: 'Road',
@@ -78,7 +82,8 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/road.png",
-            deleteIron: 1
+            deleteIron: 1,
+            isActivate : true,
         },
         {
             name: 'Carrefour',
@@ -92,7 +97,8 @@ export class BuildingService {
             minWorker: 0,
             maxWorker: undefined,
             image : "/assets/carrefour.png",
-            deleteIron: 1
+            deleteIron: 1,
+            isActivate : true,
         }
         ];
 

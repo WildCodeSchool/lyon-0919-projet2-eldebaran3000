@@ -11,6 +11,7 @@ export  class Building {
     maxWorker: number;
     image: string;
     deleteIron: number;
+    isActivate : boolean;
 
 
     constructor (name : string, cost : number, image:string, deleteIron: number) {
