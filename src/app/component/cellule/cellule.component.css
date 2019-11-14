@@ -1,9 +1,13 @@
-div{
-    height: 86px;
-    width: 86px;
+.image{
+    width: auto;
+    height: 71.25px;
+    
 }
+
 img{
     cursor: pointer;
+    width: 100%;
+    
 }
 .settingMenu{
     position: relative;
@@ -22,4 +26,5 @@ img{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
