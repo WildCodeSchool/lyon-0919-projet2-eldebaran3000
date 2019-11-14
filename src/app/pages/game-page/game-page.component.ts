@@ -28,7 +28,7 @@ export class GamePageComponent implements OnInit {
 
   ngOnInit() {
   };
-
+  
 
 
 }

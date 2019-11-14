@@ -77,7 +77,9 @@ export class TimeSpeedService {
     this.gameService.human += 200;
     this.gameService.freeWorkers += 200;
     this.gameService.popEarth -= 200;
+    this.gameService.capacityDead();
     }
+    
   }
 
 

@@ -49,6 +49,7 @@ export class SetCaseComponent implements OnInit {
     this.gameService.getCapacity()
     if (this.gameService.freeWorkers > 0 ) {
       this.gameService.minWorkerColor = "green";
+    this.gameService.iron = this.gameService.iron + this.displayCell.building.deleteIron;
     }
   }
 }

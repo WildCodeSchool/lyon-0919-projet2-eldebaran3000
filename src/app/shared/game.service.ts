@@ -10,6 +10,7 @@ export class GameService {
   /* Menu constructor changing colors */
   ironCostColor : string = "green"
   minWorkerColor: string = "green"
+  
 
  
 
@@ -30,6 +31,7 @@ export class GameService {
   foodConsumption : number;
   elecConsumption : number;
   popEarth : number = 1000;
+  
 
   //Stockbar
   energyProgress: number;
@@ -39,7 +41,8 @@ export class GameService {
   // Nombre de travailleurs Disponibles
   freeWorkers : number = this.human;
 
-
+  // décès navette
+  dead: number = 0
   /** Construction des batiments (étape 2/4) :
   *   Initialisation d'un objet temporaire contenant le batiment à construire.
   */
@@ -189,7 +192,6 @@ getCapacity () {
       this.human -= monthlyDeath;
       this.totalDeadPeople += monthlyDeath;
     }
-
     if (this.iron <= (this.ironMax - this.ironProd) && this.iron >= 0) {
       this.iron += this.ironProd;
       this.ironProgress = (this.iron * 100) /this.ironMax;
@@ -244,9 +246,18 @@ getCapacity () {
     if (this.human === 0) {
       this.youLoose()
     }
-
   };
 
+
+  capacityDead(){
+    console.log(this.human)
+    console.log(this.humanMax)
+    if (this.humanMax < this.human) {
+      this.dead = (this.humanMax - this.human);
+      console.log(this.dead)
+    };
+    
+  }
   
 
 }
