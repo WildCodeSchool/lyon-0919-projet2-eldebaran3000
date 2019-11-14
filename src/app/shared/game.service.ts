@@ -327,11 +327,21 @@ getCapacity () {
       || (element.xPosition === xPosRef +1 && element.yPosition === yPosRef + 1)
       || element.yPosition === yPosRef + 1
       || element.yPosition === yPosRef + 1){
-
-        if (element.building.name === "Road"){
-          cell.building.isActivate === true;
-        };
+          cell.building.isActivate = true;
       };
     });
   };
+
+  mappingRoad(){
+
+    this.cases.forEach(element => {
+      if(element.building.name != "Road" 
+      && element.building.name != "Crossroad" 
+      && element.building.name != "Horizontal road" 
+      && element.building != undefined) {
+        this.nextToRoad(element)  
+      }
+    });
+  }
+
 };
