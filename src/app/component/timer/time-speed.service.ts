@@ -32,7 +32,7 @@ export class TimeSpeedService {
       if (!this.pause) {
         this.timer.day +=1;
         this.gameService.consumption();
-
+        this.gameService.mappingRoad();
         if (this.timer.day === 31) {         //mensuel
           this.timer.month +=1;
           this.timer.day = 1;

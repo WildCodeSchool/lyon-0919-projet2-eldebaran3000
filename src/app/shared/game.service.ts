@@ -62,10 +62,9 @@ export class GameService {
 
   /** Création de la grille  */
   caseBuilder(){
-    for(let l = 1 ; l <= 20 ; l++){
-      for(let c = 1 ; c <= 20 ; c++){
-        let index = (l * c) - 1;
-        let casou = new Case (false, false);
+    for(let l = 1 ; l <= 21 ; l++){
+      for(let c = 1 ; c <= 21 ; c++){
+        let casou = new Case (false, false, c, l);
         this.cases.push(casou);
       };
     };
@@ -300,7 +299,10 @@ getCapacity () {
   
   getDeathRating() {
     this.popTotal = this.human + this.totalDeadPeople;
-    this.deathRating = Math.floor((this.totalDeadPeople * 100)/(this.popTotal));
+    this.deathRating = Math.floor((this.totalDeadPeople*100)/(this.popTotal));
+    if (this.deathRating >= (20/100)) {
+      this.youLoose();
+    };
   };
 
 
@@ -329,6 +331,37 @@ getCapacity () {
       this.cases[this.cases.indexOf(cell)].building.upgradeCost = Math.ceil(this.cases[this.cases.indexOf(cell)].building.upgradeCost * 150/100);
       this.getCapacity();
       this.getProductionCapacity();
-    }
+    };
   };
+
+  nextToRoad(cell: Case){
+    let xPosRef = cell.xPosition;
+    let yPosRef = cell.yPosition;
+
+    this.cases.forEach(element => {
+      if ((element.xPosition === xPosRef - 1 && element.yPosition === yPosRef - 1)
+      || element.xPosition === xPosRef - 1 
+      || (element.xPosition === xPosRef -1 && element.yPosition === yPosRef + 1) 
+      || (element.xPosition === xPosRef + 1 && element.yPosition === yPosRef - 1)
+      || element.xPosition === xPosRef + 1 
+      || (element.xPosition === xPosRef +1 && element.yPosition === yPosRef + 1)
+      || element.yPosition === yPosRef + 1
+      || element.yPosition === yPosRef + 1){
+          cell.building.isActivate = true;
+      };
+    });
+  };
+
+  mappingRoad(){
+
+    this.cases.forEach(element => {
+      if(element.building.name != "Road" 
+      && element.building.name != "Crossroad" 
+      && element.building.name != "Horizontal road" 
+      && element.building != undefined) {
+        this.nextToRoad(element)  
+      }
+    });
+  }
+
 };
