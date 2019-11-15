@@ -2,36 +2,34 @@
     color: #FFFF19;
     background: black;
     border: solid white;
-    border-radius: 30px;
+    border-radius: 10px;
     opacity: 0.8;
-    margin-left: 10%;
     position: absolute;
-    top: 90px;
     left: 105%;
     list-style-type: none;
-    height: 90px;
     width: 110%;
-    margin: 0px;
-    padding-top: 4px;
-    padding-left: 20px;
+    margin-bottom: 20px;
+    padding-top: 2%;
+    padding-left: 8%;
+    margin-top: 0px;
+    // top: 70px;
+    
 
 }
 .mouseBuilding{
     display: flex;  
     justify-content: space-around;
+    border-bottom: solid white 1px;
+    width: 105%;
+    padding-top: 4%;
+    
 }
 li{
-    font-size: 0.8em;
+    font-size: 1em;
     width: 100%;
-    text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0  black;
+    
 }
-.buildingImage{
-    width: 2%
-}
-.info{   
-    margin-left: 20px;
-    width: 10%;
-} 
+
 h3{
     color: #FFFF19;
     text-shadow: 5px 5px black;
