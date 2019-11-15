@@ -10,8 +10,17 @@ export class AccueilPageComponent implements OnInit {
 
   constructor(private timeSpeedService : TimeSpeedService) { }
 
-  ngOnInit() {
+  ngOnInit() {this.song()
   }
+
+
+  song(){
+    let song = '/assets/IntroEldebaran.mp3'
+    let audio = new Audio (song)
+    audio.play()
+  }
+
+
 
   play() {
     this.timeSpeedService.setPause(false);

@@ -22,7 +22,7 @@ export class GameService {
   foodProd: number = 0;
   ironProd: number = 0;
   energy: number = 10;
-  food: number = 100;
+  food: number = 1000;
   human: number = 10;
   iron: number = 150;
   foodConsumption : number;
