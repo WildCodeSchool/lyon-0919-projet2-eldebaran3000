@@ -100,8 +100,9 @@ export class BuildingService {
             isActivate  :  false,
             upgradeCost : 0,
         },
+        
         {
-            name: 'Crossroad',
+            name: 'Horizontal road',
             level : 1,
             maxCapacity : undefined,
             production: undefined,
@@ -117,9 +118,9 @@ export class BuildingService {
             deleteIron: 1,
             isActivate  :  false,
             upgradeCost : 0,
-        },
-        {
-            name: 'Horizontal road',
+         },
+         {
+            name: 'Crossroad',
             level : 1,
             maxCapacity : undefined,
             production: undefined,
@@ -135,7 +136,7 @@ export class BuildingService {
             deleteIron: 1,
             isActivate :  false,
             upgradeCost : 0,
-         },
+        },
         ];
 
     constructor() { }

@@ -4,7 +4,7 @@
     text-shadow: 5px 5px black;
     cursor: pointer;
     border: solid white;
-    border-radius: 30px;
+    border-radius: 10px;
     background: black;
     opacity: 0.8;
     text-align: center;
@@ -14,12 +14,16 @@
 }
 .menuConstruct{
     background: black;
-    border-radius: 30px;
+    border-radius: 10px;
     opacity: 0.8;
     border: solid white;
     margin-left: 2%;
     margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 205px;
 }
 app-building{
     width: 95%; 
 }
+

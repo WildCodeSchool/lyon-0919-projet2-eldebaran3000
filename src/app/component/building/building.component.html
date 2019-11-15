@@ -5,7 +5,7 @@
         </div>
         <div class="buildingName">
             <h3> {{ building.name }}</h3>
-    </div>
+        </div>
    
         <ul class="build" *ngIf="showProperties">
             <li>Construction cost : <span [style.color]="gameService.ironCostColor">{{ building.cost }} iron</span> </li>
@@ -16,4 +16,4 @@
             <li  *ngIf="building.minWorker">Minimum of workers : <span [style.color]="gameService.minWorkerColor"> {{ building.minWorker }} </span> </li>
         </ul>
    
-
+    

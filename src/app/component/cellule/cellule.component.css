@@ -10,9 +10,10 @@ img{
 .settingMenu{
     position: absolute;
     z-index: 1;
-    border-radius: 40px;
-    border: thick double;
-    background-color: #070D34;
+    border-radius: 10px;
+    border: solid white;
+    background-color:
+    black;
     color: #FFFF19;
     width: 200px;
     height: 140px;
@@ -20,6 +21,7 @@ img{
     display: flex;
     align-items: center;
     left: 120%;
+    opacity: 0.8;
 }
 .setCase{
     display: flex;

@@ -2,11 +2,13 @@
     margin-left: 6px;
 }
 .button{
-		margin-top: 8px;
+	margin-top: 8px;
+	margin-left: 10px;
+	
 }
-.plus, .less, .delete{
-	border-radius:12px 0 12px 0;
+.plus, .less, .delete, .upgrade{
 	border:none;
-	box-shadow:1px 1px 3px red;
 	cursor: pointer;
+	border-radius: 3px;
+	margin-right: 4px;
 }
