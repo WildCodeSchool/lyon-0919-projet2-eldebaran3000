@@ -10,7 +10,6 @@
     <button (click)="addWorker()" class="plus">+</button>
     <button (click)="removeWorker()" class="less">-</button> 
     <button (click)="destroyBuilding()" class="delete">Destroy</button>
-    <button (click)="upgradeBuilding()" class="upgrade">Uprgrade</button>
+    <button *ngIf="displayCell.building.isRoad === false" (click)="upgradeBuilding()" class="upgrade">Uprgrade</button>
 </div>
-
 

@@ -18,12 +18,7 @@ export class GridComponent implements OnInit {
     this.caseBuilder()
   }
 
-
-  // 
   caseBuilder(){
   this.cases = this.gameService.caseBuilder();
   }
-
-
-
 }

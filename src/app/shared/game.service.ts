@@ -11,9 +11,6 @@ export class GameService {
   ironCostColor : string = "green"
   minWorkerColor: string = "green"
   
-
- 
-
 /*  initialisation du tableau contenant les objets disposés sur la grille (1 casou = 1cellule) */
   cases : Case[] = [];
   energyMax: number = 0;
@@ -32,8 +29,6 @@ export class GameService {
   elecConsumption : number;
   popEarth : number = 1000;
   
-
-
   //Stockbar
   energyProgress: number = (this.energy * 100) /this.energyMax ;
   foodProgress: number = (this.food * 100) /this.foodMax;
@@ -62,16 +57,14 @@ export class GameService {
 
   /** Création de la grille  */
   caseBuilder(){
-    for(let l = 1 ; l <= 21 ; l++){
-      for(let c = 1 ; c <= 21 ; c++){
+    for(let l = 1 ; l <= 20 ; l++){
+      for(let c = 1 ; c <= 20 ; c++){
         let casou = new Case (false, false, c, l);
         this.cases.push(casou);
       };
     };
     return this.cases;
   }
-
-
 
   /** Construction des batiments (étape 4/4) :
   *   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"
@@ -82,6 +75,7 @@ export class GameService {
   *   On indique que la case est occupée par un batiment avec ke booléen isOccuped
   *   On réinitialise la variable buildingToConstruct pour empecher de poser plusieurs batiments d'affilé
   */
+
   onBuildMode_Build(cell: Case) {
     if (this.buildingToConstruct.cost > this.iron){
       this.ironCostColor = "red";
@@ -99,9 +93,7 @@ export class GameService {
       this.buildingToConstruct = undefined;
       this.getCapacity()
       this.getProductionCapacity()
-    } 
-
-    
+    }     
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
 
@@ -139,7 +131,6 @@ getCapacity () {
     this.ironProgress = (this.iron * 100) /this.ironMax;
     this.humanProgress = (this.human * 100) /this.humanMax;
   };
-
 
 //Récupération et stockage des productions de chaque case en fonction du type de bâtiment
 
@@ -229,9 +220,6 @@ getCapacity () {
     this.router.navigate(["/victory"]);
   };
 
-
-
-
   consumption() {
     let elecConsumption = 0;
     this.getProductionCapacity() 
@@ -281,11 +269,7 @@ getCapacity () {
     if (this.energy === 0) {
       this.disableBuilding();
     }
-
-
-
   };
-
 
   capacityDead(){
     console.log(this.human)
@@ -294,8 +278,7 @@ getCapacity () {
       this.dead = (this.humanMax - this.human);
       console.log(this.dead)
     };
-    
-  }
+  };
   
   getDeathRating() {
     this.popTotal = this.human + this.totalDeadPeople;
@@ -304,7 +287,6 @@ getCapacity () {
       this.youLoose();
     };
   };
-
 
   disableBuilding() {
     let temporaryArray = [];
@@ -315,9 +297,7 @@ getCapacity () {
     });
     let randomIndex = Math.floor(Math.random() * (temporaryArray.length - 0));
     this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivate = false;
-    console.log(this.cases[this.cases.indexOf(temporaryArray[randomIndex])])
-    console.log(randomIndex)
-  }
+  };
 
   upgradeBuiding(cell: Case) {
     if (this.cases[this.cases.indexOf(cell)].building.upgradeCost <= this.iron){
@@ -338,30 +318,58 @@ getCapacity () {
     let xPosRef = cell.xPosition;
     let yPosRef = cell.yPosition;
 
-    this.cases.forEach(element => {
-      if ((element.xPosition === xPosRef - 1 && element.yPosition === yPosRef - 1)
-      || element.xPosition === xPosRef - 1 
-      || (element.xPosition === xPosRef -1 && element.yPosition === yPosRef + 1) 
-      || (element.xPosition === xPosRef + 1 && element.yPosition === yPosRef - 1)
-      || element.xPosition === xPosRef + 1 
-      || (element.xPosition === xPosRef +1 && element.yPosition === yPosRef + 1)
-      || element.yPosition === yPosRef + 1
-      || element.yPosition === yPosRef + 1){
-          cell.building.isActivate = true;
+    if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building){
+      if(this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building.isRoad === true) {
+        cell.building.isActivate = true;
       };
-    });
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef).building){
+      if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef).building.isRoad === true){
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef + 1).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef + 1).building.isRoad === true){
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef - 1).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef - 1).building.isRoad === true) {
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef + 1).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef + 1).building.isRoad === true) {
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef - 1).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef - 1).building.isRoad === true) {
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef).building.isRoad === true) {
+        cell.building.isActivate = true;
+      };
+    };
+    if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef +1).building) {
+      if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef +1).building.isRoad === true) {
+        cell.building.isActivate = true;
+      };
+    };
   };
 
   mappingRoad(){
 
     this.cases.forEach(element => {
-      if(element.building.name != "Road" 
-      && element.building.name != "Crossroad" 
-      && element.building.name != "Horizontal road" 
-      && element.building != undefined) {
+      if(element.building
+      && element.building.name != 'Vertical road' 
+      && element.building.name != 'Crossroad'
+      && element.building.name != 'Horizontal road') {
         this.nextToRoad(element)  
-      }
+      };
     });
-  }
+  };
 
 };
