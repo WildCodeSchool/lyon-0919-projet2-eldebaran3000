@@ -34,13 +34,13 @@ export class TimeSpeedService {
         this.gameService.consumption();
         this.gameService.mappingRoad();
         if (this.timer.day === 31) {         //mensuel
-          this.timer.month +=1;
-          this.timer.day = 1;
-          this.gameService.productionBar();
           this.shipPosition -= 6.75;
           if (this.shipPosition <= 40) {
             this.shipPosition = 850;
           };
+          this.timer.month +=1;
+          this.timer.day = 1;
+          this.gameService.productionBar();
         };
         if (this.timer.month === 13) {        //annuel
           this.timer.year += 1;

@@ -12,6 +12,6 @@
     <button (click)="destroyBuilding()" class="delete">Destroy</button>
 </div>
 <div>
-    <button (click)="upgradeBuilding()" class="delete">Uprgrade</button>
+    <button *ngIf="displayCell.building.isRoad === false" (click)="upgradeBuilding()" class="delete">Uprgrade</button>
 </div>
 

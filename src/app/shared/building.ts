@@ -6,7 +6,7 @@ export  class Building {
     foodConsumption: number;
     elecConsumption: number;
     cost:number;
-    nextRoad: boolean;
+    isRoad: boolean;
     nbWorkers: number;
     minWorker: number;
     maxWorker: number;

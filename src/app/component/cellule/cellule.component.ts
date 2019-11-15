@@ -35,7 +35,6 @@ export class CelluleComponent implements OnInit {
     else if (this.gameService.buildingToConstruct && this.gameService.cases[this.gameService.cases.indexOf(cell)].isOccuped === false){
       this.gameService.onBuildMode_Build(cell)
     }
-    console.log(cell)
   }
   /* ----------------étape 4 dans game.service.ts--------------------------------------- */
 
