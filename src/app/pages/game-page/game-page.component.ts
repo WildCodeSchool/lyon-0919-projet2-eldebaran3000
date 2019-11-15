@@ -14,7 +14,7 @@ export class GamePageComponent implements OnInit {
   };
 
   @HostListener('window:keydown.e') cheatEnergy(){
-    this.service.energy += 100;
+    this.service.energy += 10;
     this.service.energyProgress = (this.service.energy * 100) /this.service.energyMax;
   };
 
@@ -38,6 +38,5 @@ export class GamePageComponent implements OnInit {
   ngOnInit() {
   }; 
   
-
 
 }
