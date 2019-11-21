@@ -32,7 +32,6 @@ export class TimeSpeedService {
       if (!this.pause) {
         this.timer.day +=1;
         this.gameService.consumption();
-        this.gameService.mappingRoad();
         if (this.timer.day === 31) {
           this.shipPosition -= 6.75;
           if (this.shipPosition <= 40) {

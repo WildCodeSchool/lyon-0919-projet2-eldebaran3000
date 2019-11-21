@@ -93,6 +93,7 @@ export class GameService {
       this.buildingToConstruct = undefined;
       this.getCapacity()
       this.getProductionCapacity()
+      this.mappingRoad();
     }     
   }
   /* ---------------------------------------FIN--------------------------------------------------- */
@@ -105,7 +106,6 @@ getCapacity () {
   let ironMax = 0;
   let humanMax = 0;
     this.cases.forEach(thisCase => {
-      console.log(this.cases)
       if (thisCase.building && thisCase.building.isActivateByRoad === true && thisCase.building.isActivateByEnergy === true) {
         switch(thisCase.building.name){
           case 'Power Station':
@@ -225,7 +225,6 @@ getCapacity () {
     let elecConsumption = 0;
     this.getProductionCapacity() 
 
-
     this.cases.forEach(thisCase => {
       if (thisCase.building && thisCase.building.isActivateByRoad === true && thisCase.building.isActivateByEnergy === true) {
         switch(thisCase.building.name){
@@ -249,10 +248,13 @@ getCapacity () {
       this.energyProgress = (this.energy * 100) /this.energyMax;
     } else {
       this.energyProgress = (this.energy * 100) /this.energyMax;
-    } ;
+    };
     if (this.energy === 0) {
       this.disableBuilding();
-    }
+    };
+    if (this.energy > 0) {
+      this.enableBuilding()
+    };
 
     if ((this.food -= this.foodConsumption) < 0 ) {
       this.food = 0;
@@ -262,7 +264,7 @@ getCapacity () {
     };
     if (this.human === 0) {                                       //Conséquence si nb Himain = 0
       this.youLoose();
-    }
+    };
     if (this.food === 0) {                                        //Conséquence d'une insuffisance de food
       let DailyDeath = Math.ceil((0.2 * this.human));
       this.human -= DailyDeath;
@@ -295,13 +297,32 @@ getCapacity () {
   disableBuilding() {
     let temporaryArray = [];
     this.cases.forEach( cell => {
-      if (cell.building && cell.building.name != 'Dormitory' && cell.building.name != 'Road' && cell.building.name != 'Carrefour') {
+      if (cell.building && cell.building.name != 'Dormitory' && cell.building.name != 'Horizontal road' && cell.building.name != 'Vertical road' && cell.building.name != 'Carrefour' && cell.building.isActivateByEnergy === true) {
         temporaryArray.push(cell);
       };
     });
-    let randomIndex = Math.floor(Math.random() * (temporaryArray.length - 0));
-    this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivateByEnergy = false;
+    if (temporaryArray && temporaryArray.length) {
+      console.log(temporaryArray)
+      let randomIndex = Math.floor(Math.random() * (temporaryArray.length));
+      console.log(randomIndex)
+      this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivateByEnergy = false;
+    };
+    this.getCapacity();
   };
+
+  enableBuilding () {
+    let temporaryArray = [];
+    this.cases.forEach( cell => {
+      if (cell.building != undefined && cell.building.name != 'Dormitory' && cell.building.name != 'Horizontal road' && cell.building.name != 'Vertical road' && cell.building.name != 'Carrefour' && cell.building.isActivateByEnergy === false) {
+        temporaryArray.push(cell);
+      };
+    });
+    if (temporaryArray && temporaryArray.length) {
+      let randomIndex = Math.floor(Math.random() * (temporaryArray.length));
+      this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivateByEnergy = true;
+    }
+    this.getCapacity();
+  }
 
 
   // upgrade des batiments
@@ -328,7 +349,7 @@ getCapacity () {
 
     if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building){
       if(this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building.isRoad === true) {
-        cell.building.isActivateByRoad= true;
+        cell.building.isActivateByRoad = true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef).building){

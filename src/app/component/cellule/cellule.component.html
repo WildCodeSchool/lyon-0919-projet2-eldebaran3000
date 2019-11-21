@@ -1,7 +1,7 @@
 
 <div class="image" (click)="onBuildMode_placement(displayCell)">  
-    <img *ngIf="displayCell.building?.isActivate" src="{{displayCell.building?.imageOn}}" alt=""[style.width]="'100%'">
-    <img *ngIf="!displayCell.building?.isActivate" src="{{displayCell.building?.imageOff}}" alt=""[style.width]="'100%'">
+    <img *ngIf="displayCell.building?.isActivateByRoad && displayCell.building?.isActivateByEnergy" src="{{displayCell.building?.imageOn}}" alt=""[style.width]="'100%'">
+    <img *ngIf="!displayCell.building?.isActivateByRoad || !displayCell.building?.isActivateByEnergy" src="{{displayCell.building?.imageOff}}" alt=""[style.width]="'100%'">
 </div>
 <div class="image" *ngIf="settingMode" class="settingMenu">
     <app-set-case [displayCell]="displayCell" class="setCase"></app-set-case>
