@@ -25,7 +25,8 @@ export class BuildingService {
             imageOn : "/assets/fermeHydro.png",
             imageOff : "/assets/fermeHydroOff.png",
             deleteIron: 10,
-            isActivate  :  false,
+            isActivateByRoad  :  false,
+            isActivateByEnergy : true,
             upgradeCost : 54,
         },
         {
@@ -43,7 +44,8 @@ export class BuildingService {
             imageOn : "/assets/extracteurMinerai.png",
             imageOff : "/assets/extracteurMineraiOff.png",
             deleteIron: 10,
-            isActivate  :  false,
+            isActivateByRoad  :  false,
+            isActivateByEnergy : true,
             upgradeCost : 54,
         },
         {
@@ -61,7 +63,8 @@ export class BuildingService {
             imageOn : "/assets/powerStation.png",
             imageOff : "/assets/powerStationOff.png",
             deleteIron: 15,
-            isActivate  : false,
+            isActivateByRoad  : false,
+            isActivateByEnergy : true,
             upgradeCost : 72,
         },
         {
@@ -79,7 +82,8 @@ export class BuildingService {
             imageOn : "/assets/dortoir.png",
             imageOff : "/assets/dortoir.png",
             deleteIron: 15,
-            isActivate  :  true,
+            isActivateByRoad  :  true,
+            isActivateByEnergy : true,
             upgradeCost : 72,
         },
         {
@@ -97,7 +101,8 @@ export class BuildingService {
             imageOn : "/assets/road.png",
             imageOff :"/assets/road.png",
             deleteIron: 1,
-            isActivate  :  false,
+            isActivateByRoad : false,
+            isActivateByEnergy : true,
             upgradeCost : 0,
         },
         
@@ -116,7 +121,8 @@ export class BuildingService {
             imageOn : "/assets/carrefour.png",
             imageOff :"/assets/carrefour.png",
             deleteIron: 1,
-            isActivate  :  false,
+            isActivateByRoad  :  false,
+            isActivateByEnergy : true,
             upgradeCost : 0,
          },
          {
@@ -134,7 +140,8 @@ export class BuildingService {
             imageOn : "/assets/roadHorizontal.png",
             imageOff :"/assets/roadHorizontal.png",
             deleteIron: 1,
-            isActivate :  false,
+            isActivateByRoad :  false,
+            isActivateByEnergy : true,
             upgradeCost : 0,
         },
         ];

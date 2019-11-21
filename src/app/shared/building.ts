@@ -13,7 +13,8 @@ export  class Building {
     imageOn: string;
     imageOff: string;
     deleteIron: number;
-    isActivate: boolean;
+    isActivateByRoad: boolean;
+    isActivateByEnergy: boolean;
     upgradeCost: number;
 
 
