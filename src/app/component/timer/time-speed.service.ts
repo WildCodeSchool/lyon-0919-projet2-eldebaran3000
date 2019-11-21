@@ -90,7 +90,6 @@ export class TimeSpeedService {
 que ce soit les bars ou les données en dessous.*/
 
 replay(){
-  this.router.navigate([""])
   this.gameService.energyMax = 0;
   this.gameService.foodMax = 0;
   this.gameService.ironMax= 0;
@@ -99,10 +98,10 @@ replay(){
   this.gameService.energyProd = 0;
   this.gameService.foodProd = 0;
   this.gameService.ironProd = 0;
-  this.gameService.energy = 10;
-  this.gameService.food = 100;
+  this.gameService.energy = 1500;
+  this.gameService.food = 10000;
   this.gameService.human = 10;
-  this.gameService.iron = 100;
+  this.gameService.iron = 1500;
   this.timer = {
     day: 1,
     month: 1,
@@ -112,6 +111,7 @@ replay(){
   this.gameService.cases = [];
   this.gameService.caseBuilder();
   this.shipPosition = 850;
+  this.router.navigate([""])
 }
 
 

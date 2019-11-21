@@ -21,13 +21,13 @@ export class GameService {
   energyProd: number = 0;
   foodProd: number = 0;
   ironProd: number = 0;
-  energy: number = 10;
-  food: number = 1000;
+  energy: number = 1500;
+  food: number = 10000;
   human: number = 10;
-  iron: number = 150;
+  iron: number = 1500;
   foodConsumption : number;
   elecConsumption : number;
-  popEarth : number = 1000;
+  popEarth : number = 400;
   
   //Stockbar
   energyProgress: number = (this.energy * 100) /this.energyMax ;
@@ -240,7 +240,7 @@ getCapacity () {
         };
       }; 
     });
-    this.foodConsumption = (this.human * 2)
+    this.foodConsumption = (this.human * 1)
     this.elecConsumption = Math.ceil(elecConsumption/31);
     
     if ((this.energy -= this.elecConsumption) < 0 ) {
