@@ -74,7 +74,7 @@ export class TimeSpeedService {
 
 
   getNavettePop() {
-    if ((this.timer.year - 2800) % 10 === 0 ) {
+    if ((this.timer.year - 2800) % 1 === 0 ) {
       this.gameService.human += 200;
       this.gameService.freeWorkers += 200;
       this.gameService.popEarth -= 200;
