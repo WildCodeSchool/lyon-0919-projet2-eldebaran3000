@@ -105,7 +105,8 @@ getCapacity () {
   let ironMax = 0;
   let humanMax = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building && thisCase.building.isActivate === true) {
+      console.log(this.cases)
+      if (thisCase.building && thisCase.building.isActivateByRoad === true && thisCase.building.isActivateByEnergy === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyMax += thisCase.building.maxCapacity;
@@ -139,7 +140,7 @@ getCapacity () {
     let foodProd = 0;
     let ironProd = 0;
     this.cases.forEach(thisCase => {
-      if (thisCase.building && thisCase.building.isActivate === true) {
+      if (thisCase.building && thisCase.building.isActivateByRoad === true && thisCase.building.isActivateByEnergy === true) {
         switch(thisCase.building.name){
           case 'Power Station':
             energyProd += Math.ceil(thisCase.building.production * (thisCase.building.nbWorkers/thisCase.building.maxWorker));  // Production d'energy proportionnelle au nombre de Worker
@@ -226,7 +227,7 @@ getCapacity () {
 
 
     this.cases.forEach(thisCase => {
-      if (thisCase.building && thisCase.building.isActivate === true) {
+      if (thisCase.building && thisCase.building.isActivateByRoad === true && thisCase.building.isActivateByEnergy === true) {
         switch(thisCase.building.name){
           case 'Farm':
             elecConsumption += (thisCase.building.elecConsumption * (thisCase.building.nbWorkers/thisCase.building.maxWorker)); // Consommation d'energy propotionnelle au nombre de Worker
@@ -249,6 +250,9 @@ getCapacity () {
     } else {
       this.energyProgress = (this.energy * 100) /this.energyMax;
     } ;
+    if (this.energy === 0) {
+      this.disableBuilding();
+    }
 
     if ((this.food -= this.foodConsumption) < 0 ) {
       this.food = 0;
@@ -256,7 +260,7 @@ getCapacity () {
     } else {
       this.foodProgress = (this.food * 100) /this.foodMax;
     };
-    if (this.human === 0) {
+    if (this.human === 0) {                                       //Conséquence si nb Himain = 0
       this.youLoose();
     }
     if (this.food === 0) {                                        //Conséquence d'une insuffisance de food
@@ -265,9 +269,6 @@ getCapacity () {
       this.totalDeadPeople += DailyDeath;
       this.getDeathRating();
       this.humanProgress = (this.human * 100) /this.humanMax;
-    }
-    if (this.energy === 0) {
-      this.disableBuilding();
     }
   };
 
@@ -288,6 +289,9 @@ getCapacity () {
     };
   };
 
+
+
+  // desactivation aléatoire des batiment de production
   disableBuilding() {
     let temporaryArray = [];
     this.cases.forEach( cell => {
@@ -296,9 +300,11 @@ getCapacity () {
       };
     });
     let randomIndex = Math.floor(Math.random() * (temporaryArray.length - 0));
-    this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivate = false;
+    this.cases[this.cases.indexOf(temporaryArray[randomIndex])].building.isActivateByEnergy = false;
   };
 
+
+  // upgrade des batiments
   upgradeBuiding(cell: Case) {
     if (this.cases[this.cases.indexOf(cell)].building.upgradeCost <= this.iron){
       this.iron -= this.cases[this.cases.indexOf(cell)].building.upgradeCost;
@@ -314,52 +320,55 @@ getCapacity () {
     };
   };
 
+
+  // Activation des batiments si à coté d'une route
   nextToRoad(cell: Case){
     let xPosRef = cell.xPosition;
     let yPosRef = cell.yPosition;
 
     if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building){
       if(this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef - 1).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef).building){
       if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef).building.isRoad === true){
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef + 1).building) {
       if (this.cases.find(square => square.xPosition === xPosRef -1 && square.yPosition === yPosRef + 1).building.isRoad === true){
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef - 1).building) {
       if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef - 1).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef + 1).building) {
       if (this.cases.find(square => square.xPosition === xPosRef && square.yPosition === yPosRef + 1).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef - 1).building) {
       if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef - 1).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef).building) {
       if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
     if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef +1).building) {
       if (this.cases.find(square => square.xPosition === xPosRef +1 && square.yPosition === yPosRef +1).building.isRoad === true) {
-        cell.building.isActivate = true;
+        cell.building.isActivateByRoad= true;
       };
     };
   };
 
+  // mapping des batiments de prod pour appel de la fonction d'activation des batiments si à coté d'une route
   mappingRoad(){
 
     this.cases.forEach(element => {
@@ -367,7 +376,7 @@ getCapacity () {
       && element.building.name != 'Vertical road' 
       && element.building.name != 'Crossroad'
       && element.building.name != 'Horizontal road') {
-        this.nextToRoad(element)  
+        this.nextToRoad(element)
       };
     });
   };

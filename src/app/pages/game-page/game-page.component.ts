@@ -7,7 +7,12 @@ import { GameService } from 'src/app/shared/game.service';
   styleUrls: ['./game-page.component.scss']
 })
 export class GamePageComponent implements OnInit {
-
+  
+  constructor(private service: GameService) { }
+  
+  ngOnInit() {
+  }; 
+  
   @HostListener('window:keydown.f') cheatFood(){
     this.service.food += 100;
     this.service.foodProgress = (this.service.food * 100) /this.service.foodMax;
@@ -33,10 +38,6 @@ export class GamePageComponent implements OnInit {
     this.service.buildingToConstruct = undefined;
   }
 
-  constructor(private service: GameService) { }
-
-  ngOnInit() {
-  }; 
   
 
 }
