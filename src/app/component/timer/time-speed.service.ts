@@ -31,12 +31,12 @@ export class TimeSpeedService {
      this.intervalId = setInterval(() => {
       if (!this.pause) {
         this.timer.day +=1;
+        this.shipPosition -= 2.25;
+        if (this.shipPosition <= 40) {
+          this.shipPosition = 850;
+        };
         this.gameService.consumption();
         if (this.timer.day === 31) {
-          this.shipPosition -= 6.75;
-          if (this.shipPosition <= 40) {
-            this.shipPosition = 850;
-          };
           this.timer.month +=1;
           this.timer.day = 1;
           this.gameService.productionBar();
@@ -89,7 +89,6 @@ export class TimeSpeedService {
 que ce soit les bars ou les données en dessous.*/
 
 replay(){
-  this.router.navigate([""])
   this.gameService.energyMax = 0;
   this.gameService.foodMax = 0;
   this.gameService.ironMax= 0;
@@ -98,10 +97,10 @@ replay(){
   this.gameService.energyProd = 0;
   this.gameService.foodProd = 0;
   this.gameService.ironProd = 0;
-  this.gameService.energy = 10;
-  this.gameService.food = 100;
+  this.gameService.energy = 1500;
+  this.gameService.food = 10000;
   this.gameService.human = 10;
-  this.gameService.iron = 100;
+  this.gameService.iron = 1500;
   this.timer = {
     day: 1,
     month: 1,
@@ -111,6 +110,7 @@ replay(){
   this.gameService.cases = [];
   this.gameService.caseBuilder();
   this.shipPosition = 850;
+  this.router.navigate([""])
 }
 
 
