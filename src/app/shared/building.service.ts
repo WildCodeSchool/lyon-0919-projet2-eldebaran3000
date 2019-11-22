@@ -52,7 +52,7 @@ export class BuildingService {
             level : 1,
             name: 'Power Station',
             maxCapacity : 480,
-            production: 1440,
+            production: 2880,
             foodConsumption: undefined,
             elecConsumption: undefined,
             cost: 36,

@@ -31,12 +31,12 @@ export class TimeSpeedService {
      this.intervalId = setInterval(() => {
       if (!this.pause) {
         this.timer.day +=1;
+        this.shipPosition -= 2.25;
+        if (this.shipPosition <= 40) {
+          this.shipPosition = 850;
+        };
         this.gameService.consumption();
         if (this.timer.day === 31) {
-          this.shipPosition -= 6.75;
-          if (this.shipPosition <= 40) {
-            this.shipPosition = 850;
-          };
           this.timer.month +=1;
           this.timer.day = 1;
           this.gameService.productionBar();
@@ -74,7 +74,7 @@ export class TimeSpeedService {
 
 
   getNavettePop() {
-    if ((this.timer.year - 2800) % 10 === 0 ) {
+    if ((this.timer.year - 2800) % 1 === 0 ) {
       this.gameService.human += 200;
       this.gameService.freeWorkers += 200;
       this.gameService.popEarth -= 200;
