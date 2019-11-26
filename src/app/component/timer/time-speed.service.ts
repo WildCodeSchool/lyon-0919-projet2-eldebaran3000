@@ -36,10 +36,10 @@ export class TimeSpeedService {
           this.shipPosition = 850;
         };
         this.gameService.consumption();
+        this.gameService.productionBar();
         if (this.timer.day === 31) {
           this.timer.month +=1;
           this.timer.day = 1;
-          this.gameService.productionBar();
         };
         if (this.timer.month === 13) {
           this.timer.year += 1;

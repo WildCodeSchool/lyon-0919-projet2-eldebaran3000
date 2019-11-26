@@ -161,8 +161,9 @@ getCapacity () {
 
 
   productionBar() {
-    this.getProductionCapacity()
     
+    this.getProductionCapacity();
+
     if (this.energy <= this.energyMax - this.energyProd && this.energy >= 0 - this.energyProd ) {
       this.energy += this.energyProd;
       this.energyProgress = (this.energy * 100) /this.energyMax;
