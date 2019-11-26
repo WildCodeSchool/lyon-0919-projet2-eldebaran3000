@@ -63,8 +63,10 @@ export class GameService {
         this.cases.push(casou);
       };
     };
-    return this.cases;
+  return this.cases;
   }
+
+
 
   /** Construction des batiments (étape 4/4) :
   *   On ajoute au tableau d'objet contenant les cellules de la grille (cases), l'objet stockée dans "buildingToConstruct"

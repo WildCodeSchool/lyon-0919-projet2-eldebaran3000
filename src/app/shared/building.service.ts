@@ -146,7 +146,9 @@ export class BuildingService {
         },
         ];
 
-    constructor() { }
+    constructor() { 
+
+    }
 
     clickAppear() {
         this.clickMenu = !this.clickMenu;
